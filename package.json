@@ -1,0 +1,12 @@
+{
+  "name": "experiment-next-hono-turborepo",
+  "scripts": {
+    "clean": "sh scripts/clean.sh",
+    "update": "pnpx npm-check-updates --upgrade"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2",
+    "prettier-plugin-packagejson": "^2.5.19",
+    "turbo": "^2.5.6"
+  }
+}
