@@ -1,7 +1,15 @@
+import { BASE_URL } from "@/utils/url"
 import type { NextConfig } from "next"
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  async rewrites() {
+    return [
+      {
+        destination: `${BASE_URL.API}/:path*`,
+        source: "/api/:path*",
+      },
+    ]
+  },
 }
 
 export default nextConfig
