@@ -19,7 +19,7 @@
       "devDependencies": {
         "@types/node": "^20.11.17",
         "tsx": "^4.7.1",
-        "typescript": "^5.8.3",
+        "typescript": "catalog:",
       },
     },
     "apps/web": {
@@ -38,9 +38,12 @@
         "eslint": "^9",
         "eslint-config-next": "15.5.3",
         "tailwindcss": "^4",
-        "typescript": "^5",
+        "typescript": "catalog:",
       },
     },
+  },
+  "catalog": {
+    "typescript": "^5.8.3",
   },
   "packages": {
     "@alloc/quick-lru": ["@alloc/quick-lru@5.2.0", "", {}, "sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw=="],
