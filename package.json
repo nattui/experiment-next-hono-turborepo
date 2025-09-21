@@ -1,5 +1,9 @@
 {
   "name": "experiment-next-hono-turborepo",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "build": "turbo build",
     "check:format": "prettier --check .",
