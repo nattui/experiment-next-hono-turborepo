@@ -1,20 +1,21 @@
 "use client"
 
 import { API } from "@/utils/url"
+import { useRouter } from "next/navigation"
 import type { FormEvent } from "react"
 
 export default function SignInForm() {
+  const router = useRouter()
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const formData = new FormData(event.target as HTMLFormElement)
-    const email = formData.get("email")
-    console.log(":::: email:", email)
+    // const formData = new FormData(event.target as HTMLFormElement)
+    // const email = formData.get("email")
 
     try {
-      const response = await fetch(API.AUTH.SIGNIN)
-      const data = await response.json()
-      console.log(":::: data:", data)
+      await fetch(API.AUTH.SIGNIN)
+      router.refresh()
     } catch (error) {
       console.error(error)
     }
@@ -26,13 +27,14 @@ export default function SignInForm() {
         Email
       </label>
       <input
-        className="border-amber-100 border border-solid"
+        className="border-amber-100 border border-solid h-10 px-1"
+        defaultValue="test@test.com"
         id="email"
         name="email"
         type="email"
       />
       <button
-        className="flex items-center justify-center border-amber-100 border border-solid"
+        className="flex items-center justify-center border-amber-100 border border-solid py-1"
         type="submit"
       >
         Submit
