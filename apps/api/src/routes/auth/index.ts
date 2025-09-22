@@ -17,7 +17,7 @@ auth.get("/verify", async (context) => {
 
     // Verify the JWT token
     const payload = await verify(sessionCookie, JWT_SECRET)
-    console.log(":::: payload:", payload)
+    // console.log(":::: payload:", payload)
 
     return context.json({})
   } catch (error) {
