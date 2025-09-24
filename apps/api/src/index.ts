@@ -1,4 +1,3 @@
-import { serve } from "@hono/node-server"
 import { Hono } from "hono"
 import { auth } from "./routes/auth/index.js"
 import { main } from "./routes/main/index.js"
@@ -14,14 +13,7 @@ app.use(logger())
 app.route("/", main)
 app.route("/auth", auth)
 
-serve(
-  {
-    fetch: app.fetch,
-    port: 3002,
-  },
-  (info) => {
-    console.log(`Server is running on http://localhost:${info.port}`)
-  },
-)
-
-export default app
+export default {
+  port: 3002,
+  fetch: app.fetch,
+}
