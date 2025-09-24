@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { setCookie, getCookie } from "hono/cookie"
+import { setCookie, getCookie, deleteCookie } from "hono/cookie"
 import { sign, verify } from "hono/jwt"
 
 export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
@@ -44,6 +44,11 @@ auth.get("/signin", async (context) => {
     console.error(error)
     return context.json({}, 500)
   }
+})
+
+auth.get("/signout", async (context) => {
+  deleteCookie(context, "session")
+  return context.json({})
 })
 
 export { auth }

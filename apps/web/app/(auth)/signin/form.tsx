@@ -1,5 +1,6 @@
 "use client"
 
+import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
 import { API } from "@/utils/url"
 import { useRouter } from "next/navigation"
 import type { FormEvent } from "react"
@@ -34,11 +35,12 @@ export default function SignInForm() {
         type="email"
       />
       <button
-        className="flex items-center justify-center border-amber-100 border border-solid py-1"
+        className="flex items-center justify-center border-amber-100 border border-solid py-1 cursor-pointer hover:opacity-50 transition-opacity"
         type="submit"
       >
         Submit
       </button>
+      <ButtonSignOut />
     </form>
   )
 }
