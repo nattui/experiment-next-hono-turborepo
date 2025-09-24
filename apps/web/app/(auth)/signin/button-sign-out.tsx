@@ -9,9 +9,12 @@ function ButtonSignOut() {
 
   async function onSubmit(event: MouseEvent<HTMLButtonElement>) {
     event.preventDefault()
-
-    await fetch(API.AUTH.SIGNOUT)
-    router.refresh()
+    try {
+      await fetch(API.AUTH.SIGNOUT)
+      router.refresh()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
