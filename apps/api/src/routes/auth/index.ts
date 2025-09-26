@@ -1,4 +1,4 @@
-import { deleteSession, getSession, setSession } from "@/utils/auth"
+import { deleteSession, getSession, setSession } from "../../utils/auth"
 import { Hono } from "hono"
 import { sign, verify } from "hono/jwt"
 
