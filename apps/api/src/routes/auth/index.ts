@@ -7,37 +7,6 @@ const JWT_SECRET =
 
 const auth = new Hono()
 
-auth.get("/verify", async (context) => {
-  try {
-    const session = getSession({ context })
-
-    if (!session) throw new Error("Session not found")
-
-    // Verify the JWT token
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const payload = await verify(session, JWT_SECRET)
-    // console.log(":::: payload:", payload)
-
-    return context.json({})
-  } catch {
-    return context.json({}, 401)
-  }
-})
-
-auth.get("/signup", async (context) => {
-  try {
-    const token = await sign({}, JWT_SECRET)
-
-    // console.log(":::: token:", token)
-
-    setSession({ context, token })
-    return context.json({})
-  } catch (error) {
-    console.error(error)
-    return context.json({}, 500)
-  }
-})
-
 auth.get("/signin", async (context) => {
   try {
     const token = await sign({}, JWT_SECRET)
@@ -55,6 +24,37 @@ auth.get("/signin", async (context) => {
 auth.get("/signout", async (context) => {
   deleteSession({ context })
   return context.json({})
+})
+
+auth.get("/signup", async (context) => {
+  try {
+    const token = await sign({}, JWT_SECRET)
+
+    // console.log(":::: token:", token)
+
+    setSession({ context, token })
+    return context.json({})
+  } catch (error) {
+    console.error(error)
+    return context.json({}, 500)
+  }
+})
+
+auth.get("/verify", async (context) => {
+  try {
+    const session = getSession({ context })
+
+    if (!session) throw new Error("Session not found")
+
+    // Verify the JWT token
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const payload = await verify(session, JWT_SECRET)
+    // console.log(":::: payload:", payload)
+
+    return context.json({})
+  } catch {
+    return context.json({}, 401)
+  }
 })
 
 export { auth }
