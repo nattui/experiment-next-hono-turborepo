@@ -1,18 +1,18 @@
 import type { Context } from "hono"
 
-export interface DeleteSessionProps {
+export interface DeleteSessionParams {
   context: Context
 }
 
 export type DeleteSessionResult = void
 
-export interface GetSessionProps {
+export interface GetSessionParams {
   context: Context
 }
 
 export type GetSessionResult = string | undefined
 
-export interface SetSessionProps {
+export interface SetSessionParams {
   context: Context
   token: string
 }

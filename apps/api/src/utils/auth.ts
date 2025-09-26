@@ -1,28 +1,28 @@
 import { deleteCookie, getCookie, setCookie } from "hono/cookie"
 import {
-  DeleteSessionProps,
+  DeleteSessionParams,
   DeleteSessionResult,
-  GetSessionProps,
+  GetSessionParams,
   GetSessionResult,
-  SetSessionProps,
+  SetSessionParams,
   SetSessionResult,
 } from "./types-auth"
 
 export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
 
 export function deleteSession(
-  properties: DeleteSessionProps,
+  properties: DeleteSessionParams,
 ): DeleteSessionResult {
   const { context } = properties
   deleteCookie(context, "session")
 }
 
-export function getSession(properties: GetSessionProps): GetSessionResult {
+export function getSession(properties: GetSessionParams): GetSessionResult {
   const { context } = properties
   return getCookie(context, "session")
 }
 
-export function setSession(properties: SetSessionProps): SetSessionResult {
+export function setSession(properties: SetSessionParams): SetSessionResult {
   const { context, token } = properties
   setCookie(context, "session", token, {
     httpOnly: true,
