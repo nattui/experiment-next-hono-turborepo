@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
+import Link from "next/link"
 import "./globals.css"
 
 export const metadata: Metadata = {
@@ -12,7 +13,20 @@ export default function RootLayout(props: PropsWithChildren) {
 
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
+  )
+}
+
+function Navbar() {
+  return (
+    <header>
+      <Link href="/">Home</Link>
+      <Link href="/test">Test</Link>
+      <Link href="/signin">Signin</Link>
+    </header>
   )
 }
