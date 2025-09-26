@@ -1,7 +1,7 @@
 import { Hono } from "hono"
 import { verify } from "hono/jwt"
 import { getSession } from "../../utils/auth"
-import { JWT_SECRET } from "../../utils/constants"
+import { JWT_SECRET } from "../../utils/constant"
 
 const routeVerify = new Hono()
 
