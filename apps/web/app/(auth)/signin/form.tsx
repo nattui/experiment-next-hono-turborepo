@@ -40,7 +40,6 @@ export default function SignInForm() {
       >
         Submit
       </button>
-      <ButtonSignOut />
     </form>
   )
 }
