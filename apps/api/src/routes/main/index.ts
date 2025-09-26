@@ -1,13 +1,13 @@
 import { Hono } from "hono"
 
-const main = new Hono()
+const routeMain = new Hono()
 
-main.get("/", (context) => {
+routeMain.get("/", (context) => {
   return context.text("Hello Hono!")
 })
 
-main.get("/test", (context) => {
+routeMain.get("/test", (context) => {
   return context.json({ data: "Hello Hono!" })
 })
 
-export { main }
+export { routeMain }
