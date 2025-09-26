@@ -23,10 +23,16 @@ export default function RootLayout(props: PropsWithChildren) {
 
 function Navbar() {
   return (
-    <header>
-      <Link href="/">Home</Link>
-      <Link href="/test">Test</Link>
-      <Link href="/signin">Signin</Link>
+    <header className="flex gap-4 items-center p-4">
+      <Link className="text-blue-200 hover:underline" href="/">
+        Home
+      </Link>
+      <Link className="text-blue-200 hover:underline" href="/test">
+        Test
+      </Link>
+      <Link className="text-blue-200 hover:underline" href="/signin">
+        Signin
+      </Link>
     </header>
   )
 }
