@@ -1,6 +1,7 @@
 {
   "name": "api",
   "scripts": {
+    "build": "bun build src/index.ts --outfile=dist/index.js",
     "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
