@@ -9,7 +9,6 @@ const app = new Hono()
 
 app.use(logger())
 
-// Mount route modules
 app.route("/", main)
 app.route("/auth", auth)
 
