@@ -1,6 +1,6 @@
-import { deleteSession, getSession, setSession } from "../../utils/auth"
 import { Hono } from "hono"
 import { sign, verify } from "hono/jwt"
+import { deleteSession, getSession, setSession } from "../../utils/auth"
 
 const JWT_SECRET =
   "e533164577b61bbba9b125a77937170f748029f6e58167eb9fa3a633eef06627"
@@ -11,14 +11,15 @@ auth.get("/verify", async (context) => {
   try {
     const session = getSession({ context })
 
-    if (!session) throw new Error()
+    if (!session) throw new Error("Session not found")
 
     // Verify the JWT token
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const payload = await verify(session, JWT_SECRET)
     // console.log(":::: payload:", payload)
 
     return context.json({})
-  } catch (error) {
+  } catch {
     return context.json({}, 401)
   }
 })

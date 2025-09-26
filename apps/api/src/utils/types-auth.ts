@@ -1,5 +1,11 @@
 import type { Context } from "hono"
 
+export interface DeleteSessionProps {
+  context: Context
+}
+
+export type DeleteSessionResult = void
+
 export interface GetSessionProps {
   context: Context
 }
@@ -12,9 +18,3 @@ export interface SetSessionProps {
 }
 
 export type SetSessionResult = void
-
-export interface DeleteSessionProps {
-  context: Context
-}
-
-export type DeleteSessionResult = void
