@@ -22,7 +22,7 @@ function ButtonSignOut(props: ButtonProps) {
 
   return (
     <Button variant={variant} onClick={onSubmit} {...props}>
-      Sign Out
+      Sign out
     </Button>
   )
 }

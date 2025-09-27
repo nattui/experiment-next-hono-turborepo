@@ -27,7 +27,7 @@ export function Navbar(props: NavbarProps) {
           className="text-primary-11 hover:text-primary-12 transition-colors hover:underline"
           href="/signin"
         >
-          Signin
+          Sign in
         </Link>
       )}
 
