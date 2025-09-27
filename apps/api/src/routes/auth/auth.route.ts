@@ -6,8 +6,8 @@ import { routeVerify } from "./verify.route"
 
 const routeAuth = new Hono()
 
-routeAuth.route("/signin", routeCredentialSignin)
-routeAuth.route("/signup", routeCredentialSignup)
+routeAuth.route("/credential/signin", routeCredentialSignin)
+routeAuth.route("/credential/signup", routeCredentialSignup)
 routeAuth.route("/signout", routeSignout)
 routeAuth.route("/verify", routeVerify)
 

@@ -16,6 +16,7 @@
     "update": "bun update --interactive"
   },
   "dependencies": {
+    "bun": "^1.2.22",
     "drizzle-orm": "^0.44.5",
     "hono": "^4.9.9",
     "postgres": "^3.4.7"

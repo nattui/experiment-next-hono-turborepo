@@ -17,9 +17,9 @@ export const BASE_URL = {
 
 export const API = {
   AUTH: {
-    SIGNIN_CREDENTIAL: `${BASE_URL.WEB}/api/auth/signin`,
+    SIGNIN_CREDENTIAL: `${BASE_URL.WEB}/api/auth/credential/signin`,
     SIGNOUT: `${BASE_URL.WEB}/api/auth/signout`,
-    SIGNUP_CREDENTIAL: `${BASE_URL.WEB}/api/auth/signup`,
+    SIGNUP_CREDENTIAL: `${BASE_URL.WEB}/api/auth/credential/signup`,
     VERIFY: `${BASE_URL.WEB}/api/auth/verify`,
   },
   TEST: `${BASE_URL.WEB}/api/test`,
