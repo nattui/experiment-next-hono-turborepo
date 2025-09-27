@@ -52,6 +52,7 @@ routeCredentialSignin.post("/", async (context) => {
         name: existingUser.name,
       },
       JWT_SECRET,
+      "EdDSA",
     )
     setSession(context, token)
     return context.json({})

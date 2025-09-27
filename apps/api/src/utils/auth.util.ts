@@ -26,6 +26,6 @@ export function setSession(context: Context, token: string): void {
 }
 
 export async function verifySession(session: string): Promise<JWTPayload> {
-  const payload = await verify(session, JWT_SECRET)
+  const payload = await verify(session, JWT_SECRET, "EdDSA")
   return payload
 }

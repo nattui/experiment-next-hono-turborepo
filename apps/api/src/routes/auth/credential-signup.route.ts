@@ -53,7 +53,7 @@ routeCredentialSignup.post("/", async (context) => {
         id: newUser.id,
         name,
       }
-      const token = await sign(payload, JWT_SECRET)
+      const token = await sign(payload, JWT_SECRET, "EdDSA")
       setSession(context, token)
     })
 

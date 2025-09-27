@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
-import ButtonSignOut from "@/components/button-sign-out"
 import SignUpForm from "@/app/(auth)/signup/form"
+import ButtonSignOut from "@/components/button-sign-out"
 import { getIsAuthenticated } from "@/utils/session"
 
 export default async function SignUpPage() {
