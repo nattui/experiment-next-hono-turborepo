@@ -8,9 +8,9 @@ import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
 import { STATUS_CODE } from "../../utils/status-code"
 
-const routeSignup = new Hono()
+const routeCredentialSignup = new Hono()
 
-routeSignup.post("/", async (context) => {
+routeCredentialSignup.post("/", async (context) => {
   try {
     const body = await context.req.json()
     console.log("::::email:", body.email)
@@ -69,4 +69,4 @@ routeSignup.post("/", async (context) => {
   }
 })
 
-export { routeSignup }
+export { routeCredentialSignup }

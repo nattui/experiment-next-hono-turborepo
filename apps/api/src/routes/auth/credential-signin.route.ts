@@ -4,9 +4,9 @@ import { setSession } from "../../utils/auth.util"
 import { JWT_SECRET } from "../../utils/constant.util"
 import { STATUS_CODE } from "../../utils/status-code"
 
-const routeSignin = new Hono()
+const routeCredentialSignin = new Hono()
 
-routeSignin.get("/", async (context) => {
+routeCredentialSignin.get("/", async (context) => {
   try {
     const token = await sign({}, JWT_SECRET)
     setSession(context, token)
@@ -17,4 +17,4 @@ routeSignin.get("/", async (context) => {
   }
 })
 
-export { routeSignin }
+export { routeCredentialSignin }
