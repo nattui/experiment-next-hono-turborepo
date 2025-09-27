@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link, { LinkProps } from "next/link"
 import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
 
 interface NavbarProps {
@@ -10,37 +10,28 @@ export function Navbar(props: NavbarProps) {
 
   return (
     <header className="flex h-64 items-center gap-16 px-16">
-      <Link
-        className={`
-          text-primary-11 transition-colors
-          hover:text-primary-12 hover:underline
-        `}
-        href="/"
-      >
-        Home
-      </Link>
-      <Link
-        className={`
-          text-primary-11 transition-colors
-          hover:text-primary-12 hover:underline
-        `}
-        href="/test"
-      >
-        Test
-      </Link>
-      {!isAuthenticated && (
-        <Link
-          className={`
-            text-primary-11 transition-colors
-            hover:text-primary-12 hover:underline
-          `}
-          href="/signin"
-        >
-          Sign in
-        </Link>
-      )}
-
+      <NavbarLink href="/">Home</NavbarLink>
+      <NavbarLink href="/test">Test</NavbarLink>
+      {!isAuthenticated && <NavbarLink href="/signin">Sign in</NavbarLink>}
+      {!isAuthenticated && <NavbarLink href="/signup">Sign up</NavbarLink>}
       {isAuthenticated && <ButtonSignOut />}
     </header>
+  )
+}
+
+function NavbarLink(props: LinkProps<string>) {
+  const { children, href, ...rest } = props
+
+  return (
+    <Link
+      className={`
+        text-primary-11 transition-colors
+        hover:text-primary-12 hover:underline
+      `}
+      href={href}
+      {...rest}
+    >
+      {children}
+    </Link>
   )
 }
