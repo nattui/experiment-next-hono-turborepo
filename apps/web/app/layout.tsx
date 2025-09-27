@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import { Navbar } from "@/app/navbar"
 import "@/styles/global.css"
-import { fontCssVariables } from "@/utils/fonts"
+import { fontCssVariables } from "@/utils/font"
 import { getIsAuthenticated } from "@/utils/session"
 
 export const dynamic = "force-dynamic"
