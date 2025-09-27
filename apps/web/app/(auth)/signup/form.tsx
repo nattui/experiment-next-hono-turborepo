@@ -42,6 +42,7 @@ export default function SignUpForm() {
         defaultValue="Mark Scout"
         id="name"
         name="name"
+        required
         type="text"
       />
       <label className="mb-2 inline-block w-fit text-14" htmlFor="email">
@@ -52,6 +53,7 @@ export default function SignUpForm() {
         defaultValue="test@test.com"
         id="email"
         name="email"
+        required
         type="email"
       />
       <label className="mb-2 inline-block w-fit text-14" htmlFor="password">
@@ -62,6 +64,7 @@ export default function SignUpForm() {
         defaultValue="123123"
         id="password"
         name="password"
+        required
         type="password"
       />
       <Button isLoading={isLoading} type="submit">
