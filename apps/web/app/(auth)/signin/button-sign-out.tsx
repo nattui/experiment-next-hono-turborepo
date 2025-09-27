@@ -16,7 +16,9 @@ function ButtonSignOut(props: ButtonProps) {
     event.preventDefault()
     setIsLoading(true)
     try {
-      const response = await fetch(API.AUTH.SIGNOUT)
+      const response = await fetch(API.AUTH.SIGNOUT, {
+        method: "POST",
+      })
       if (!response.ok) {
         throw new Error("Failed to sign out.")
       }
