@@ -2,8 +2,9 @@
 
 import { cookies as getCookies } from "next/headers"
 import { API } from "@/utils/url"
+import { cache } from "react"
 
-export async function getIsAuthenticated(): Promise<boolean> {
+async function uncachedGetIsAuthenticated(): Promise<boolean> {
   try {
     const cookies = await getCookies()
     const response = await fetch(API.AUTH.VERIFY, {
@@ -19,3 +20,5 @@ export async function getIsAuthenticated(): Promise<boolean> {
     return false
   }
 }
+
+export const getIsAuthenticated = cache(uncachedGetIsAuthenticated)
