@@ -5,7 +5,13 @@ import { Button } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import type { MouseEvent } from "react"
 
-function ButtonSignOut() {
+interface ButtonSignOutProps {
+  variant?: "primary" | "secondary"
+}
+
+function ButtonSignOut(props: ButtonSignOutProps) {
+  const { variant = "secondary" } = props
+
   const router = useRouter()
 
   async function onSubmit(event: MouseEvent<HTMLButtonElement>) {
@@ -19,7 +25,7 @@ function ButtonSignOut() {
   }
 
   return (
-    <Button variant="secondary" onClick={onSubmit}>
+    <Button variant={variant} onClick={onSubmit}>
       Sign Out
     </Button>
   )

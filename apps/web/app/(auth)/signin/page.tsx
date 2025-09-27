@@ -12,7 +12,7 @@ export default async function SignInPage() {
         isAuthenticated:{" "}
         <span className="text-primary-11">{isAuthenticated.toString()}</span>
       </p>
-      {isAuthenticated ? <ButtonSignOut /> : <SignInForm />}
+      {isAuthenticated ? <ButtonSignOut variant="primary" /> : <SignInForm />}
     </div>
   )
 }
