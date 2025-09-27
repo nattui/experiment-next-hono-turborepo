@@ -4,7 +4,7 @@ import { Hono } from "hono"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, USER } from "../../utils/db/schema/user.schema"
 import { setSession, signSession } from "../../utils/session.util"
-import { STATUS_CODE } from "../../utils/status-code"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 
 const routeCredentialSignin = new Hono()
 
@@ -28,14 +28,14 @@ routeCredentialSignin.post("/", async (context) => {
       .limit(1)
 
     if (!existingUser) {
-      return context.json({}, STATUS_CODE.UNAUTHORIZED)
+      return context.json({}, HTTP_STATUS_CODE["401_UNAUTHORIZED"])
     }
 
     const hashedPassword = existingUser.hashedPassword ?? ""
     const isPasswordCorrect = await verify(hashedPassword, password)
 
     if (!isPasswordCorrect) {
-      return context.json({}, STATUS_CODE.UNAUTHORIZED)
+      return context.json({}, HTTP_STATUS_CODE["401_UNAUTHORIZED"])
     }
 
     const session = await signSession({
@@ -44,10 +44,10 @@ routeCredentialSignin.post("/", async (context) => {
       name: existingUser.name,
     })
     setSession(context, session)
-    return context.json({})
+    return context.json({}, HTTP_STATUS_CODE["200_OK"])
   } catch (error) {
     console.error(error)
-    return context.json({}, STATUS_CODE.INTERNAL_SERVER_ERROR)
+    return context.json({}, HTTP_STATUS_CODE["500_INTERNAL_SERVER_ERROR"])
   }
 })
 

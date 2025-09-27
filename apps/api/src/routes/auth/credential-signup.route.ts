@@ -4,7 +4,7 @@ import { Hono } from "hono"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
 import { setSession, signSession } from "../../utils/session.util"
-import { STATUS_CODE } from "../../utils/status-code"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 
 const routeCredentialSignup = new Hono()
 
@@ -20,7 +20,7 @@ routeCredentialSignup.post("/", async (context) => {
       .limit(1)
 
     if (existingUser) {
-      return context.json({}, STATUS_CODE.CONFLICT)
+      return context.json({}, HTTP_STATUS_CODE["409_CONFLICT"])
     }
 
     const hashedPassword = await hash(password)
@@ -53,10 +53,10 @@ routeCredentialSignup.post("/", async (context) => {
       setSession(context, session)
     })
 
-    return context.json({})
+    return context.json({}, HTTP_STATUS_CODE["201_CREATED"])
   } catch (error) {
     console.error(error)
-    return context.json({}, STATUS_CODE.INTERNAL_SERVER_ERROR)
+    return context.json({}, HTTP_STATUS_CODE["500_INTERNAL_SERVER_ERROR"])
   }
 })
 
