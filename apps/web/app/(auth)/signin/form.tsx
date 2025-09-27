@@ -24,7 +24,7 @@ export default function SignInForm() {
 
   return (
     <form className="flex flex-col max-w-240" onSubmit={onSubmit}>
-      <label className="inline-block w-fit mb-2" htmlFor="email">
+      <label className="inline-block w-fit mb-2 text-14" htmlFor="email">
         Email
       </label>
       <input

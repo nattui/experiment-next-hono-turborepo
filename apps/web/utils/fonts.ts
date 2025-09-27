@@ -1,4 +1,4 @@
-import { Geist_Mono, Inter } from "next/font/google"
+import { JetBrains_Mono, Inter } from "next/font/google"
 
 const display = Inter({
   display: "swap",
@@ -7,7 +7,7 @@ const display = Inter({
   weight: ["400", "500"],
 })
 
-const mono = Geist_Mono({
+const mono = JetBrains_Mono({
   display: "swap",
   subsets: ["latin"],
   variable: "--font-mono",
