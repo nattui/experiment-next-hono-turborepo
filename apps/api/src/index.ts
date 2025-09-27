@@ -1,7 +1,7 @@
 import { Hono } from "hono"
 import { logger } from "hono/logger"
-import { routeAuth } from "./routes/auth"
-import { routeMain } from "./routes/main"
+import { routeAuth } from "./routes/auth/auth.route"
+import { routeMain } from "./routes/main/main.route"
 
 export const isDevelopment = process.env.NODE_ENV === "development"
 

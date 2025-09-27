@@ -1,11 +1,11 @@
 import { Hono } from "hono"
 import { sign } from "hono/jwt"
-import { setSession } from "../../utils/auth"
-import { JWT_SECRET } from "../../utils/constant"
+import { setSession } from "../../utils/auth.util"
+import { JWT_SECRET } from "../../utils/constant.util"
 
-const routeSignup = new Hono()
+const routeSignin = new Hono()
 
-routeSignup.get("/", async (context) => {
+routeSignin.get("/", async (context) => {
   try {
     const token = await sign({}, JWT_SECRET)
 
@@ -19,4 +19,4 @@ routeSignup.get("/", async (context) => {
   }
 })
 
-export { routeSignup }
+export { routeSignin }

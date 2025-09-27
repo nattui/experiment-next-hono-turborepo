@@ -1,6 +1,6 @@
 import { Hono } from "hono"
-import { routeRoot } from "./root"
-import { routeTest } from "./test"
+import { routeRoot } from "./root.route"
+import { routeTest } from "./test.route"
 
 const routeMain = new Hono()
 

@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { deleteSession } from "../../utils/auth"
+import { deleteSession } from "../../utils/auth.util"
 
 const routeSignout = new Hono()
 

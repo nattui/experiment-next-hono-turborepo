@@ -1,8 +1,8 @@
 import { Hono } from "hono"
-import { routeSignin } from "./signin"
-import { routeSignout } from "./signout"
-import { routeSignup } from "./signup"
-import { routeVerify } from "./verify"
+import { routeSignin } from "./signin.route"
+import { routeSignout } from "./signout.route"
+import { routeSignup } from "./signup.route"
+import { routeVerify } from "./verify.route"
 
 const routeAuth = new Hono()
 
