@@ -1,5 +1,5 @@
 import type { Context, Next } from "hono"
-import { getSession, verifySession } from "../utils/auth.util"
+import { getSession, verifySession } from "../utils/session.util"
 import { STATUS_CODE } from "../utils/status-code"
 
 export async function verifyMiddleware(context: Context, next: Next) {

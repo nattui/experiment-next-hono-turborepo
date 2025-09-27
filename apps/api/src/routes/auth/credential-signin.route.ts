@@ -1,9 +1,9 @@
 import { verify } from "argon2"
 import { and, eq } from "drizzle-orm"
 import { Hono } from "hono"
-import { setSession, signSession } from "../../utils/auth.util"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, USER } from "../../utils/db/schema/user.schema"
+import { setSession, signSession } from "../../utils/session.util"
 import { STATUS_CODE } from "../../utils/status-code"
 
 const routeCredentialSignin = new Hono()
