@@ -1,4 +1,4 @@
-import { password } from "bun"
+import argon2 from "argon2"
 import { eq } from "drizzle-orm"
 import { Hono } from "hono"
 import { sign } from "hono/jwt"
@@ -12,38 +12,26 @@ const routeCredentialSignup = new Hono()
 
 routeCredentialSignup.post("/", async (context) => {
   try {
-    const body = await context.req.json()
-    console.log("::::email:", body.email)
-    console.log("::::name:", body.name)
-    console.log("::::password:", body.password)
+    const { email, name, password } = await context.req.json()
 
     // Check if user with this email already exists
     const [existingUser] = await db
       .select()
       .from(USER)
-      .where(eq(USER.email, body.email))
+      .where(eq(USER.email, email))
       .limit(1)
-
-    console.log(":::: Existing user:", existingUser)
 
     if (existingUser) {
       return context.json({}, STATUS_CODE.BAD_REQUEST)
     }
 
-    const hashedPassword = await password.hash(body.password, "argon2id")
-
-    const payload = {
-      email: body.email,
-      id: body.id,
-      name: body.name,
-    }
-    const token = await sign(payload, JWT_SECRET)
+    const hashedPassword = await argon2.hash(password)
 
     await db.transaction(async (transaction) => {
       // Create new user
       const [newUser] = await transaction
         .insert(USER)
-        .values({ email: body.email, name: body.name })
+        .values({ email, name })
         .returning()
 
       // Create account for the user
@@ -58,9 +46,16 @@ routeCredentialSignup.post("/", async (context) => {
       })
 
       Promise.all([account, profile])
-    })
 
-    setSession(context, token)
+      // Create session token
+      const payload = {
+        email,
+        id: newUser.id,
+        name,
+      }
+      const token = await sign(payload, JWT_SECRET)
+      setSession(context, token)
+    })
 
     return context.json({})
   } catch (error) {
