@@ -20,7 +20,7 @@ routeCredentialSignup.post("/", async (context) => {
       .limit(1)
 
     if (existingUser) {
-      return context.json({}, STATUS_CODE.BAD_REQUEST)
+      return context.json({}, STATUS_CODE.CONFLICT)
     }
 
     const hashedPassword = await hash(password)
