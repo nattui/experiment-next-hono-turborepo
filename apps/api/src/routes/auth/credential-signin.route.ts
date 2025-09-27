@@ -1,9 +1,7 @@
 import { verify } from "argon2"
 import { and, eq } from "drizzle-orm"
 import { Hono } from "hono"
-import { sign } from "hono/jwt"
-import { setSession } from "../../utils/auth.util"
-import { JWT_SECRET } from "../../utils/constant.util"
+import { setSession, signSession } from "../../utils/auth.util"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, USER } from "../../utils/db/schema/user.schema"
 import { STATUS_CODE } from "../../utils/status-code"
@@ -45,15 +43,11 @@ routeCredentialSignin.post("/", async (context) => {
     }
 
     // Create session token
-    const token = await sign(
-      {
-        email: existingUser.email,
-        id: existingUser.id,
-        name: existingUser.name,
-      },
-      JWT_SECRET,
-      "EdDSA",
-    )
+    const token = await signSession({
+      email,
+      id: existingUser.id,
+      name: existingUser.name,
+    })
     setSession(context, token)
     return context.json({})
   } catch (error) {

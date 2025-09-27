@@ -1,9 +1,7 @@
 import { hash } from "argon2"
 import { eq } from "drizzle-orm"
 import { Hono } from "hono"
-import { sign } from "hono/jwt"
-import { setSession } from "../../utils/auth.util"
-import { JWT_SECRET } from "../../utils/constant.util"
+import { setSession, signSession } from "../../utils/auth.util"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
 import { STATUS_CODE } from "../../utils/status-code"
@@ -48,12 +46,11 @@ routeCredentialSignup.post("/", async (context) => {
       await Promise.all([account, profile])
 
       // Create session token
-      const payload = {
+      const token = await signSession({
         email,
         id: newUser.id,
         name,
-      }
-      const token = await sign(payload, JWT_SECRET, "EdDSA")
+      })
       setSession(context, token)
     })
 
