@@ -17,7 +17,7 @@ export default function SignInForm() {
     // const email = formData.get("email")
     setIsLoading(true)
     try {
-      const response = await fetch(API.AUTH.SIGNIN)
+      const response = await fetch(API.AUTH.SIGNIN_CREDENTIAL)
       if (!response.ok) {
         throw new Error("Failed to sign in.")
       }

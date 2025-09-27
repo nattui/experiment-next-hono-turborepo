@@ -15,11 +15,12 @@ export default function SignUpForm() {
 
     const formData = new FormData(event.target as HTMLFormElement)
     const email = formData.get("email")
+    const name = formData.get("name")
     const password = formData.get("password")
     setIsLoading(true)
     try {
-      const response = await fetch(API.AUTH.SIGNUP, {
-        body: JSON.stringify({ email, password }),
+      const response = await fetch(API.AUTH.SIGNUP_CREDENTIAL, {
+        body: JSON.stringify({ email, name, password }),
         method: "POST",
       })
       if (!response.ok) {
@@ -33,6 +34,16 @@ export default function SignUpForm() {
 
   return (
     <form className="flex max-w-240 flex-col" onSubmit={onSubmit}>
+      <label className="mb-2 inline-block w-fit text-14" htmlFor="name">
+        Name
+      </label>
+      <input
+        className="border-amber-100 mb-16 h-36 border border-solid px-4"
+        defaultValue="Mark Scout"
+        id="name"
+        name="name"
+        type="text"
+      />
       <label className="mb-2 inline-block w-fit text-14" htmlFor="email">
         Email
       </label>
