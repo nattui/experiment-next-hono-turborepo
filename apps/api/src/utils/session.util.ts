@@ -15,8 +15,8 @@ export function getSession(context: Context): string | undefined {
   return getCookie(context, "session")
 }
 
-export function setSession(context: Context, token: string): void {
-  setCookie(context, "session", token, {
+export function setSession(context: Context, session: string): void {
+  setCookie(context, "session", session, {
     httpOnly: true,
     maxAge: EXPIRATION_TIME_IN_SECONDS,
     path: "/",

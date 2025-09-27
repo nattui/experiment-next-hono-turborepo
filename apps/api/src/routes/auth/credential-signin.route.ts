@@ -31,7 +31,6 @@ routeCredentialSignin.post("/", async (context) => {
       return context.json({}, STATUS_CODE.UNAUTHORIZED)
     }
 
-    // Check if password is correct
     const hashedPassword = existingUser.hashedPassword ?? ""
     const isPasswordCorrect = await verify(hashedPassword, password)
 
@@ -39,14 +38,12 @@ routeCredentialSignin.post("/", async (context) => {
       return context.json({}, STATUS_CODE.UNAUTHORIZED)
     }
 
-    // Create session token
-    const token = await signSession({
+    const session = await signSession({
       email,
       id: existingUser.id,
       name: existingUser.name,
     })
-
-    setSession(context, token)
+    setSession(context, session)
     return context.json({})
   } catch (error) {
     console.error(error)

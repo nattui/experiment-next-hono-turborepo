@@ -45,13 +45,12 @@ routeCredentialSignup.post("/", async (context) => {
 
       await Promise.all([account, profile])
 
-      // Create session token
-      const token = await signSession({
+      const session = await signSession({
         email,
         id: newUser.id,
         name,
       })
-      setSession(context, token)
+      setSession(context, session)
     })
 
     return context.json({})
