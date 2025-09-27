@@ -13,11 +13,15 @@ export default function SignUpForm() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    // const formData = new FormData(event.target as HTMLFormElement)
-    // const email = formData.get("email")
+    const formData = new FormData(event.target as HTMLFormElement)
+    const email = formData.get("email")
+    const password = formData.get("password")
     setIsLoading(true)
     try {
-      const response = await fetch(API.AUTH.SIGNUP)
+      const response = await fetch(API.AUTH.SIGNUP, {
+        body: JSON.stringify({ email, password }),
+        method: "POST",
+      })
       if (!response.ok) {
         throw new Error("Failed to sign up.")
       }
@@ -38,6 +42,16 @@ export default function SignUpForm() {
         id="email"
         name="email"
         type="email"
+      />
+      <label className="mb-2 inline-block w-fit text-14" htmlFor="password">
+        Password
+      </label>
+      <input
+        className="border-amber-100 mb-16 h-36 border border-solid px-4"
+        defaultValue="123123"
+        id="password"
+        name="password"
+        type="password"
       />
       <Button isLoading={isLoading} type="submit">
         Sign up

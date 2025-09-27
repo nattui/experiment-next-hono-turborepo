@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { sign } from "hono/jwt"
 import { setSession } from "../../utils/auth.util"
 import { JWT_SECRET } from "../../utils/constant.util"
+import { STATUS_CODE } from "../../utils/status-code"
 
 const routeSignin = new Hono()
 
@@ -12,7 +13,7 @@ routeSignin.get("/", async (context) => {
     return context.json({})
   } catch (error) {
     console.error(error)
-    return context.json({}, 500)
+    return context.json({}, STATUS_CODE.INTERNAL_SERVER_ERROR)
   }
 })
 
