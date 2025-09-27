@@ -13,12 +13,11 @@ routeCredentialSignin.post("/", async (context) => {
     const { email, password } = await context.req.json()
 
     // Check if user with this email exists
-    const [existingUserWithAccount] = await db
+    const [existingUser] = await db
       .select({
         hashedPassword: ACCOUNT.password,
-        userEmail: USER.email,
-        userId: USER.id,
-        userName: USER.name,
+        id: USER.id,
+        name: USER.name,
       })
       .from(USER)
       .innerJoin(
@@ -28,12 +27,12 @@ routeCredentialSignin.post("/", async (context) => {
       .where(eq(USER.email, email))
       .limit(1)
 
-    if (!existingUserWithAccount) {
+    if (!existingUser) {
       return context.json({}, STATUS_CODE.UNAUTHORIZED)
     }
 
     // Check if password is correct
-    const hashedPassword = existingUserWithAccount.hashedPassword ?? ""
+    const hashedPassword = existingUser.hashedPassword ?? ""
     const isPasswordCorrect = await verify(hashedPassword, password)
 
     if (!isPasswordCorrect) {
@@ -43,8 +42,8 @@ routeCredentialSignin.post("/", async (context) => {
     // Create session token
     const token = await signSession({
       email,
-      id: existingUserWithAccount.userId,
-      name: existingUserWithAccount.userName,
+      id: existingUser.id,
+      name: existingUser.name,
     })
 
     setSession(context, token)
