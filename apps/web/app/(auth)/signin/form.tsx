@@ -3,22 +3,27 @@
 import { API } from "@/utils/url"
 import { Button } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
-import type { FormEvent } from "react"
+import { useState, type FormEvent } from "react"
 
 export default function SignInForm() {
   const router = useRouter()
+
+  const [isLoading, setIsLoading] = useState(false)
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
     // const formData = new FormData(event.target as HTMLFormElement)
     // const email = formData.get("email")
-
+    setIsLoading(true)
     try {
-      await fetch(API.AUTH.SIGNIN)
+      const response = await fetch(API.AUTH.SIGNIN)
+      if (!response.ok) {
+        throw new Error("Failed to sign in.")
+      }
       router.refresh()
-    } catch (error) {
-      console.error(error)
+    } catch {
+      setIsLoading(false)
     }
   }
 
@@ -34,7 +39,9 @@ export default function SignInForm() {
         name="email"
         type="email"
       />
-      <Button type="submit">Sign in</Button>
+      <Button isLoading={isLoading} type="submit">
+        Sign in
+      </Button>
     </form>
   )
 }

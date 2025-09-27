@@ -8,9 +8,6 @@ const routeSignup = new Hono()
 routeSignup.get("/", async (context) => {
   try {
     const token = await sign({}, JWT_SECRET)
-
-    // console.log(":::: token:", token)
-
     setSession(context, token)
     return context.json({})
   } catch (error) {
