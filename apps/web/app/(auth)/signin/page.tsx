@@ -1,9 +1,12 @@
+import { redirect } from "next/navigation"
 import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
 import SignInForm from "@/app/(auth)/signin/form"
 import { getIsAuthenticated } from "@/utils/session"
 
 export default async function SignInPage() {
   const isAuthenticated = await getIsAuthenticated()
+
+  if (isAuthenticated) redirect("/")
 
   return (
     <div className="flex flex-col gap-y-16 p-16">

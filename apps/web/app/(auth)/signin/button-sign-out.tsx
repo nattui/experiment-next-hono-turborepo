@@ -20,6 +20,7 @@ function ButtonSignOut(props: ButtonProps) {
       if (!response.ok) {
         throw new Error("Failed to sign out.")
       }
+      router.push("/signin")
       router.refresh()
     } catch {
       setIsLoading(false)
