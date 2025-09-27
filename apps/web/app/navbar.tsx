@@ -25,7 +25,7 @@ function NavbarLink(props: LinkProps<string>) {
   return (
     <Link
       className={`
-        text-primary-11 transition-colors
+        text-14 text-primary-11 transition-colors
         hover:text-primary-12 hover:underline
       `}
       href={href}
