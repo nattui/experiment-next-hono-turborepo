@@ -1,4 +1,4 @@
-import argon2 from "argon2"
+import { hash } from "argon2"
 import { eq } from "drizzle-orm"
 import { Hono } from "hono"
 import { sign } from "hono/jwt"
@@ -25,7 +25,7 @@ routeCredentialSignup.post("/", async (context) => {
       return context.json({}, STATUS_CODE.BAD_REQUEST)
     }
 
-    const hashedPassword = await argon2.hash(password)
+    const hashedPassword = await hash(password)
 
     await db.transaction(async (transaction) => {
       // Create new user
