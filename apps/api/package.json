@@ -5,7 +5,7 @@
     "check:format:fix": "prettier --write .",
     "check:lint": "eslint .",
     "check:lint:fix": "eslint --fix .",
-    "dev": "bun run --hot src/index.ts",
+    "dev": "bun run --hot src/app.ts",
     "update": "bunx npm-check-updates --upgrade"
   },
   "dependencies": {
