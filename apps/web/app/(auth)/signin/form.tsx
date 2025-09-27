@@ -34,7 +34,7 @@ export default function SignInForm() {
         name="email"
         type="email"
       />
-      <Button type="submit">Submit</Button>
+      <Button type="submit">Sign in</Button>
     </form>
   )
 }
