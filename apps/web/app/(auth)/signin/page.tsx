@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
-import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
+import ButtonSignOut from "@/components/button-sign-out"
 import SignInForm from "@/app/(auth)/signin/form"
 import { getIsAuthenticated } from "@/utils/session"
 

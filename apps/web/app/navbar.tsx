@@ -1,5 +1,5 @@
 import Link, { LinkProps } from "next/link"
-import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
+import ButtonSignOut from "@/components/button-sign-out"
 
 interface NavbarProps {
   isAuthenticated: boolean
