@@ -33,7 +33,6 @@ export default defineConfig([
       "unicorn/consistent-function-scoping": "off",
       "unicorn/no-keyword-prefix": "off",
       "unicorn/no-unused-properties": "warn",
-      "unicorn/prefer-import-meta-properties": "off",
       "unicorn/prevent-abbreviations": "off",
       "unused-imports/no-unused-imports": "error",
     },
