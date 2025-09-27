@@ -12,3 +12,5 @@ routeAuth.route("/signup", routeSignup)
 routeAuth.route("/verify", routeVerify)
 
 export { routeAuth }
+
+// test
