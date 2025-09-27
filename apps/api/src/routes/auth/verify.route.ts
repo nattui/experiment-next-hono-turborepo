@@ -9,7 +9,7 @@ routeVerify.get("/", async (context) => {
   try {
     const session = getSession({ context })
 
-    if (!session) throw new Error("Session not found")
+    if (!session) return context.json({}, 401)
 
     // Verify the JWT token
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
