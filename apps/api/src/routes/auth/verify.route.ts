@@ -11,8 +11,7 @@ routeVerify.get("/", async (context) => {
 
     if (!session) return context.json({}, 401)
 
-    const payload = await verify(session, JWT_SECRET)
-    console.log(":::: payload:", payload)
+    await verify(session, JWT_SECRET)
 
     return context.json({})
   } catch {
