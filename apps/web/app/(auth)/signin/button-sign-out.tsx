@@ -1,15 +1,11 @@
 "use client"
 
 import { API } from "@/utils/url"
-import { Button } from "@nattui/react-components"
+import { Button, type ButtonProps } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import type { MouseEvent } from "react"
 
-interface ButtonSignOutProps {
-  variant?: "primary" | "secondary"
-}
-
-function ButtonSignOut(props: ButtonSignOutProps) {
+function ButtonSignOut(props: ButtonProps) {
   const { variant = "secondary" } = props
 
   const router = useRouter()
@@ -25,7 +21,7 @@ function ButtonSignOut(props: ButtonSignOutProps) {
   }
 
   return (
-    <Button variant={variant} onClick={onSubmit}>
+    <Button variant={variant} onClick={onSubmit} {...props}>
       Sign Out
     </Button>
   )
