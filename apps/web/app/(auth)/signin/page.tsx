@@ -6,8 +6,8 @@ export default async function SignInPage() {
   const isAuthenticated = await getIsAuthenticated()
 
   return (
-    <div>
-      <p>Sign in page</p>
+    <div className="flex flex-col gap-y-16 p-16">
+      <h1 className="text-24">Sign in page</h1>
       {isAuthenticated ? <ButtonSignOut /> : <SignInForm />}
       <p>
         Auth status:{" "}
