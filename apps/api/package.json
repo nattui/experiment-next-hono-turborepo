@@ -5,15 +5,23 @@
     "check:format:fix": "prettier --write .",
     "check:lint": "eslint .",
     "check:lint:fix": "eslint --fix .",
+    "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
+    "db:introspect": "drizzle-kit introspect --config=drizzle.config.ts",
+    "db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
+    "db:push": "drizzle-kit push --config=drizzle.config.ts",
+    "db:studio": "drizzle-kit studio --config=drizzle.config.ts --verbose",
     "dev": "bun run --hot src/app.ts",
     "update": "bun update --interactive"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.1",
+    "drizzle-orm": "^0.44.5",
     "hono": "^4.9.9"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
     "@types/bun": "^1.2.22",
+    "drizzle-kit": "^0.31.5",
     "eslint": "catalog:",
     "eslint-plugin-perfectionist": "catalog:",
     "eslint-plugin-unicorn": "catalog:",
