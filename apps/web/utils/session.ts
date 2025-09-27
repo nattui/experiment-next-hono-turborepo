@@ -1,8 +1,8 @@
 "server-only"
 
 import { cookies as getCookies } from "next/headers"
-import { API } from "@/utils/url"
 import { cache } from "react"
+import { API } from "@/utils/url"
 
 async function uncachedGetIsAuthenticated(): Promise<boolean> {
   try {

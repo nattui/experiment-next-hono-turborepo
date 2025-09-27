@@ -1,9 +1,9 @@
 "use client"
 
-import { API } from "@/utils/url"
 import { Button, type ButtonProps } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
-import { useState, type MouseEvent } from "react"
+import { type MouseEvent, useState } from "react"
+import { API } from "@/utils/url"
 
 function ButtonSignOut(props: ButtonProps) {
   const { variant = "secondary" } = props

@@ -1,5 +1,5 @@
-import { BASE_URL } from "@/utils/url"
 import type { NextConfig } from "next"
+import { BASE_URL } from "@/utils/url"
 
 const nextConfig: NextConfig = {
   async rewrites() {

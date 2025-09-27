@@ -8,7 +8,7 @@ export default async function SignInPage() {
   return (
     <div className="flex flex-col gap-y-16 p-16">
       <h1 className="text-24">Sign in page</h1>
-      <p className="text-14 font-mono">
+      <p className="font-mono text-14">
         isAuthenticated:{" "}
         <span className="text-primary-11">{isAuthenticated.toString()}</span>
       </p>

@@ -1,0 +1,10 @@
+{
+  "cssDeclarationSorterOrder": "alphabetical",
+  "jsonRecursiveSort": true,
+  "plugins": [
+    "prettier-plugin-css-order",
+    "prettier-plugin-packagejson",
+    "prettier-plugin-sort-json"
+  ],
+  "semi": false
+}

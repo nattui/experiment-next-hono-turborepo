@@ -1,4 +1,4 @@
-import { JetBrains_Mono, Inter } from "next/font/google"
+import { Inter, JetBrains_Mono } from "next/font/google"
 
 const display = Inter({
   display: "swap",
