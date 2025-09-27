@@ -8,7 +8,14 @@ export const isDevelopment = process.env.NODE_ENV === "development"
 const app = new Hono()
 
 if (isDevelopment) {
-  app.use(logger())
+  // Custom logger: show only the completed response line
+  app.use(
+    logger((str, ...rest) => {
+      if (str.startsWith("-->")) {
+        console.log(str.replace(/^-->\s*/, ""), ...rest)
+      }
+    }),
+  )
 }
 
 app.route("/", routeMain)
