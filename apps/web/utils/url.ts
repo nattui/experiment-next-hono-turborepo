@@ -23,4 +23,5 @@ export const API = {
     VERIFY: `${BASE_URL.WEB}/api/auth/verify`,
   },
   TEST: `${BASE_URL.WEB}/api/test`,
+  USERS: `${BASE_URL.WEB}/api/users`,
 }

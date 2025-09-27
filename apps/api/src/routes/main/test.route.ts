@@ -2,7 +2,7 @@ import { Hono } from "hono"
 
 const routeTest = new Hono()
 
-routeTest.get("/", (context) => {
+routeTest.get("/", async (context) => {
   return context.json({ data: "Hello Hono!" })
 })
 

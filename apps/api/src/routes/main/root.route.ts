@@ -2,7 +2,7 @@ import { Hono } from "hono"
 
 const routeRoot = new Hono()
 
-routeRoot.get("/", (context) => {
+routeRoot.get("/", async (context) => {
   return context.text("Hello Hono!")
 })
 
