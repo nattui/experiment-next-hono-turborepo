@@ -2,7 +2,6 @@
   "name": "web",
   "scripts": {
     "build": "next build --turbopack",
-    "bump": "bun update --interactive",
     "check": "pnpm check:format && pnpm check:lint",
     "check:fix": "pnpm check:format:fix && pnpm check:lint:fix",
     "check:format": "prettier --check .",
@@ -11,7 +10,8 @@
     "check:lint:fix": "eslint --fix .",
     "check:type": "next typegen && tsc --noEmit",
     "dev": "next dev --port 3001 --turbopack",
-    "start": "next start --port 3001"
+    "start": "next start --port 3001",
+    "update": "bun update --interactive"
   },
   "dependencies": {
     "@nattui/react-components": "^0.0.6",

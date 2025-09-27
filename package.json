@@ -6,12 +6,12 @@
   ],
   "scripts": {
     "build": "turbo build",
-    "bump": "bun update --interactive",
     "check:format": "prettier --check .",
     "check:format:fix": "prettier --write .",
     "clean": "sh scripts/clean.sh",
     "dev": "turbo dev",
-    "start": "turbo start"
+    "start": "turbo start",
+    "update": "bun update --interactive"
   },
   "devDependencies": {
     "prettier": "catalog:",
