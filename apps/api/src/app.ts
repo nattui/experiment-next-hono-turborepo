@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { logger } from "hono/logger"
+import { loggerMiddleware } from "./middleware/logger.middleware"
 import { routeAuth } from "./routes/auth/auth.route"
 import { routeMain } from "./routes/main/main.route"
 
@@ -9,13 +9,7 @@ const app = new Hono()
 
 if (isDevelopment) {
   // Custom logger: show only the completed response line
-  app.use(
-    logger((str, ...rest) => {
-      if (str.startsWith("-->")) {
-        console.log(str.replace(/^-->\s*/, ""), ...rest)
-      }
-    }),
-  )
+  app.use(loggerMiddleware())
 }
 
 app.route("/", routeMain)
