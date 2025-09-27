@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import { fontCssVariables } from "@/utils/fonts"
-import "@/styles/global.css"
 import { Navbar } from "@/app/navbar"
+import "@/styles/global.css"
 
 export const dynamic = "force-dynamic"
 

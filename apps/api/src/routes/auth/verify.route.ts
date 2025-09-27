@@ -1,6 +1,6 @@
 import { Hono } from "hono"
 import { verify } from "hono/jwt"
-import { deleteSession, getSession } from "../../utils/auth.util"
+import { getSession } from "../../utils/auth.util"
 import { JWT_SECRET } from "../../utils/constant.util"
 
 const routeVerify = new Hono()
@@ -16,7 +16,6 @@ routeVerify.get("/", async (context) => {
 
     return context.json({})
   } catch {
-    deleteSession({ context })
     return context.json({}, 401)
   }
 })
