@@ -1,6 +1,6 @@
 import { Hono } from "hono"
-import { deleteSession } from "../../utils/session.util"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
+import { deleteSession } from "../../utils/session.util"
 
 const routeSignout = new Hono()
 
