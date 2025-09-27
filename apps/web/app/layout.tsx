@@ -1,7 +1,8 @@
 import type { Metadata } from "next"
 import type { PropsWithChildren } from "react"
 import Link from "next/link"
-import "./globals.css"
+import { fontCssVariables } from "@/utils/fonts"
+import "@/styles/global.css"
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,7 +14,7 @@ export default function RootLayout(props: PropsWithChildren) {
 
   return (
     <html lang="en">
-      <body className={`antialiased`}>
+      <body className={fontCssVariables}>
         <Navbar />
         {children}
       </body>
@@ -23,14 +24,23 @@ export default function RootLayout(props: PropsWithChildren) {
 
 function Navbar() {
   return (
-    <header className="flex gap-4 items-center p-4">
-      <Link className="text-blue-200 hover:underline" href="/">
+    <header className="flex gap-16 items-center p-16">
+      <Link
+        className="text-primary-11 hover:text-primary-12 transition-colors hover:underline"
+        href="/"
+      >
         Home
       </Link>
-      <Link className="text-blue-200 hover:underline" href="/test">
+      <Link
+        className="text-primary-11 hover:text-primary-12 transition-colors hover:underline"
+        href="/test"
+      >
         Test
       </Link>
-      <Link className="text-blue-200 hover:underline" href="/signin">
+      <Link
+        className="text-primary-11 hover:text-primary-12 transition-colors hover:underline"
+        href="/signin"
+      >
         Signin
       </Link>
     </header>
