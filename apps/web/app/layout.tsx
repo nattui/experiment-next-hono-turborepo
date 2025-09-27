@@ -3,16 +3,19 @@ import type { PropsWithChildren } from "react"
 import { fontCssVariables } from "@/utils/fonts"
 import { Navbar } from "@/app/navbar"
 import "@/styles/global.css"
+import { getIsAuthenticated } from "@/utils/session"
 
 export const dynamic = "force-dynamic"
 
-export default function RootLayout(props: PropsWithChildren) {
+export default async function RootLayout(props: PropsWithChildren) {
   const { children } = props
+
+  const isAuthenticated = await getIsAuthenticated()
 
   return (
     <html lang="en">
       <body className={fontCssVariables}>
-        <Navbar />
+        <Navbar isAuthenticated={isAuthenticated} />
         {children}
       </body>
     </html>
