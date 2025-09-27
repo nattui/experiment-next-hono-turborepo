@@ -1,6 +1,5 @@
 "use client"
 
-import ButtonSignOut from "@/app/(auth)/signin/button-sign-out"
 import { API } from "@/utils/url"
 import { useRouter } from "next/navigation"
 import type { FormEvent } from "react"
