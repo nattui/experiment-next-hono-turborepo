@@ -6,9 +6,9 @@ import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 import { setSession, signSession } from "../../utils/session.util"
 
-const routeCredentialSignup = new Hono()
+const routeSignupCredential = new Hono()
 
-routeCredentialSignup.post("/", async (context) => {
+routeSignupCredential.post("/", async (context) => {
   try {
     const { email, name, password } = await context.req.json()
 
@@ -60,4 +60,4 @@ routeCredentialSignup.post("/", async (context) => {
   }
 })
 
-export { routeCredentialSignup }
+export { routeSignupCredential }
