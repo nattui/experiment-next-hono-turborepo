@@ -1,8 +1,8 @@
 import { Hono } from "hono"
-import { routeSignin } from "@/routes/auth/signin.route"
-import { routeSignout } from "@/routes/auth/signout.route"
-import { routeSignup } from "@/routes/auth/signup.route"
-import { routeVerify } from "@/routes/auth/verify.route"
+import { routeSignin } from "./signin.route"
+import { routeSignout } from "./signout.route"
+import { routeSignup } from "./signup.route"
+import { routeVerify } from "./verify.route"
 
 const routeAuth = new Hono()
 
@@ -12,5 +12,3 @@ routeAuth.route("/signup", routeSignup)
 routeAuth.route("/verify", routeVerify)
 
 export { routeAuth }
-
-// test
