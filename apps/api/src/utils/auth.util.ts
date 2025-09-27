@@ -10,18 +10,20 @@ import {
 
 export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
 
-export function deleteSession(props: DeleteSessionParams): DeleteSessionResult {
-  const { context } = props
+export function deleteSession(
+  params: DeleteSessionParams,
+): DeleteSessionResult {
+  const { context } = params
   deleteCookie(context, "session")
 }
 
-export function getSession(props: GetSessionParams): GetSessionResult {
-  const { context } = props
+export function getSession(params: GetSessionParams): GetSessionResult {
+  const { context } = params
   return getCookie(context, "session")
 }
 
-export function setSession(props: SetSessionParams): SetSessionResult {
-  const { context, token } = props
+export function setSession(params: SetSessionParams): SetSessionResult {
+  const { context, token } = params
   setCookie(context, "session", token, {
     httpOnly: true,
     maxAge: EXPIRATION_TIME_IN_SECONDS,
