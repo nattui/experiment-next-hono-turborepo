@@ -4,7 +4,7 @@ import { deleteSession } from "../../utils/auth.util"
 const routeSignout = new Hono()
 
 routeSignout.get("/", async (context) => {
-  deleteSession({ context })
+  deleteSession(context)
   return context.json({})
 })
 

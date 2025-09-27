@@ -11,7 +11,7 @@ routeSignin.get("/", async (context) => {
 
     // console.log(":::: token:", token)
 
-    setSession({ context, token })
+    setSession(context, token)
     return context.json({})
   } catch (error) {
     console.error(error)
