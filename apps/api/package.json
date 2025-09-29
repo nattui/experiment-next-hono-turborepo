@@ -15,6 +15,7 @@
     "dev": "bun run --hot src/app.ts",
     "update": "bun update --interactive"
   },
+  "prettier": "@nattui/prettier-config",
   "dependencies": {
     "argon2": "^0.44.0",
     "drizzle-orm": "^0.44.5",
@@ -23,6 +24,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@nattui/prettier-config": "^0.0.3",
     "@types/bun": "^1.2.22",
     "drizzle-kit": "^0.31.5",
     "eslint": "catalog:",
@@ -30,6 +32,7 @@
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-unused-imports": "catalog:",
     "globals": "^16.4.0",
+    "prettier": "^3.6.2",
     "typescript": "catalog:",
     "typescript-eslint": "^8.44.1"
   }
