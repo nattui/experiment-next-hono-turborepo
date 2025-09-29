@@ -35,7 +35,6 @@
     "eslint-plugin-react-you-might-not-need-an-effect": "^0.5.3",
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-unused-imports": "catalog:",
-    "prettier": "catalog:",
     "tailwindcss": "^4.1.13",
     "typescript": "catalog:"
   }
