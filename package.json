@@ -6,6 +6,8 @@
   ],
   "scripts": {
     "build": "turbo build",
+    "check": "bun check:format",
+    "check:fix": "bun check:format:fix",
     "check:format": "prettier --check .",
     "check:format:fix": "prettier --write .",
     "check:type": "turbo check:type",
@@ -16,13 +18,12 @@
   },
   "prettier": "@nattui/prettier-config",
   "devDependencies": {
-    "@nattui/prettier-config": "catalog:",
+    "@nattui/prettier-config": "^0.0.8",
     "taze": "^19.7.0",
     "turbo": "^2.5.8"
   },
   "packageManager": "bun@1.2.22",
   "catalog": {
-    "@nattui/prettier-config": "^0.0.3",
     "eslint": "^9.36.0",
     "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-unicorn": "^61.0.2",

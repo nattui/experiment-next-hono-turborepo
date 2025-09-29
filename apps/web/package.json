@@ -13,7 +13,6 @@
     "start": "next start --port 3001",
     "update": "bun update --interactive"
   },
-  "prettier": "@nattui/prettier-config",
   "dependencies": {
     "@nattui/react-components": "^0.0.6",
     "@nattui/tailwind-tokenless": "^0.0.2",
@@ -23,7 +22,6 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
-    "@nattui/prettier-config": "catalog:",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.14",

@@ -4,7 +4,7 @@
     "": {
       "name": "experiment-next-hono-turborepo",
       "devDependencies": {
-        "@nattui/prettier-config": "catalog:",
+        "@nattui/prettier-config": "^0.0.8",
         "taze": "^19.7.0",
         "turbo": "^2.5.8",
       },
@@ -19,7 +19,6 @@
       },
       "devDependencies": {
         "@eslint/js": "^9.36.0",
-        "@nattui/prettier-config": "catalog:",
         "@types/bun": "^1.2.22",
         "drizzle-kit": "^0.31.5",
         "eslint": "catalog:",
@@ -42,7 +41,6 @@
       },
       "devDependencies": {
         "@eslint/eslintrc": "^3.3.1",
-        "@nattui/prettier-config": "catalog:",
         "@tailwindcss/postcss": "^4.1.13",
         "@types/node": "^24.5.2",
         "@types/react": "^19.1.14",
@@ -60,7 +58,6 @@
     },
   },
   "catalog": {
-    "@nattui/prettier-config": "^0.0.3",
     "eslint": "^9.36.0",
     "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-unicorn": "^61.0.2",
@@ -228,7 +225,7 @@
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@0.2.12", "", { "dependencies": { "@emnapi/core": "^1.4.3", "@emnapi/runtime": "^1.4.3", "@tybys/wasm-util": "^0.10.0" } }, "sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ=="],
 
-    "@nattui/prettier-config": ["@nattui/prettier-config@0.0.3", "", {}, "sha512-aXz1HG40UGHrCTB1jJNt9LIOiw0VkHNTjbbvhg0dMLS3o3g53e6x2Qsu5i2UFQ0/lmd17EHiNfoEKUor0fum8Q=="],
+    "@nattui/prettier-config": ["@nattui/prettier-config@0.0.8", "", {}, "sha512-pdq3/l6mmLLTOnGf9ePq4WO+E/9n1nGdlLrywNw3H0jPzqdnDRqqZYyfO1F4kjUUl4gUgW0PJJEdMxEN5AksNQ=="],
 
     "@nattui/react-components": ["@nattui/react-components@0.0.6", "", { "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-UpJ9FclWaQAvDcWUgX8a3yYh186mNOYJbPoKl+bd3DfLDF+9F8iH5Ncu/J6gLUBtA58XQ+LhBFPFTuYWocMnPg=="],
 
