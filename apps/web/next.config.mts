@@ -1,11 +1,12 @@
 import type { NextConfig } from "next"
-import { BASE_URL } from "@/utils/url"
+
+const API_URL = process.env.NEXT_PUBLIC_API_URL
 
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        destination: `${BASE_URL.API}/:path*`,
+        destination: `${API_URL}/:path*`,
         source: "/api/:path*",
       },
     ]
