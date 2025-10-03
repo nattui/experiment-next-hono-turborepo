@@ -27,11 +27,9 @@ export function setSession(context: Context, session: string): void {
 }
 
 export async function signSession(payload: JWTPayload): Promise<string> {
-  const token = await sign(payload, JWT_SECRET, JWT_ALGORITHM)
-  return token
+  return sign(payload, JWT_SECRET, JWT_ALGORITHM)
 }
 
 export async function verifySession(session: string): Promise<JWTPayload> {
-  const payload = await verify(session, JWT_SECRET, JWT_ALGORITHM)
-  return payload
+  return verify(session, JWT_SECRET, JWT_ALGORITHM)
 }
