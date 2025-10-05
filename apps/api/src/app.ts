@@ -15,6 +15,8 @@ if (isDevelopment) {
 app.route("/", routeMain)
 app.route("/auth", routeAuth)
 
+export type AppType = typeof app
+
 export default {
   fetch: app.fetch,
   port: 3002,
