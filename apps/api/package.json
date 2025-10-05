@@ -1,6 +1,7 @@
 {
   "name": "api",
   "scripts": {
+    "build": "tsdown",
     "check:format": "prettier --check .",
     "check:format:fix": "prettier --write .",
     "check:lint": "eslint .",
@@ -30,6 +31,7 @@
     "eslint-plugin-unicorn": "catalog:",
     "eslint-plugin-unused-imports": "catalog:",
     "globals": "^16.4.0",
+    "tsdown": "^0.15.6",
     "typescript": "catalog:",
     "typescript-eslint": "^8.44.1"
   }
