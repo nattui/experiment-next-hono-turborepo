@@ -1,20 +1,21 @@
 import { Hono } from "hono"
-import { routeSigninCredential } from "./routes/auth/signin-credential.route.js"
-import { routeSignout } from "./routes/auth/signout.route.js"
-import { routeSignupCredential } from "./routes/auth/signup-credential.route.js"
-import { routeVerify } from "./routes/auth/verify.route.js"
-import { routeRoot } from "./routes/main/root.route.js"
-import { routeTest } from "./routes/main/test.route.js"
-import { routeUsers } from "./routes/main/users.route.js"
+import { verifyMiddleware } from "./middleware/auth.middleware.js"
+import { handlerSigninCredential } from "./routes/auth/signin-credential.route.js"
+import { handlerSignout } from "./routes/auth/signout.route.js"
+import { handlerSignupCredential } from "./routes/auth/signup-credential.route.js"
+import { handlerVerify } from "./routes/auth/verify.route.js"
+import { handlerRoot } from "./routes/main/root.route.js"
+import { handlerTest } from "./routes/main/test.route.js"
+import { handlerUsers } from "./routes/main/users.route.js"
 
 const app = new Hono()
-  .route("/", routeRoot)
-  .route("/test", routeTest)
-  .route("/users", routeUsers)
-  .route("/auth/signin/credential", routeSigninCredential)
-  .route("/auth/signout", routeSignout)
-  .route("/auth/signup/credential", routeSignupCredential)
-  .route("/auth/verify", routeVerify)
+  .get("/", handlerRoot)
+  .get("/test", handlerTest)
+  .get("/users", handlerUsers)
+  .post("/auth/signin/credential", handlerSigninCredential)
+  .post("/auth/signout", handlerSignout)
+  .post("/auth/signup/credential", handlerSignupCredential)
+  .get("/auth/verify", verifyMiddleware, handlerVerify)
 
 export type AppType = typeof app
 
