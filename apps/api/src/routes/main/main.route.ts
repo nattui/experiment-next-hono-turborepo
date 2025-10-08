@@ -1,7 +1,7 @@
 import { Hono } from "hono"
-import { routeRoot } from "@/routes/main/root.route"
-import { routeTest } from "@/routes/main/test.route"
-import { routeUsers } from "@/routes/main/users.route"
+import { routeRoot } from "./root.route"
+import { routeTest } from "./test.route"
+import { routeUsers } from "./users.route"
 
 export const routeMain = new Hono()
   .get("/", routeRoot)
