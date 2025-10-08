@@ -1,9 +1,10 @@
 import { Hono } from "hono"
-import { handlerRoot } from "./routes/main/root.route"
 
 const app = new Hono()
 
-app.get("/", handlerRoot)
+app.get("/", (context) => {
+  return context.text("Hello Hono!")
+})
 
 export default {
   fetch: app.fetch,
