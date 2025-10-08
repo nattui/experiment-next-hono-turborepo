@@ -4,6 +4,6 @@ export const routeRoot = new Hono()
 
 routeRoot.get("/", handlerRoot)
 
-function handlerRoot(context: Context) {
-  return context.json({ data: "Hello Hono!" })
+export function handlerRoot(context: Context) {
+  return context.text("Hello Hono!")
 }
