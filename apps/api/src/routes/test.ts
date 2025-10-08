@@ -1,9 +1,5 @@
-import { Hono } from "hono"
+import type { Context } from "hono"
 
-const routeTest = new Hono()
-
-routeTest.get("/", (context) => {
+export function handlerTest(context: Context) {
   return context.text("Hello Hono!")
-})
-
-export { routeTest }
+}
