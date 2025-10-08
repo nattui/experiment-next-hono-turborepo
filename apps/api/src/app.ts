@@ -1,10 +1,10 @@
 import { Hono } from "hono"
-import { verifyMiddleware } from "./middleware/auth.middleware"
+// import { verifyMiddleware } from "./middleware/auth.middleware"
 import { loggerMiddleware } from "./middleware/logger.middleware"
 import { routeSigninCredential } from "./routes/auth/signin-credential.route"
 import { routeSignout } from "./routes/auth/signout.route"
 import { routeSignupCredential } from "./routes/auth/signup-credential.route"
-import { routeVerify } from "./routes/auth/verify.route"
+// import { routeVerify } from "./routes/auth/verify.route"
 import { routeRoot } from "./routes/main/root.route"
 import { routeTest } from "./routes/main/test.route"
 import { routeUsers } from "./routes/main/users.route"
@@ -20,7 +20,7 @@ const app = new Hono()
   .post("/auth/signin/credential", routeSigninCredential)
   .post("/auth/signout", routeSignout)
   .post("/auth/signup/credential", routeSignupCredential)
-  .get("/auth/verify", verifyMiddleware, routeVerify)
+// .get("/auth/verify", verifyMiddleware, routeVerify)
 
 export type AppType = typeof app
 
