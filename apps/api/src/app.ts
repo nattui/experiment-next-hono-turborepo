@@ -1,5 +1,6 @@
 import { Hono } from "hono"
 import { verifyMiddleware } from "./middleware/auth.middleware.js"
+import { loggerMiddleware } from "./middleware/logger.middleware.js"
 import { handlerSigninCredential } from "./routes/auth/signin-credential.route.js"
 import { handlerSignout } from "./routes/auth/signout.route.js"
 import { handlerSignupCredential } from "./routes/auth/signup-credential.route.js"
@@ -9,6 +10,7 @@ import { handlerTest } from "./routes/main/test.route.js"
 import { handlerUsers } from "./routes/main/users.route.js"
 
 const app = new Hono()
+  .use(loggerMiddleware())
   .get("/", handlerRoot)
   .get("/test", handlerTest)
   .get("/users", handlerUsers)
