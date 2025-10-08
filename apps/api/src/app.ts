@@ -1,11 +1,11 @@
 import { Hono } from "hono"
-import { routeRoot } from "./routes/main/root.route.js"
-import { routeTest } from "./routes/main/test.route.js"
+import { handlerRoot } from "./routes/main/root.route.js"
 
-const app = new Hono()
+// const app = new Hono()
+// app.route("/", routeRoot)
+// app.route("/test", routeTest)
 
-app.route("/", routeRoot)
-app.route("/test", routeTest)
+const app = new Hono().get("/", handlerRoot)
 
 export default {
   fetch: app.fetch,
