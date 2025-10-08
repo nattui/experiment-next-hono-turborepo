@@ -1,6 +1,8 @@
 import { defineConfig } from "tsdown"
 
 export default defineConfig({
-  dts: true,
+  dts: {
+    emitDtsOnly: true,
+  },
   entry: "src/app.ts",
 })
