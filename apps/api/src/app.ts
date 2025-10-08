@@ -2,6 +2,7 @@ import { Hono } from "hono"
 import { loggerMiddleware } from "./middleware/logger.middleware"
 import { routeAuth } from "./routes/auth/auth.route"
 import { routeMain } from "./routes/main/main.route"
+import type { Account, Profile, User } from "./utils/db/schema/user.schema"
 
 export const isDevelopment = process.env.NODE_ENV === "development"
 
@@ -12,10 +13,10 @@ if (isDevelopment) {
   app.use(loggerMiddleware())
 }
 
-app.route("/", routeMain)
-app.route("/auth", routeAuth)
+const routes = app.route("/", routeMain).route("/auth", routeAuth)
 
-export type AppType = typeof app
+export type AppType = typeof routes
+export type { Account, Profile, User }
 
 export default {
   fetch: app.fetch,

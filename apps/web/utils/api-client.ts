@@ -1,4 +1,4 @@
-import type { AppType } from "api/dist/app"
+import type { AppType } from "api"
 import { hc } from "hono/client"
 import { BASE_URL } from "@/utils/url"
 

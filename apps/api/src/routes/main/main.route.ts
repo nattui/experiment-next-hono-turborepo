@@ -4,9 +4,8 @@ import { routeTest } from "./test.route"
 import { routeUsers } from "./users.route"
 
 const routeMain = new Hono()
-
-routeMain.route("/", routeRoot)
-routeMain.route("/users", routeUsers)
-routeMain.route("/test", routeTest)
+  .route("/", routeRoot)
+  .route("/test", routeTest)
+  .route("/users", routeUsers)
 
 export { routeMain }
