@@ -1,5 +1,9 @@
-import type { Context } from "hono"
+import { type Context, Hono } from "hono"
 
-export async function routeTest(context: Context) {
+export const routeTest = new Hono()
+
+routeTest.get("/", (context: Context) => handlerTest(context))
+
+export async function handlerTest(context: Context) {
   return context.json({ data: "Hello Hono!" })
 }

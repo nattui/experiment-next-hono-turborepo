@@ -1,12 +1,18 @@
 import { hash } from "argon2"
 import { eq } from "drizzle-orm"
-import type { Context } from "hono"
+import { type Context, Hono } from "hono"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 import { setSession, signSession } from "../../utils/session.util"
 
-export async function routeSignupCredential(context: Context) {
+export const routeSignupCredential = new Hono()
+
+routeSignupCredential.post("/", (context: Context) =>
+  handlerSignupCredential(context),
+)
+
+export async function handlerSignupCredential(context: Context) {
   try {
     const { email, name, password } = await context.req.json()
 

@@ -1,19 +1,20 @@
 import { Hono } from "hono"
 import { loggerMiddleware } from "./middleware/logger.middleware"
-import { routesAuth } from "./routes/auth/auth.route"
-import { routeMain } from "./routes/main/main.route"
-import type { Account, Profile, User } from "./utils/db/schema/user.schema"
+import { routeAuth, routeChainedAuth } from "./routes/auth/auth.route"
+import { routeChainedMain, routeMain } from "./routes/main/main.route"
 
 const app = new Hono()
-  .use(loggerMiddleware())
-  .route("/", routeMain)
-  .route("/auth", routesAuth)
+app.use(loggerMiddleware())
+app.route("/", routeMain)
+app.route("/auth", routeAuth)
 
-export type AppType = typeof app
+const routes = new Hono()
+  .route("/", routeChainedMain)
+  .route("/auth", routeChainedAuth)
+
+export type AppType = typeof routes
 
 export default {
   fetch: app.fetch,
   port: 3002,
 }
-
-export type { Account, Profile, User }

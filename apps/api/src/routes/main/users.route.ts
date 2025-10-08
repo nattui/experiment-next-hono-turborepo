@@ -1,9 +1,13 @@
-import type { Context } from "hono"
+import { type Context, Hono } from "hono"
 import { db } from "../../utils/db/db.utils"
 import { USER, type User } from "../../utils/db/schema/user.schema"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 
-export async function routeUsers(context: Context) {
+export const routeUsers = new Hono()
+
+routeUsers.get("/", (context: Context) => handlerUsers(context))
+
+export async function handlerUsers(context: Context) {
   try {
     const users: User[] = await db.select().from(USER)
     return context.json({ users })
