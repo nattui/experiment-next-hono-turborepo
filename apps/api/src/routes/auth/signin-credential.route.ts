@@ -1,14 +1,12 @@
 import { verify } from "argon2"
 import { and, eq } from "drizzle-orm"
-import { Hono } from "hono"
+import type { Context } from "hono"
 import { db } from "../../utils/db/db.utils"
 import { ACCOUNT, USER } from "../../utils/db/schema/user.schema"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 import { setSession, signSession } from "../../utils/session.util"
 
-const routeSigninCredential = new Hono()
-
-routeSigninCredential.post("/", async (context) => {
+export async function routeSigninCredential(context: Context) {
   try {
     const { email, password } = await context.req.json()
 
@@ -49,6 +47,4 @@ routeSigninCredential.post("/", async (context) => {
     console.error(error)
     return context.json({}, HTTP_STATUS_CODE["500_INTERNAL_SERVER_ERROR"])
   }
-})
-
-export { routeSigninCredential }
+}

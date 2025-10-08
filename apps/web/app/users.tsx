@@ -2,16 +2,20 @@
 
 import type { User } from "api"
 import { useEffect, useState } from "react"
-import { API } from "@/utils/url"
+import { client } from "@/utils/api-client"
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      const response = await fetch(API.USERS)
-      const data = await response.json()
-      setUsers(data.users)
+    async function fetchUsers() {
+      try {
+        const response = await client.users.$get()
+        const data = await response.json()
+        setUsers(data.users)
+      } catch (error) {
+        console.error(error)
+      }
     }
 
     fetchUsers()
