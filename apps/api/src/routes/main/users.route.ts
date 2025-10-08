@@ -1,21 +1,17 @@
-import { type Context, Hono } from "hono"
+import { Hono } from "hono"
 import { db } from "../../utils/db/db.utils"
-import { USER, type User } from "../../utils/db/schema/user.schema"
+import { USER } from "../../utils/db/schema/user.schema"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 
-export const routeUsers = new Hono()
+const routeUsers = new Hono()
 
-routeUsers.get("/", (context: Context) => handlerUsers(context))
-
-export async function handlerUsers(context: Context) {
+routeUsers.get("/", async (context) => {
   try {
-    const users: User[] = await db.select().from(USER)
+    const users = await db.select().from(USER)
     return context.json({ users })
-  } catch (error) {
-    console.error(error)
-    return context.json(
-      { users: [] },
-      HTTP_STATUS_CODE["500_INTERNAL_SERVER_ERROR"],
-    )
+  } catch {
+    return context.json({}, HTTP_STATUS_CODE["500_INTERNAL_SERVER_ERROR"])
   }
-}
+})
+
+export { routeUsers }
