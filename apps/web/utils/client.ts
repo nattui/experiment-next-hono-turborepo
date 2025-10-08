@@ -1,5 +1,5 @@
 import type { AppType } from "api"
-import { hc } from "hono/client"
+import { hc, type InferResponseType } from "hono/client"
 
 export const client = hc<AppType>("/api", {
   init: {
@@ -8,3 +8,5 @@ export const client = hc<AppType>("/api", {
 })
 
 export type Client = typeof client
+
+export type Users = InferResponseType<typeof client.users.$get>["users"]
