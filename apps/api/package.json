@@ -20,7 +20,7 @@
     "db:push": "drizzle-kit push --config=drizzle.config.ts",
     "db:studio": "drizzle-kit studio --config=drizzle.config.ts --verbose",
     "dev": "bun run --hot src/app.ts",
-    "update": "bun update --interactive"
+    "start": "bun run dev"
   },
   "dependencies": {
     "argon2": "^0.44.0",
