@@ -19,7 +19,7 @@ export default function SignInForm() {
     setIsLoading(true)
     try {
       const response = await client.auth.signin.credential.$post({
-        body: { email, password },
+        json: { email, password },
       })
       if (!response.ok) {
         throw new Error("Failed to sign in.")

@@ -20,7 +20,7 @@ export default function SignUpForm() {
     setIsLoading(true)
     try {
       const response = await client.auth.signup.credential.$post({
-        body: { email, name, password },
+        json: { email, name, password },
       })
       if (!response.ok) {
         throw new Error("Failed to sign up.")
