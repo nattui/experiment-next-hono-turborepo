@@ -43,6 +43,7 @@ experiment-next-hono-turborepo/
    **`apps/web/.env.local`**
    ```env
    NEXT_PUBLIC_API_URL="http://localhost:3002"
+   NEXT_PUBLIC_WEB_URL="http://localhost:3001"
    ```
 
 3. **Set up the database**
@@ -62,8 +63,8 @@ experiment-next-hono-turborepo/
    ```
 
    This starts:
-   - Frontend: http://localhost:3001
    - API: http://localhost:3002
+   - WEB: http://localhost:3001
 
 ## 📚 API Endpoints
 
