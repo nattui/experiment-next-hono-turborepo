@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { handlerTest } from "./routes/test"
+import { handlerTest } from "./routes/test.js"
 
 const app = new Hono()
 
