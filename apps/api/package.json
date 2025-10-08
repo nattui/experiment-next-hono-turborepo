@@ -1,7 +1,12 @@
 {
   "name": "api",
   "type": "module",
-  "types": "dist/app.d.mts",
+  "exports": {
+    ".": {
+      "types": "./dist/app.d.ts"
+    }
+  },
+  "types": "dist/app.d.ts",
   "files": [
     "dist"
   ],
