@@ -37,7 +37,7 @@ experiment-next-hono-turborepo/
    **`apps/api/.env`**
    ```env
    DATABASE_URL="postgresql://username:password@localhost:5432/database_name"
-   JWT_SECRET="your-jwt-secret-key"
+   JWT_SECRET="da38a2f10f3a4d85941fd6665f7413d6086d2167281419b1254a2a034e53cd55"
    ```
 
    **`apps/web/.env.local`**
