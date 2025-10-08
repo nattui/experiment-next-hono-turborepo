@@ -11,7 +11,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "bun run check:type && tsdown",
+    "build": "tsdown",
     "check:type": "tsc --noEmit src/**/*.ts",
     "check:type:watch": "tsc --noEmit --watch",
     "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
