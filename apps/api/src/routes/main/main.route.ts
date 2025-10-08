@@ -1,10 +1,14 @@
 import { Hono } from "hono"
 import { routeRoot } from "./root.route"
+
 // import { handlerTest, routeTest } from "./test.route"
 // import { handlerUsers, routeUsers } from "./users.route"
 
-export const routeMain = new Hono()
+const routeMain = new Hono()
+
 routeMain.route("/", routeRoot)
+
+export { routeMain }
 // routeMain.route("/test", routeTest)
 // routeMain.route("/users", routeUsers)
 
