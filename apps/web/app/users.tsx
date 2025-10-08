@@ -17,9 +17,13 @@ export function Users() {
   const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
-    fetch(API.USERS)
-      .then((response) => response.json())
-      .then((data) => setUsers(data.users))
+    const fetchUsers = async () => {
+      const response = await fetch(API.USERS)
+      const data = await response.json()
+      setUsers(data.users)
+    }
+
+    fetchUsers()
   }, [])
 
   return (
