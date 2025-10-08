@@ -4,8 +4,6 @@ import { routesAuth } from "./routes/auth/auth.route"
 import { routeMain } from "./routes/main/main.route"
 import type { Account, Profile, User } from "./utils/db/schema/user.schema"
 
-export const isDevelopment = process.env.NODE_ENV === "development"
-
 const app = new Hono()
   .use(loggerMiddleware())
   .route("/", routeMain)
