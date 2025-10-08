@@ -12,7 +12,7 @@ app.route("/", routeMain)
 //   .route("/", routeChainedMain)
 //   .route("/auth", routeChainedAuth)
 
-export type AppType = typeof app
+// export type AppType = typeof app
 
 export default {
   fetch: app.fetch,
