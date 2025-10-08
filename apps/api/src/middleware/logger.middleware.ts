@@ -8,9 +8,9 @@ export function loggerMiddleware(): MiddlewareHandler {
     return async (_, next) => await next()
   }
 
-  return logger((str, ...rest) => {
-    if (str.startsWith("-->")) {
-      console.log(str.replace(/^-->\s*/, ""), ...rest)
+  return logger((string, ...rest) => {
+    if (string.startsWith("-->")) {
+      console.log(string.replace(/^-->\s*/, ""), ...rest)
     }
   })
 }
