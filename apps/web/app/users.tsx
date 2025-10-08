@@ -28,7 +28,7 @@ export function Users() {
           <p className="text-12">name: {user.name}</p>
           <p className="text-12">email: {user.email}</p>
           <p className="text-12">
-            emailVerified: {Boolean(user.emailVerified).toString()}
+            emailVerified: {user.emailVerified.toString()}
           </p>
           <p className="text-12">role: {user.role}</p>
           <p className="text-12">createdAt: {user.createdAt.toString()}</p>
