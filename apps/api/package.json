@@ -3,9 +3,12 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/app.d.ts"
+      "types": "./dist/app.d.ts",
+      "import": "./dist/index.js"
     }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
   "types": "dist/app.d.ts",
   "files": [
     "dist"
