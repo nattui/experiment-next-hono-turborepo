@@ -1,7 +1,7 @@
 import { type Context, Hono } from "hono"
-import { db } from "../../utils/db/db.utils"
-import { USER, type User } from "../../utils/db/schema/user.schema"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
+import { db } from "../../utils/db/db.utils.js"
+import { USER, type User } from "../../utils/db/schema/user.schema.js"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
 
 export const routeUsers = new Hono()
 
