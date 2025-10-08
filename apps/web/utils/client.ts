@@ -7,4 +7,4 @@ export const client = hc<AppType>("/api", {
   },
 })
 
-export type ApiClient = typeof client
+export type Client = typeof client

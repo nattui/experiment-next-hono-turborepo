@@ -2,7 +2,7 @@
 
 import type { User } from "api"
 import { useEffect, useState } from "react"
-import { client } from "@/utils/api-client"
+import { client } from "@/utils/client"
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
