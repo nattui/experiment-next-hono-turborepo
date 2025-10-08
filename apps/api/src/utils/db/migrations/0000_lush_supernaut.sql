@@ -1,6 +1,3 @@
--- Current sql file was generated after introspecting the database
--- If you want to run this migration please uncomment this code before executing migrations
-/*
 CREATE TABLE "account" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"id" serial PRIMARY KEY NOT NULL,
@@ -19,14 +16,13 @@ CREATE TABLE "profile" (
 CREATE TABLE "user" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"email" text NOT NULL,
+	"email_verified" boolean DEFAULT false NOT NULL,
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	"role" text DEFAULT 'user' NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
-	"email_verified" boolean DEFAULT false NOT NULL,
 	CONSTRAINT "user_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
 ALTER TABLE "account" ADD CONSTRAINT "account_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "profile" ADD CONSTRAINT "profile_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;
-*/

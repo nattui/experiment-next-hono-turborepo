@@ -1,6 +1,6 @@
 {
-  "id": "00000000-0000-0000-0000-000000000000",
-  "prevId": "",
+  "id": "08f1554a-a33f-40bb-b2b1-73e54876b6b0",
+  "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -47,7 +47,6 @@
           "name": "account_user_id_user_id_fk",
           "tableFrom": "account",
           "tableTo": "user",
-          "schemaTo": "public",
           "columnsFrom": [
             "user_id"
           ],
@@ -60,8 +59,8 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraints": {},
       "policies": {},
+      "checkConstraints": {},
       "isRLSEnabled": false
     },
     "public.profile": {
@@ -100,7 +99,6 @@
           "name": "profile_user_id_user_id_fk",
           "tableFrom": "profile",
           "tableTo": "user",
-          "schemaTo": "public",
           "columnsFrom": [
             "user_id"
           ],
@@ -113,8 +111,8 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {},
-      "checkConstraints": {},
       "policies": {},
+      "checkConstraints": {},
       "isRLSEnabled": false
     },
     "public.user": {
@@ -133,6 +131,13 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "email_verified": {
+          "name": "email_verified",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
         },
         "id": {
           "name": "id",
@@ -159,13 +164,6 @@
           "primaryKey": false,
           "notNull": true,
           "default": "now()"
-        },
-        "email_verified": {
-          "name": "email_verified",
-          "type": "boolean",
-          "primaryKey": false,
-          "notNull": true,
-          "default": false
         }
       },
       "indexes": {},
@@ -173,15 +171,15 @@
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
         "user_email_unique": {
+          "name": "user_email_unique",
+          "nullsNotDistinct": false,
           "columns": [
             "email"
-          ],
-          "nullsNotDistinct": false,
-          "name": "user_email_unique"
+          ]
         }
       },
-      "checkConstraints": {},
       "policies": {},
+      "checkConstraints": {},
       "isRLSEnabled": false
     }
   },
@@ -192,11 +190,8 @@
   "policies": {},
   "views": {},
   "_meta": {
+    "columns": {},
     "schemas": {},
-    "tables": {},
-    "columns": {}
-  },
-  "internal": {
     "tables": {}
   }
 }
