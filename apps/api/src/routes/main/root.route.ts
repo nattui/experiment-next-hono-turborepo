@@ -2,7 +2,7 @@ import { type Context, Hono } from "hono"
 
 export const routeRoot = new Hono()
 
-routeRoot.get("/", (context: Context) => handlerRoot(context))
+routeRoot.get("/", async (context: Context) => await handlerRoot(context))
 
 export async function handlerRoot(context: Context) {
   return context.text("Hello Hono!")

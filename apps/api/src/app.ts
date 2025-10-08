@@ -1,12 +1,12 @@
 import { Hono } from "hono"
 import { loggerMiddleware } from "./middleware/logger.middleware"
-import { routeAuth } from "./routes/auth/auth.route"
+// import { routeAuth } from "./routes/auth/auth.route"
 import { routeMain } from "./routes/main/main.route"
 
 const app = new Hono()
 app.use(loggerMiddleware())
 app.route("/", routeMain)
-app.route("/auth", routeAuth)
+// app.route("/auth", routeAuth)
 
 // const routes = new Hono()
 //   .route("/", routeChainedMain)
