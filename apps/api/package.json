@@ -2,10 +2,6 @@
   "name": "api",
   "scripts": {
     "build": "tsdown",
-    "check:format": "prettier --check .",
-    "check:format:fix": "prettier --write .",
-    "check:lint": "eslint .",
-    "check:lint:fix": "eslint --fix .",
     "check:type": "tsc --noEmit src/**/*.ts",
     "check:type:watch": "tsc --noEmit --watch",
     "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
@@ -23,16 +19,10 @@
     "postgres": "^3.4.7"
   },
   "devDependencies": {
-    "@eslint/js": "^9.36.0",
     "@types/bun": "^1.2.22",
     "drizzle-kit": "^0.31.5",
-    "eslint": "catalog:",
-    "eslint-plugin-perfectionist": "catalog:",
-    "eslint-plugin-unicorn": "catalog:",
-    "eslint-plugin-unused-imports": "catalog:",
     "globals": "^16.4.0",
     "tsdown": "^0.15.6",
-    "typescript": "catalog:",
-    "typescript-eslint": "^8.44.1"
+    "typescript": "catalog:"
   }
 }
