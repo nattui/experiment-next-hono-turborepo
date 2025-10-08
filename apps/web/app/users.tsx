@@ -1,11 +1,13 @@
 "use client"
 
-import type { User } from "api"
+import type { InferResponseType } from "hono/client"
 import { useEffect, useState } from "react"
 import { client } from "@/utils/client"
 
+type Users = InferResponseType<typeof client.users.$get>["users"]
+
 export function Users() {
-  const [users, setUsers] = useState<User[]>([])
+  const [users, setUsers] = useState<Users>([])
 
   useEffect(() => {
     async function fetchUsers() {
