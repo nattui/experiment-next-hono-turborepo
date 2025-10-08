@@ -24,13 +24,15 @@ export function Users() {
     <div className="flex flex-col gap-y-16">
       {users.map((user) => (
         <div className="flex flex-col font-mono" key={user.id}>
-          <p className="text-14">id: {user.id}</p>
-          <p className="text-14">name: {user.name}</p>
-          <p className="text-14">email: {user.email}</p>
-          <p className="text-14">emailVerified: {user.emailVerified}</p>
-          <p className="text-14">role: {user.role}</p>
-          <p className="text-14">createdAt: {user.createdAt.toString()}</p>
-          <p className="text-14">updatedAt: {user.updatedAt.toString()}</p>
+          <p className="text-12">id: {user.id}</p>
+          <p className="text-12">name: {user.name}</p>
+          <p className="text-12">email: {user.email}</p>
+          <p className="text-12">
+            emailVerified: {Boolean(user.emailVerified).toString()}
+          </p>
+          <p className="text-12">role: {user.role}</p>
+          <p className="text-12">createdAt: {user.createdAt.toString()}</p>
+          <p className="text-12">updatedAt: {user.updatedAt.toString()}</p>
         </div>
       ))}
     </div>
