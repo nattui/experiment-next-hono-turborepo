@@ -1,10 +1,6 @@
-import { type Context, Hono } from "hono"
+import type { Context } from "hono"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
 import { deleteSession } from "../../utils/session.util.js"
-
-export const routeSignout = new Hono()
-
-routeSignout.post("/", handlerSignout)
 
 export async function handlerSignout(context: Context) {
   deleteSession(context)

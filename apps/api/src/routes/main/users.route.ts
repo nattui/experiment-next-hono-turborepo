@@ -1,11 +1,7 @@
-import { type Context, Hono } from "hono"
+import type { Context } from "hono"
 import { db } from "../../utils/db/db.utils.js"
 import { USER, type User } from "../../utils/db/schema/user.schema.js"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
-
-export const routeUsers = new Hono()
-
-routeUsers.get("/", (context: Context) => handlerUsers(context))
 
 export async function handlerUsers(context: Context) {
   try {
