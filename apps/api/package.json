@@ -1,5 +1,9 @@
 {
   "name": "api",
+  "types": "dist/app.d.mts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsdown",
     "check:type": "tsc --noEmit src/**/*.ts",
