@@ -1,12 +1,12 @@
 import { Hono } from "hono"
-import { handlerRoot } from "./routes/main/root.route.js"
-import { handlerTest } from "./routes/main/test.route.js"
-import { handlerUsers } from "./routes/main/users.route.js"
+import { routeRoot } from "./routes/main/root.route.js"
+import { routeTest } from "./routes/main/test.route.js"
+import { routeUsers } from "./routes/main/users.route.js"
 
 const app = new Hono()
-  .get("/", handlerRoot)
-  .get("/test", handlerTest)
-  .get("/users", handlerUsers)
+  .route("/", routeRoot)
+  .route("/test", routeTest)
+  .route("/users", routeUsers)
 
 export type AppType = typeof app
 

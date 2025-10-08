@@ -1,16 +1,14 @@
 import { hash } from "argon2"
 import { eq } from "drizzle-orm"
 import { type Context, Hono } from "hono"
-import { db } from "../../utils/db/db.utils"
-import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
-import { setSession, signSession } from "../../utils/session.util"
+import { db } from "../../utils/db/db.utils.js"
+import { ACCOUNT, PROFILE, USER } from "../../utils/db/schema/user.schema.js"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
+import { setSession, signSession } from "../../utils/session.util.js"
 
 export const routeSignupCredential = new Hono()
 
-routeSignupCredential.post("/", (context: Context) =>
-  handlerSignupCredential(context),
-)
+routeSignupCredential.post("/", handlerSignupCredential)
 
 export async function handlerSignupCredential(context: Context) {
   try {
