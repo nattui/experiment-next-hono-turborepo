@@ -1,5 +1,6 @@
 {
   "name": "api",
+  "type": "module",
   "types": "dist/app.d.mts",
   "files": [
     "dist"
@@ -19,7 +20,7 @@
   "dependencies": {
     "argon2": "^0.44.0",
     "drizzle-orm": "^0.44.5",
-    "hono": "^4.9.9",
+    "hono": "catalog:",
     "postgres": "^3.4.7"
   },
   "devDependencies": {

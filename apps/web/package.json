@@ -11,6 +11,8 @@
   "dependencies": {
     "@nattui/react-components": "^0.0.6",
     "@nattui/tailwind-tokenless": "^0.0.2",
+    "api": "workspace:*",
+    "hono": "catalog:",
     "next": "^15.6.0-canary.34",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
