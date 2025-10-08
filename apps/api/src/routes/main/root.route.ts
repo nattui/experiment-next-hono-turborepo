@@ -1,9 +1,9 @@
-import { Hono } from "hono"
+import { type Context, Hono } from "hono"
 
-const routeRoot = new Hono()
+export const routeRoot = new Hono()
 
-routeRoot.get("/", async (context) => {
+routeRoot.get("/", (context: Context) => handlerRoot(context))
+
+export async function handlerRoot(context: Context) {
   return context.text("Hello Hono!")
-})
-
-export { routeRoot }
+}

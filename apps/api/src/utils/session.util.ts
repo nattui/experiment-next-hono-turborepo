@@ -1,7 +1,7 @@
 import type { Context } from "hono"
-import type { JWTPayload } from "hono/utils/jwt/types"
 import { deleteCookie, getCookie, setCookie } from "hono/cookie"
 import { sign, verify } from "hono/jwt"
+import type { JWTPayload } from "hono/utils/jwt/types"
 import { JWT_SECRET } from "./constant.util"
 
 export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
@@ -27,11 +27,9 @@ export function setSession(context: Context, session: string): void {
 }
 
 export async function signSession(payload: JWTPayload): Promise<string> {
-  const token = await sign(payload, JWT_SECRET, JWT_ALGORITHM)
-  return token
+  return sign(payload, JWT_SECRET, JWT_ALGORITHM)
 }
 
 export async function verifySession(session: string): Promise<JWTPayload> {
-  const payload = await verify(session, JWT_SECRET, JWT_ALGORITHM)
-  return payload
+  return verify(session, JWT_SECRET, JWT_ALGORITHM)
 }

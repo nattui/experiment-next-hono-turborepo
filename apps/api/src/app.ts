@@ -1,9 +1,9 @@
 import { Hono } from "hono"
-import { handlerTest } from "./routes/test.js"
+import { handlerRoot } from "./routes/main/root.route"
 
 const app = new Hono()
 
-app.get("/", handlerTest)
+app.get("/", handlerRoot)
 
 export default {
   fetch: app.fetch,

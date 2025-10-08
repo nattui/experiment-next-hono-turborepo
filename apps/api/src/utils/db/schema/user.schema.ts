@@ -5,34 +5,34 @@ export type Profile = typeof PROFILE.$inferSelect
 export type User = typeof USER.$inferSelect
 
 export const USER = pgTable("user", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).defaultNow().notNull(),
   email: text().unique().notNull(),
-  emailVerified: boolean().notNull().default(false),
+  emailVerified: boolean().default(false).notNull(),
   id: serial().primaryKey(),
   name: text().notNull(),
   role: text({ enum: ["admin", "user"] })
-    .notNull()
-    .default("user"),
-  updatedAt: timestamp({ mode: "date" })
-    .notNull()
+    .default("user")
+    .notNull(),
+  updatedAt: timestamp({ mode: "string" })
     .defaultNow()
-    .$onUpdate(() => new Date()),
+    .notNull()
+    .$onUpdate(() => new Date().toISOString()),
 })
 
 export const ACCOUNT = pgTable("account", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).notNull().defaultNow(),
   id: serial().primaryKey(),
   password: text(),
   provider: text({ enum: ["credentials", "github", "google"] })
-    .notNull()
-    .default("credentials"),
+    .default("credentials")
+    .notNull(),
   userId: serial()
     .notNull()
     .references(() => USER.id, { onDelete: "cascade" }),
 })
 
 export const PROFILE = pgTable("profile", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).defaultNow().notNull(),
   id: serial().primaryKey(),
   image: text(),
   userId: serial()
