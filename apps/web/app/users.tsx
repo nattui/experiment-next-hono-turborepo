@@ -1,17 +1,8 @@
 "use client"
 
+import type { User } from "api"
 import { useEffect, useState } from "react"
 import { API } from "@/utils/url"
-
-interface User {
-  createdAt: string
-  email: string
-  emailVerified: boolean
-  id: string
-  name: string
-  role: string
-  updatedAt: string
-}
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
@@ -33,10 +24,12 @@ export function Users() {
           <p className="text-14">id: {user.id}</p>
           <p className="text-14">name: {user.name}</p>
           <p className="text-14">email: {user.email}</p>
-          <p className="text-14">emailVerified: {user.emailVerified}</p>
+          <p className="text-14">
+            emailVerified: {user.emailVerifiedAt?.toISOString()}
+          </p>
           <p className="text-14">role: {user.role}</p>
-          <p className="text-14">createdAt: {user.createdAt}</p>
-          <p className="text-14">updatedAt: {user.updatedAt}</p>
+          <p className="text-14">createdAt: {user.createdAt.toISOString()}</p>
+          <p className="text-14">updatedAt: {user.updatedAt.toISOString()}</p>
         </div>
       ))}
     </div>
