@@ -7,7 +7,7 @@ export type User = typeof USER.$inferSelect
 export const USER = pgTable("user", {
   createdAt: timestamp({ mode: "string" }).notNull().defaultNow(),
   email: text().unique().notNull(),
-  emailVerified: boolean().default(false),
+  emailVerified: boolean().notNull().default(false),
   id: serial().primaryKey(),
   name: text().notNull(),
   role: text({ enum: ["admin", "user"] })
