@@ -6,8 +6,7 @@
     "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
-    "types": ["node"]
+    "target": "ESNext"
   },
   "exclude": ["node_modules"]
 }
