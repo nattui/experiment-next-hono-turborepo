@@ -16,7 +16,7 @@ CREATE TABLE "profile" (
 CREATE TABLE "user" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"email" text NOT NULL,
-	"email_verified" boolean DEFAULT false NOT NULL,
+	"email_verified_at" timestamp,
 	"id" serial PRIMARY KEY NOT NULL,
 	"name" text NOT NULL,
 	"role" text DEFAULT 'user' NOT NULL,
