@@ -6,4 +6,6 @@ export const client = hc<AppType>(`${BASE_URL.WEB}/api`)
 
 export type Client = typeof client
 
-export type Users = InferResponseType<typeof client.users.$get>["users"]
+export type UsersResponseType = InferResponseType<
+  typeof client.users.$get
+>["users"]
