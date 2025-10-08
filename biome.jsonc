@@ -11,7 +11,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!**/bun.lock", "!**/package.json"]
+    "includes": ["**", "!**/package.json"]
   },
   "formatter": {
     "indentStyle": "space"
