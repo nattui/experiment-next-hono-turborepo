@@ -5,22 +5,22 @@ export type Profile = typeof PROFILE.$inferSelect
 export type User = typeof USER.$inferSelect
 
 export const USER = pgTable("user", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).notNull().defaultNow(),
   email: text().unique().notNull(),
-  emailVerifiedAt: timestamp({ mode: "date" }),
+  emailVerifiedAt: timestamp({ mode: "string" }),
   id: serial().primaryKey(),
   name: text().notNull(),
   role: text({ enum: ["admin", "user"] })
     .notNull()
     .default("user"),
-  updatedAt: timestamp({ mode: "date" })
+  updatedAt: timestamp({ mode: "string" })
     .notNull()
     .defaultNow()
-    .$onUpdate(() => new Date()),
+    .$onUpdate(() => new Date().toISOString()),
 })
 
 export const ACCOUNT = pgTable("account", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).notNull().defaultNow(),
   id: serial().primaryKey(),
   password: text(),
   provider: text({ enum: ["credentials", "github", "google"] })
@@ -32,7 +32,7 @@ export const ACCOUNT = pgTable("account", {
 })
 
 export const PROFILE = pgTable("profile", {
-  createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
+  createdAt: timestamp({ mode: "string" }).notNull().defaultNow(),
   id: serial().primaryKey(),
   image: text(),
   userId: serial()
