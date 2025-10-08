@@ -2,17 +2,19 @@
 
 import { cookies as getCookies } from "next/headers"
 import { cache } from "react"
-import { API } from "@/utils/url"
+import { client } from "@/utils/client"
 
 async function uncachedGetIsAuthenticated(): Promise<boolean> {
   try {
     const cookies = await getCookies()
-    const response = await fetch(API.AUTH.VERIFY, {
-      cache: "no-store",
-      headers: {
-        Cookie: cookies.toString(),
+    const response = await client.auth.verify.$get(
+      {},
+      {
+        headers: {
+          Cookie: cookies.toString(),
+        },
       },
-    })
+    )
     if (!response.ok) return false
     return true
   } catch (error) {
