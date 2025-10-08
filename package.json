@@ -11,7 +11,7 @@
     "check:package": "sh scripts/sort-package-json.sh",
     "check:type": "turbo check:type",
     "clean": "sh scripts/clean.sh",
-    "dev": "turbo dev",
+    "dev": "turbo dev dev:package",
     "start": "turbo start",
     "update": "taze --recursive"
   },
