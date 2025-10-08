@@ -1,4 +1,4 @@
-import { boolean, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
+import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
 
 export type Account = typeof ACCOUNT.$inferSelect
 export type Profile = typeof PROFILE.$inferSelect
@@ -7,7 +7,7 @@ export type User = typeof USER.$inferSelect
 export const USER = pgTable("user", {
   createdAt: timestamp({ mode: "date" }).notNull().defaultNow(),
   email: text().unique().notNull(),
-  emailVerified: boolean().notNull().default(false),
+  emailVerifiedAt: timestamp({ mode: "date" }),
   id: serial().primaryKey(),
   name: text().notNull(),
   role: text({ enum: ["admin", "user"] })

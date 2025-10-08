@@ -38,7 +38,7 @@ export default function SignUpForm() {
         Name
       </label>
       <input
-        className="border-amber-100 mb-16 h-36 border border-solid px-4"
+        className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="Mark Scout"
         id="name"
         name="name"
@@ -49,7 +49,7 @@ export default function SignUpForm() {
         Email
       </label>
       <input
-        className="border-amber-100 mb-16 h-36 border border-solid px-4"
+        className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="test@test.com"
         id="email"
         name="email"
@@ -60,7 +60,7 @@ export default function SignUpForm() {
         Password
       </label>
       <input
-        className="border-amber-100 mb-16 h-36 border border-solid px-4"
+        className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="123123"
         id="password"
         name="password"
