@@ -1,5 +1,5 @@
 import type { Context } from "hono"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
+import { HTTP_STATUS_CODE } from "@/utils/http-status-code"
 
 export async function routeVerify(context: Context) {
   return context.json({}, HTTP_STATUS_CODE["200_OK"])

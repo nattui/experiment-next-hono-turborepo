@@ -1,6 +1,6 @@
 import type { Context } from "hono"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
-import { deleteSession } from "../../utils/session.util"
+import { HTTP_STATUS_CODE } from "@/utils/http-status-code"
+import { deleteSession } from "@/utils/session.util"
 
 export async function routeSignout(context: Context) {
   deleteSession(context)
