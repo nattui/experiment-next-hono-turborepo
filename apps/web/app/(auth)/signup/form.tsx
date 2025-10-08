@@ -3,7 +3,7 @@
 import { Button } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
-import { API } from "@/utils/url"
+import { client } from "@/utils/client"
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -19,9 +19,8 @@ export default function SignUpForm() {
     const password = formData.get("password")
     setIsLoading(true)
     try {
-      const response = await fetch(API.AUTH.SIGNUP_CREDENTIAL, {
-        body: JSON.stringify({ email, name, password }),
-        method: "POST",
+      const response = await client.auth.signup.credential.$post({
+        body: { email, name, password },
       })
       if (!response.ok) {
         throw new Error("Failed to sign up.")
