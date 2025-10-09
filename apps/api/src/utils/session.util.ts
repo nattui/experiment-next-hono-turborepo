@@ -15,14 +15,15 @@ export function getSession(context: Context): string | undefined {
   return getCookie(context, "session")
 }
 
-interface SetSession {
+interface SetSessionParams {
   context: Context
+  id: number
   now: Date
-  session: string
 }
 
-export function setSession(payload: SetSession): void {
-  const { context, now, session } = payload
+export async function setSession(params: SetSessionParams): Promise<void> {
+  const { context, id, now } = params
+  const session = await signSession({ id, now })
   const expirationDate = new Date(
     now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS,
   )
@@ -36,25 +37,25 @@ export function setSession(payload: SetSession): void {
   })
 }
 
-interface SignSession extends JWTPayload {
+interface SignSessionParams extends JWTPayload {
   id: number
   now: Date
 }
 
-export async function signSession(payload: SignSession): Promise<string> {
-  const { id, now } = payload
+export async function signSession(params: SignSessionParams): Promise<string> {
+  const { id, now } = params
   const expiresAt = Math.floor(
     (now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS) / 1000,
   )
   const issuedAt = Math.floor(now.getTime() / 1000)
-  const enhancedPayload = {
+  const payload = {
     exp: expiresAt,
     iat: issuedAt,
     iss: "experiment-next-hono-turborepo",
     sub: id,
-    ...payload,
+    ...params,
   }
-  return sign(enhancedPayload, JWT_SECRET, JWT_ALGORITHM)
+  return sign(payload, JWT_SECRET, JWT_ALGORITHM)
 }
 
 export async function verifySession(session: string): Promise<JWTPayload> {
