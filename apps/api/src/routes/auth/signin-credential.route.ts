@@ -36,12 +36,12 @@ export async function handlerSigninCredential(context: Context) {
       return context.json({}, HTTP_STATUS_CODE["401_UNAUTHORIZED"])
     }
 
-    const now = Math.floor(Date.now() / 1000)
+    const now = new Date()
     const session = await signSession({
       id: existingUser.id,
       now,
     })
-    setSession(context, session)
+    setSession({ context, now, session })
     return context.json({}, HTTP_STATUS_CODE["200_OK"])
   } catch (error) {
     console.error(error)

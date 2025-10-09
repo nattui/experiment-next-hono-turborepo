@@ -43,12 +43,12 @@ export async function handlerSignupCredential(context: Context) {
 
       await Promise.all([account, profile])
 
-      const now = Math.floor(Date.now() / 1000)
+      const now = new Date()
       const session = await signSession({
         id: newUser.id,
         now,
       })
-      setSession(context, session)
+      setSession({ context, now, session })
     })
 
     return context.json({}, HTTP_STATUS_CODE["201_CREATED"])

@@ -4,7 +4,7 @@ import { sign, verify } from "hono/jwt"
 import type { JWTPayload } from "hono/utils/jwt/types"
 import { JWT_SECRET } from "./constant.util.js"
 
-export const EXPIRATION_TIME_IN_SECONDS = 31_536_000 // 1 year
+export const EXPIRATION_TIME_IN_MILLISECONDS = 31_536_000_000_000 // 1 year
 export const JWT_ALGORITHM = "HS256"
 
 export function deleteSession(context: Context): void {
@@ -15,10 +15,20 @@ export function getSession(context: Context): string | undefined {
   return getCookie(context, "session")
 }
 
-export function setSession(context: Context, session: string): void {
+interface SetSession {
+  context: Context
+  now: Date
+  session: string
+}
+
+export function setSession(payload: SetSession): void {
+  const { context, now, session } = payload
+  const expirationDate = new Date(
+    now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS,
+  )
   setCookie(context, "session", session, {
+    expires: expirationDate,
     httpOnly: true,
-    maxAge: EXPIRATION_TIME_IN_SECONDS,
     path: "/",
     priority: "medium",
     sameSite: "lax",
@@ -26,19 +36,22 @@ export function setSession(context: Context, session: string): void {
   })
 }
 
-interface ExtendedJWTPayload extends JWTPayload {
+interface SignSession extends JWTPayload {
   id: number
-  now: number
+  now: Date
 }
 
-export async function signSession(
-  payload: ExtendedJWTPayload,
-): Promise<string> {
+export async function signSession(payload: SignSession): Promise<string> {
+  const { id, now } = payload
+  const expiresAt = Math.floor(
+    (now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS) / 1000,
+  )
+  const issuedAt = Math.floor(now.getTime() / 1000)
   const enhancedPayload = {
-    exp: payload.now + EXPIRATION_TIME_IN_SECONDS,
-    iat: payload.now,
+    exp: expiresAt,
+    iat: issuedAt,
     iss: "experiment-next-hono-turborepo",
-    sub: payload.id,
+    sub: id,
     ...payload,
   }
   return sign(enhancedPayload, JWT_SECRET, JWT_ALGORITHM)
