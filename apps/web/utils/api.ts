@@ -1,5 +1,5 @@
 import { client } from "@/utils/client"
-import type { UsersResponseType } from "@/utils/types"
+import type { UsersResponseType } from "@/utils/type"
 
 export async function fetchUsers(): Promise<UsersResponseType> {
   const response = await client.users.$get()

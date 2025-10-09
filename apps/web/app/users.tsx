@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react"
 import { fetchUsers } from "@/utils/api"
-import type { UsersResponseType } from "@/utils/types"
+import type { UsersResponseType } from "@/utils/type"
 
 export function Users() {
   const [users, setUsers] = useState<UsersResponseType>([])
