@@ -1,7 +1,4 @@
-import type { AppType } from "api"
-import { hc } from "hono/client"
+import { getClient } from "api"
 import { BASE_URL } from "@/utils/url"
 
-export const client = hc<AppType>(`${BASE_URL.WEB}/api`)
-
-export type Client = typeof client
+export const client = getClient(`${BASE_URL.WEB}/api`)

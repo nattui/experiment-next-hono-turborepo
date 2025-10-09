@@ -22,7 +22,6 @@
   },
   "packageManager": "bun@1.2.22",
   "catalog": {
-    "hono": "^4.9.9",
     "typescript": "^5.8.3"
   }
 }

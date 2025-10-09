@@ -14,7 +14,7 @@
       "dependencies": {
         "argon2": "^0.44.0",
         "drizzle-orm": "^0.44.5",
-        "hono": "catalog:",
+        "hono": "^4.9.9",
         "postgres": "^3.4.7",
       },
       "devDependencies": {
@@ -31,7 +31,6 @@
         "@nattui/react-components": "^0.0.6",
         "@nattui/tailwind-tokenless": "^0.0.2",
         "api": "workspace:*",
-        "hono": "catalog:",
         "next": "^15.6.0-canary.34",
         "react": "^19.1.1",
         "react-dom": "^19.1.1",
@@ -47,7 +46,6 @@
     },
   },
   "catalog": {
-    "hono": "^4.9.9",
     "typescript": "^5.8.3",
   },
   "packages": {
