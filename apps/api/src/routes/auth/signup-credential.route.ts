@@ -43,10 +43,10 @@ export async function handlerSignupCredential(context: Context) {
 
       await Promise.all([account, profile])
 
+      const now = Math.floor(Date.now() / 1000)
       const session = await signSession({
-        email,
         id: newUser.id,
-        name,
+        now,
       })
       setSession(context, session)
     })

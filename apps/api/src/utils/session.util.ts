@@ -26,8 +26,22 @@ export function setSession(context: Context, session: string): void {
   })
 }
 
-export async function signSession(payload: JWTPayload): Promise<string> {
-  return sign(payload, JWT_SECRET, JWT_ALGORITHM)
+interface ExtendedJWTPayload extends JWTPayload {
+  id: number
+  now: number
+}
+
+export async function signSession(
+  payload: ExtendedJWTPayload,
+): Promise<string> {
+  const enhancedPayload = {
+    exp: payload.now + EXPIRATION_TIME_IN_SECONDS,
+    iat: payload.now,
+    iss: "experiment-next-hono-turborepo",
+    sub: payload.id,
+    ...payload,
+  }
+  return sign(enhancedPayload, JWT_SECRET, JWT_ALGORITHM)
 }
 
 export async function verifySession(session: string): Promise<JWTPayload> {
