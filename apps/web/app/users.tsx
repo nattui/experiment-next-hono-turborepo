@@ -1,23 +1,23 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { client, type UsersResponseType } from "@/utils/client"
+import { fetchUsers } from "@/utils/api"
+import type { UsersResponseType } from "@/utils/types"
 
 export function Users() {
   const [users, setUsers] = useState<UsersResponseType>([])
 
   useEffect(() => {
-    async function fetchUsers() {
+    async function getUsers() {
       try {
-        const response = await client.users.$get()
-        const data = await response.json()
-        setUsers(data.users)
+        const users = await fetchUsers()
+        setUsers(users)
       } catch (error) {
         console.error(error)
       }
     }
 
-    fetchUsers()
+    getUsers()
   }, [])
 
   return (
