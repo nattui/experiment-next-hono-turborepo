@@ -11,7 +11,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!**/package.json"]
+    "includes": ["**", "!**/migrations/meta", "!**/package.json"]
   },
   "formatter": {
     "indentStyle": "space"
