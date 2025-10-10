@@ -1,8 +1,6 @@
-import dotenvx from "@dotenvx/dotenvx"
-
 export const BASE_URL = {
-  API: dotenvx.get("NEXT_PUBLIC_API_URL") ?? "http://localhost:3002",
-  WEB: dotenvx.get("NEXT_PUBLIC_WEB_URL") ?? "http://localhost:3001",
+  API: process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3002",
+  WEB: process.env.NEXT_PUBLIC_WEB_URL ?? "http://localhost:3001",
 }
 
 export const API = {

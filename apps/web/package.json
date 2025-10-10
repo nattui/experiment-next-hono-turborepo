@@ -1,11 +1,11 @@
 {
   "name": "web",
   "scripts": {
-    "build": "dotenvx run --convention=flow --env-file=../../.env -- next build --turbopack",
+    "build": "next build --turbopack",
     "check:type": "next typegen && tsc --noEmit",
     "check:type:watch": "next typegen && tsc --noEmit --watch",
-    "dev": "dotenvx run --convention=flow --env-file=../../.env -- next dev --port 3001 --turbopack",
-    "start": "dotenvx run --convention=flow --env-file=../../.env -- next start --port 3001"
+    "dev": "next dev --port 3001 --turbopack",
+    "start": "next start --port 3001"
   },
   "dependencies": {
     "@nattui/react-components": "^0.0.6",
@@ -16,7 +16,6 @@
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^1.51.0",
     "@tailwindcss/postcss": "^4.1.13",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.14",
