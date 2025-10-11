@@ -21,7 +21,7 @@
     "db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
     "db:push": "drizzle-kit push --config=drizzle.config.ts",
     "db:studio": "drizzle-kit studio --config=drizzle.config.ts --verbose",
-    "dev": "tsdown --watch src"
+    "dev": "tsdown --watch"
   },
   "dependencies": {
     "drizzle-orm": "^0.44.6",
