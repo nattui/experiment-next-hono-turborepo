@@ -1,11 +1,11 @@
 "use client"
 
+import type { User } from "api"
 import { useEffect, useState } from "react"
 import { fetchUsers } from "@/utils/api"
-import type { UsersResponseType } from "@/utils/type"
 
 export function Users() {
-  const [users, setUsers] = useState<UsersResponseType>([])
+  const [users, setUsers] = useState<User[]>([])
 
   useEffect(() => {
     async function getUsers() {

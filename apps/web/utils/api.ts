@@ -1,7 +1,7 @@
+import type { User } from "api"
 import { client } from "@/utils/client"
-import type { UsersResponseType } from "@/utils/type"
 
-export async function fetchUsers(): Promise<UsersResponseType> {
+export async function fetchUsers(): Promise<User[]> {
   const response = await client.users.$get()
   const data = await response.json()
   return data.users
