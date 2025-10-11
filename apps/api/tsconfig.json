@@ -4,9 +4,6 @@
     "jsxImportSource": "hono/jsx",
     "module": "NodeNext",
     "outDir": "./dist",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
