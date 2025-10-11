@@ -1,6 +1,5 @@
+import { db, USER, type User } from "db"
 import type { Context } from "hono"
-import { db } from "../../utils/db/db.utils.js"
-import { USER, type User } from "../../utils/db/schema/user.schema.js"
 import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
 
 export async function handlerUsers(context: Context) {

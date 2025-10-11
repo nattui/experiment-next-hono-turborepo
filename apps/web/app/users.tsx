@@ -1,6 +1,6 @@
 "use client"
 
-import type { User } from "api"
+import type { User } from "db"
 import { useEffect, useState } from "react"
 import { fetchUsers } from "@/utils/api"
 
