@@ -2,8 +2,8 @@ import { hash } from "argon2"
 import { ACCOUNT, db, PROFILE, USER } from "db"
 import { eq } from "drizzle-orm"
 import type { Context } from "hono"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
-import { setSession } from "../../utils/session.util"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
+import { setSession } from "../../utils/session.util.js"
 
 export async function handlerSignupCredential(context: Context) {
   try {
