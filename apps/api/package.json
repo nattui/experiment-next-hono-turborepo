@@ -15,7 +15,7 @@
   ],
   "scripts": {
     "build": "bun run check:type && tsdown",
-    "check:type": "tsc --noEmit",
+    "check:type": "tsc",
     "dev": "bun run --hot src/app.ts",
     "dev:package": "tsdown --watch src",
     "start": "bun run dev"
