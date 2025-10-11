@@ -2,16 +2,26 @@
   "name": "db",
   "type": "module",
   "exports": {
-    ".": "./src/index.ts",
-    "schema": "./src/schema/user.schema.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
   },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
+    "build": "bun run check:type && tsdown",
     "check:type": "tsc --noEmit",
     "db:generate": "drizzle-kit generate --config=drizzle.config.ts",
     "db:introspect": "drizzle-kit introspect --config=drizzle.config.ts",
     "db:migrate": "drizzle-kit migrate --config=drizzle.config.ts",
     "db:push": "drizzle-kit push --config=drizzle.config.ts",
-    "db:studio": "drizzle-kit studio --config=drizzle.config.ts --verbose"
+    "db:studio": "drizzle-kit studio --config=drizzle.config.ts --verbose",
+    "dev": "tsdown --watch src"
   },
   "dependencies": {
     "drizzle-orm": "catalog:",
