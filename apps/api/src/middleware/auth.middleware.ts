@@ -1,6 +1,6 @@
 import type { Context, Next } from "hono"
-import { HTTP_STATUS_CODE } from "../utils/http-status-code.js"
-import { getSession, verifySession } from "../utils/session.util.js"
+import { HTTP_STATUS_CODE } from "../utils/http-status-code"
+import { getSession, verifySession } from "../utils/session.util"
 
 export async function verifyMiddleware(context: Context, next: Next) {
   try {

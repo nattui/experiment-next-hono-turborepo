@@ -1,6 +1,6 @@
 import { db, USER, type User } from "db"
 import type { Context } from "hono"
-import { HTTP_STATUS_CODE } from "../../utils/http-status-code.js"
+import { HTTP_STATUS_CODE } from "../../utils/http-status-code"
 
 export async function handlerUsers(context: Context) {
   try {
