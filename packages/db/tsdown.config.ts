@@ -3,5 +3,5 @@ import { defineConfig } from "tsdown"
 export default defineConfig({
   clean: false,
   dts: true,
-  entry: "src/utils/client.ts",
+  entry: "src/index.ts",
 })

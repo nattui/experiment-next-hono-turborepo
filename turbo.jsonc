@@ -12,14 +12,12 @@
     },
     "dev": {
       "cache": false,
+      "dependsOn": ["^build"],
       "persistent": true
     },
     "dev:package": {
       "cache": false,
-      "persistent": true
-    },
-    "start": {
-      "cache": false,
+      "dependsOn": ["^build"],
       "persistent": true
     }
   }
