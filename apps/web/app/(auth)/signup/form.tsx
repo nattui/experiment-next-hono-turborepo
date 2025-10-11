@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@nattui/react-components"
+import { Button, Input, Label } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
 import { client } from "@/utils/client"
@@ -33,37 +33,37 @@ export default function SignUpForm() {
 
   return (
     <form className="flex max-w-240 flex-col" onSubmit={onSubmit}>
-      <label className="mb-2 inline-block w-fit text-14" htmlFor="name">
+      <Label className="mb-2 inline-block w-fit text-14" htmlFor="name">
         Name
-      </label>
-      <input
+      </Label>
+      <Input
         className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="Mark Scout"
         id="name"
+        isRequired
         name="name"
-        required
         type="text"
       />
-      <label className="mb-2 inline-block w-fit text-14" htmlFor="email">
+      <Label className="mb-2 inline-block w-fit text-14" htmlFor="email">
         Email
-      </label>
-      <input
+      </Label>
+      <Input
         className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="test@test.com"
         id="email"
+        isRequired
         name="email"
-        required
         type="email"
       />
-      <label className="mb-2 inline-block w-fit text-14" htmlFor="password">
+      <Label className="mb-2 inline-block w-fit text-14" htmlFor="password">
         Password
-      </label>
-      <input
+      </Label>
+      <Input
         className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="123123"
         id="password"
+        isRequired
         name="password"
-        required
         type="password"
       />
       <Button isLoading={isLoading} type="submit">
