@@ -1,5 +1,5 @@
 import { Hono } from "hono"
-import { verifyMiddleware } from "../../middleware/auth.middleware.js"
+import { verifyMiddleware } from "@/middleware/auth.middleware.js"
 import { handlerSigninCredential } from "./signin-credential.route.js"
 import { handlerSignout } from "./signout.route.js"
 import { handlerSignupCredential } from "./signup-credential.route.js"
