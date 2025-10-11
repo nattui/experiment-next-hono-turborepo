@@ -1,4 +1,4 @@
-export { db } from "@/db"
+export { db } from "./db"
 export {
   ACCOUNT,
   type Account,
@@ -6,4 +6,4 @@ export {
   type Profile,
   USER,
   type User,
-} from "@/schema/user.schema"
+} from "./schema/user.schema"
