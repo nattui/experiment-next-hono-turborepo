@@ -13,6 +13,7 @@
       "dependencies": {
         "argon2": "^0.44.0",
         "db": "workspace:*",
+        "drizzle-orm": "catalog:",
         "hono": "^4.9.9",
       },
       "devDependencies": {
@@ -45,7 +46,7 @@
     "packages/db": {
       "name": "db",
       "dependencies": {
-        "drizzle-orm": "^0.44.6",
+        "drizzle-orm": "catalog:",
         "postgres": "^3.4.7",
       },
       "devDependencies": {
@@ -54,13 +55,10 @@
         "tsdown": "^0.15.6",
         "typescript": "catalog:",
       },
-      "peerDependencies": {
-        "react": "^18.0.0 || ^19.0.0",
-        "react-dom": "^18.0.0 || ^19.0.0",
-      },
     },
   },
   "catalog": {
+    "drizzle-orm": "^0.44.6",
     "typescript": "^5.8.3",
   },
   "packages": {
