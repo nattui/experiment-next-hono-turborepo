@@ -1,4 +1,11 @@
-import { boolean, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
+import {
+  boolean,
+  integer,
+  pgTable,
+  serial,
+  text,
+  timestamp,
+} from "drizzle-orm/pg-core"
 
 export type Account = typeof ACCOUNT.$inferSelect
 export type Profile = typeof PROFILE.$inferSelect
@@ -26,7 +33,7 @@ export const ACCOUNT = pgTable("account", {
   provider: text({ enum: ["credentials", "github", "google"] })
     .default("credentials")
     .notNull(),
-  userId: serial()
+  userId: integer()
     .notNull()
     .references(() => USER.id, { onDelete: "cascade" }),
 })
@@ -35,7 +42,7 @@ export const PROFILE = pgTable("profile", {
   createdAt: timestamp({ mode: "string" }).defaultNow().notNull(),
   id: serial().primaryKey(),
   image: text(),
-  userId: serial()
+  userId: integer()
     .notNull()
     .references(() => USER.id, { onDelete: "cascade" }),
 })
