@@ -3,14 +3,14 @@ CREATE TABLE "account" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"password" text,
 	"provider" text DEFAULT 'credentials' NOT NULL,
-	"user_id" serial NOT NULL
+	"user_id" integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "profile" (
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"id" serial PRIMARY KEY NOT NULL,
 	"image" text,
-	"user_id" serial NOT NULL
+	"user_id" integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "user" (
