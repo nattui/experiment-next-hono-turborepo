@@ -8,6 +8,13 @@
       "when": 1759919200461,
       "tag": "0000_lush_supernaut",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1760255336915,
+      "tag": "0001_last_silhouette",
+      "breakpoints": true
     }
   ]
 }
