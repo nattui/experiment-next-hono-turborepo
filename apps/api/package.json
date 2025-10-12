@@ -14,7 +14,8 @@
     "dist"
   ],
   "scripts": {
-    "build": "bun run check:type && tsdown",
+    "build": "bun run check:type && bun run build:package",
+    "build:package": "tsdown",
     "check:type": "tsc",
     "dev": "bun run --hot src/app.ts",
     "dev:package": "tsdown --watch src",
