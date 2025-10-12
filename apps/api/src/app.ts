@@ -1,8 +1,8 @@
 import { Hono } from "hono"
 import { hc } from "hono/client"
 import { loggerMiddleware } from "./middleware/logger.middleware"
-import { routeAuth } from "./routes/auth/auth.route.js"
-import { routeMain } from "./routes/main/main.route.js"
+import { routeAuth } from "./routes/auth/auth.route"
+import { routeMain } from "./routes/main/main.route"
 
 const app = new Hono()
   .use(loggerMiddleware())
