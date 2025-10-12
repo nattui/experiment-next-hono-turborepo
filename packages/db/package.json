@@ -24,7 +24,7 @@
     "dev": "tsdown --watch src"
   },
   "dependencies": {
-    "drizzle-orm": "catalog:",
+    "drizzle-orm": "^0.44.6",
     "postgres": "^3.4.7"
   },
   "devDependencies": {
