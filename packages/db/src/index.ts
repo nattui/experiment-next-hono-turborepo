@@ -7,4 +7,4 @@ export {
   type Profile,
   USER,
   type User,
-} from "./schema/user.schema"
+} from "@/schema/user.schema"
