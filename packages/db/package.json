@@ -1,6 +1,5 @@
 {
   "name": "db",
-  "type": "module",
   "exports": "./src/index.ts",
   "scripts": {
     "check:type": "tsc",
