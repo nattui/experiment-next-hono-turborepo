@@ -24,7 +24,6 @@
   "dependencies": {
     "argon2": "^0.44.0",
     "db": "workspace:*",
-    "drizzle-orm": "^0.44.6",
     "hono": "^4.9.9"
   },
   "devDependencies": {

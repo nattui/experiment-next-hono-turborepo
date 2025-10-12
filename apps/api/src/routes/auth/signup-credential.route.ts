@@ -1,6 +1,5 @@
 import { hash } from "argon2"
-import { ACCOUNT, db, PROFILE, USER } from "db"
-import { eq } from "drizzle-orm"
+import { ACCOUNT, db, eq, PROFILE, USER } from "db"
 import type { Context } from "hono"
 import { HTTP_STATUS_CODE } from "@/utils/http-status-code"
 import { setSession } from "@/utils/session.util"
