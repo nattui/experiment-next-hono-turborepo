@@ -3,13 +3,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/client.d.ts",
-      "import": "./dist/client.js"
+      "types": "./dist/utils/client.d.ts",
+      "import": "./dist/utils/client.js"
     }
   },
-  "main": "./dist/client.js",
-  "module": "./dist/client.js",
-  "types": "./dist/client.d.mts",
+  "main": "./dist/utils/client.js",
+  "module": "./dist/utils/client.js",
+  "types": "./dist/utils/client.d.mts",
   "files": [
     "dist"
   ],
