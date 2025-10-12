@@ -9,7 +9,7 @@
   },
   "main": "./dist/utils/client.js",
   "module": "./dist/utils/client.js",
-  "types": "./dist/utils/client.d.mts",
+  "types": "./dist/utils/client.d.ts",
   "files": [
     "dist"
   ],
