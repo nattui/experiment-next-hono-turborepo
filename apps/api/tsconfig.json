@@ -4,7 +4,7 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@/*": ["./src/*", "../../packages/db/src/*"]
+      "@/*": ["../../packages/db/src/*", "./src/*"]
     },
     "skipLibCheck": true
   }
