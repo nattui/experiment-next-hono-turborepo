@@ -3,13 +3,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js"
+      "types": "./dist/app.d.ts",
+      "import": "./dist/app.js"
     }
   },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.mts",
+  "main": "./dist/app.js",
+  "module": "./dist/app.js",
+  "types": "./dist/app.d.mts",
   "files": [
     "dist"
   ],
