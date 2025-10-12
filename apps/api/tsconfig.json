@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "noEmit": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    },
     "skipLibCheck": true
   }
 }

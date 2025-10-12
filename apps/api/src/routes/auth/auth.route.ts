@@ -1,9 +1,9 @@
 import { Hono } from "hono"
-import { verifyMiddleware } from "../../middleware/auth.middleware"
-import { handlerSigninCredential } from "./signin-credential.route"
-import { handlerSignout } from "./signout.route"
-import { handlerSignupCredential } from "./signup-credential.route"
-import { handlerVerify } from "./verify.route"
+import { verifyMiddleware } from "@/middleware/auth.middleware"
+import { handlerSigninCredential } from "@/routes/auth/signin-credential.route"
+import { handlerSignout } from "@/routes/auth/signout.route"
+import { handlerSignupCredential } from "@/routes/auth/signup-credential.route"
+import { handlerVerify } from "@/routes/auth/verify.route"
 
 export const routeAuth = new Hono()
   .get("/verify", verifyMiddleware, handlerVerify)
