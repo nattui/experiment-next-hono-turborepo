@@ -12,4 +12,5 @@ export default defineConfig({
   clean: false,
   dts: true,
   entry: ["src/app.ts", "src/utils/client.ts"],
+  noExternal: "db",
 })
