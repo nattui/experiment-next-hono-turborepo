@@ -2,9 +2,6 @@
   "compilerOptions": {
     "esModuleInterop": true,
     "noEmit": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "skipLibCheck": true
   }
 }
