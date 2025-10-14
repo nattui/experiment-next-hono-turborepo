@@ -11,6 +11,7 @@ import { defineConfig } from "tsdown"
 export default defineConfig({
   clean: false,
   dts: true,
-  entry: ["src/app.ts", "src/utils/client.ts"],
+  entry: "src/app.ts",
+  format: "esm",
   noExternal: "db",
 })

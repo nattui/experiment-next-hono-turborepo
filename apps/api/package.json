@@ -1,23 +1,11 @@
 {
   "name": "api",
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./dist/utils/client.d.ts",
-      "import": "./dist/utils/client.js"
-    }
-  },
-  "main": "./dist/utils/client.js",
-  "module": "./dist/utils/client.js",
-  "types": "./dist/utils/client.d.ts",
-  "files": [
-    "dist"
-  ],
+  "exports": "./src/utils/client.ts",
   "scripts": {
     "build": "bun run check:type && tsdown",
     "check:type": "tsc",
     "dev": "bun run --hot src/app.ts",
-    "dev:package": "tsdown --watch src",
     "start": "bun run dev"
   },
   "dependencies": {
