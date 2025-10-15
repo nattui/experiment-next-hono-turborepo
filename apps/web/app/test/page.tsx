@@ -1,8 +1,7 @@
-import { client } from "@/utils/client"
+import { clientTrpc } from "@/utils/client"
 
 export default async function TestPage() {
-  const response = await client.test.$get()
-  const data = await response.json()
+  const data = await clientTrpc.test.query()
 
-  return <div>{data.data}</div>
+  return <div>{data}</div>
 }
