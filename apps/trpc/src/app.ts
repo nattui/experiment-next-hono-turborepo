@@ -1,6 +1,6 @@
 import { trpcServer } from "@hono/trpc-server"
 import { Hono } from "hono"
-import { appRouter } from "@/router"
+import { appRouter } from "trpc"
 
 const app = new Hono()
 

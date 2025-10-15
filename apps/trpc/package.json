@@ -1,7 +1,7 @@
 {
   "name": "trpc",
   "type": "module",
-  "exports": "./src/router.ts",
+  "exports": "./src/routes/router.ts",
   "scripts": {
     "build": "bun run check:type && tsdown",
     "check:type": "tsc",
