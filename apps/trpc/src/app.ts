@@ -4,7 +4,13 @@ import { appRouter } from "@/router"
 
 const app = new Hono()
 
-app.use("/*", trpcServer({ router: appRouter }))
+app.use(
+  "/*",
+  trpcServer({
+    endpoint: "/",
+    router: appRouter,
+  }),
+)
 
 export default {
   fetch: app.fetch,

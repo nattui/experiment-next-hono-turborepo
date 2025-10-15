@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
         source: "/api/:path*",
       },
       {
-        destination: `${TRPC_URL}/trpc/:path*`,
+        destination: `${TRPC_URL}/:path*`,
         source: "/trpc/:path*",
       },
     ]

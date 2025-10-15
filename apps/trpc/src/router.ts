@@ -46,7 +46,7 @@ export const appRouter = router({
   hello: publicProcedure.query(() => {
     return "Hello Hono!"
   }),
-  test: middlewareAuthVerify.query(async () => {
+  test: publicProcedure.query(async () => {
     return "Hello Hono!"
   }),
   users: publicProcedure.query(async () => {
