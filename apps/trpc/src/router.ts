@@ -5,7 +5,7 @@ import { db } from "@/db"
 import { USER } from "@/schema/user.schema"
 import { getSession } from "@/utils/session.util"
 
-export type AppContext = {
+export interface AppContext {
   honoContext: Context
 }
 
@@ -15,6 +15,8 @@ export const router = t.router
 export const publicProcedure = t.procedure
 
 export const middlewareAuthVerify = publicProcedure.use(async (options) => {
+  console.log(":::: cookies:", options.ctx.honoContext.req.raw.headers)
+
   const session = getSession(options.ctx.honoContext)
 
   console.log(":::: SESSION:", session)
@@ -46,7 +48,7 @@ export const appRouter = router({
   hello: publicProcedure.query(() => {
     return "Hello Hono!"
   }),
-  test: publicProcedure.query(async () => {
+  test: middlewareAuthVerify.query(async () => {
     return "Hello Hono!"
   }),
   users: publicProcedure.query(async () => {

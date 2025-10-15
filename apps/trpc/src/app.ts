@@ -7,6 +7,9 @@ const app = new Hono()
 app.use(
   "/*",
   trpcServer({
+    createContext: (_, c) => ({
+      honoContext: c,
+    }),
     endpoint: "/",
     router: appRouter,
   }),
