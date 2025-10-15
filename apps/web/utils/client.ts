@@ -1,7 +1,10 @@
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
 import { getClient } from "api"
-import { getClient as getClientTrpc } from "trpc"
+import type { AppRouter } from "trpc"
 import { BASE_URL } from "@/utils/url"
 
 export const client = getClient(`${BASE_URL.WEB}/api`)
 
-export const clientTrpc = getClientTrpc(`${BASE_URL.WEB}/trpc`)
+export const clientTrpc = createTRPCProxyClient<AppRouter>({
+  links: [httpBatchLink({ url: `${BASE_URL.WEB}/trpc` })],
+})

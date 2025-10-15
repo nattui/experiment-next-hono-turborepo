@@ -10,6 +10,7 @@
   "dependencies": {
     "@nattui/react-components": "^0.0.16",
     "@nattui/tailwind-tokenless": "^0.0.2",
+    "@trpc/client": "^11.6.0",
     "api": "workspace:*",
     "db": "workspace:*",
     "next": "^16.0.0-canary.1",

@@ -1,7 +1,7 @@
 {
   "name": "trpc",
   "type": "module",
-  "exports": "./src/utils/client.ts",
+  "exports": "./src/router.ts",
   "scripts": {
     "build": "bun run check:type && tsdown",
     "check:type": "tsc",
@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@hono/trpc-server": "^0.4.0",
-    "@trpc/client": "^11.6.0",
     "@trpc/server": "^11.6.0",
     "db": "workspace:*",
     "hono": "^4.9.9"
