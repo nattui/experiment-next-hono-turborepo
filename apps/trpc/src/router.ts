@@ -15,7 +15,7 @@ export const router = t.router
 export const publicProcedure = t.procedure
 
 export const middlewareAuthVerify = publicProcedure.use(async (options) => {
-  console.log(":::: cookies:", options.ctx.honoContext.req.raw.headers)
+  // console.log(":::: cookies:", options.ctx.honoContext.req.raw.headers)
 
   const session = getSession(options.ctx.honoContext)
 
@@ -51,7 +51,7 @@ export const appRouter = router({
   test: middlewareAuthVerify.query(async () => {
     return "Hello Hono!"
   }),
-  users: publicProcedure.query(async () => {
+  users: middlewareAuthVerify.query(async () => {
     const users = await db.select().from(USER)
     return users
   }),
