@@ -1,5 +1,6 @@
 {
   "name": "trpc",
+  "type": "module",
   "scripts": {
     "build": "bun run check:type && tsdown",
     "check:type": "tsc",

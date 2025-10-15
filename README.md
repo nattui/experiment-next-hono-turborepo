@@ -103,5 +103,3 @@ experiment-next-hono-turborepo/
 - `bun run build` - Build for production
 - `bun run start` - Start production server
 - `bun run check:type` - Type check Next.js app
-
-TEST
