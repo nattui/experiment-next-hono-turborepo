@@ -1,10 +1,15 @@
+import { trpcServer } from "@hono/trpc-server"
 import { Hono } from "hono"
+import { appRouter } from "@/router"
 
 const app = new Hono()
-  .get("/", (c) => c.json({ message: "Hello, world!" }))
-  .get("/test", (c) => c.json({ message: "Test" }))
 
-export type AppType = typeof app
+app.use(
+  "/*",
+  trpcServer({
+    router: appRouter,
+  }),
+)
 
 export default {
   fetch: app.fetch,
