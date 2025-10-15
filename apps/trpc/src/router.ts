@@ -19,7 +19,7 @@ export const middlewareAuthVerify = publicProcedure.use(async (options) => {
 
   const session = getSession(options.ctx.honoContext)
 
-  console.log(":::: SESSION:", session)
+  console.log("\n:::: SESSION:", session, "\n")
 
   // if (!session) {
   //   throw new TRPCError({ code: "UNAUTHORIZED" })

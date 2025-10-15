@@ -2,7 +2,7 @@
 
 import type { User } from "db"
 import { useEffect, useState } from "react"
-import { clientTrpc } from "@/utils/client"
+import { trpc } from "@/utils/client"
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
@@ -10,7 +10,7 @@ export function Users() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const users = await clientTrpc.users.query()
+        const users = await trpc.users.query()
         setUsers(users)
       } catch (error) {
         console.error(error)
