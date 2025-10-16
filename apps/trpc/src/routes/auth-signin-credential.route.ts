@@ -38,7 +38,7 @@ export function routeAuthSigninCredential() {
         if (!existingUser) {
           throw new TRPCError({
             code: "UNAUTHORIZED",
-            message: "Invalid email or password",
+            message: "User with this email does not exist.",
           })
         }
 
@@ -48,7 +48,7 @@ export function routeAuthSigninCredential() {
         if (!isPasswordCorrect) {
           throw new TRPCError({
             code: "UNAUTHORIZED",
-            message: "Invalid email or password",
+            message: "Invalid email or password.",
           })
         }
 
@@ -59,9 +59,10 @@ export function routeAuthSigninCredential() {
         })
       } catch (error) {
         if (error instanceof TRPCError) throw error
+        console.error(error)
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to sign in.",
+          message: "An unexpected error occurred. Please try again later.",
         })
       }
     })

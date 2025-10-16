@@ -28,7 +28,7 @@ export function routeAuthSignupCredential() {
         if (existingUser) {
           throw new TRPCError({
             code: "CONFLICT",
-            message: "User with this email already exists",
+            message: "User with this email already exists.",
           })
         }
 
@@ -64,7 +64,7 @@ export function routeAuthSignupCredential() {
         if (error instanceof TRPCError) throw error
         throw new TRPCError({
           code: "INTERNAL_SERVER_ERROR",
-          message: "Failed to sign in.",
+          message: "An unexpected error occurred. Please try again later.",
         })
       }
     })
