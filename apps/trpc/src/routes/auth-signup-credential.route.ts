@@ -14,7 +14,7 @@ const schemaSignupCredential = z.object({
 export function routeAuthSignupCredential() {
   return publicProcedure
     .input(schemaSignupCredential)
-    .query(async (options) => {
+    .mutation(async (options) => {
       try {
         const { email, name, password } = options.input
 

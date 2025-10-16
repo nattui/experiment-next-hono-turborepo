@@ -32,7 +32,7 @@ export default function SignUpForm() {
 
     setIsLoading(true)
     try {
-      await trpc.authSignupCredential.query({
+      await trpc.authSignupCredential.mutate({
         email,
         name,
         password,

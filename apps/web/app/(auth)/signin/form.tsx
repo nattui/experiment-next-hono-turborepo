@@ -27,7 +27,7 @@ export default function SignInForm() {
 
     setIsLoading(true)
     try {
-      await trpc.authSigninCredential.query({
+      await trpc.authSigninCredential.mutate({
         email,
         password,
       })
