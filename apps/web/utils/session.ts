@@ -2,23 +2,16 @@
 
 import { cookies as getCookies } from "next/headers"
 import { cache } from "react"
-import { client } from "@/utils/client"
+import { trpc } from "@/utils/client"
 
 async function uncachedGetIsAuthenticated(): Promise<boolean> {
   try {
     const cookies = await getCookies()
-    const response = await client.auth.verify.$get(
-      {},
-      {
-        headers: {
-          Cookie: cookies.toString(),
-        },
-      },
-    )
-    if (!response.ok) return false
-    return true
-  } catch (error) {
-    console.error(error)
+    const session = cookies.get("session")?.value ?? ""
+    if (!session) return false
+    const isAuthenticated = await trpc.authVerify.query({ session })
+    return isAuthenticated
+  } catch {
     return false
   }
 }

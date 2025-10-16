@@ -1,5 +1,6 @@
 import { initTRPC } from "@trpc/server"
 import type { Context } from "hono"
+import { routeAuthVerify } from "@/routes/auth-verify.route"
 import { routeTest } from "@/routes/test.route"
 import { routeUsers } from "@/routes/users.route"
 
@@ -13,9 +14,7 @@ export const router = t.router
 export const publicProcedure = t.procedure
 
 export const appRouter = router({
-  authVerify: publicProcedure.query(async () => {
-    return {}
-  }),
+  authVerify: routeAuthVerify(),
   hello: routeTest(),
   test: routeTest(),
   users: routeUsers(),
