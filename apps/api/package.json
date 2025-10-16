@@ -1,7 +1,7 @@
 {
   "name": "api",
   "type": "module",
-  "exports": "./src/utils/client.ts",
+  "exports": "./src/index.ts",
   "scripts": {
     "build": "bun run check:type && tsdown",
     "check:type": "tsc",
@@ -9,9 +9,12 @@
     "start": "bun run dev"
   },
   "dependencies": {
+    "@hono/trpc-server": "^0.4.0",
+    "@trpc/server": "^11.6.0",
     "argon2": "^0.44.0",
     "db": "workspace:*",
-    "hono": "^4.9.9"
+    "hono": "^4.9.9",
+    "zod": "^4.1.12"
   },
   "devDependencies": {
     "@types/bun": "^1.3.0",

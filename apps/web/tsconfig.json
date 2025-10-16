@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "noEmit": true,
     "paths": {
-      "@/*": ["./*", "../../packages/db/src/*", "../api/src/*", "../trpc/src/*"]
+      "@/*": ["./*", "../../packages/db/src/*", "../api/src/*"]
     },
     "plugins": [
       {

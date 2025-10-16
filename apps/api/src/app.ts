@@ -1,14 +1,19 @@
+import { trpcServer } from "@hono/trpc-server"
 import { Hono } from "hono"
-import { loggerMiddleware } from "@/middleware/logger.middleware"
-import { routeAuth } from "@/routes/auth/auth.route"
-import { routeMain } from "@/routes/main/main.route"
+import { appRouter } from "@/routes/router"
 
 const app = new Hono()
-  .use(loggerMiddleware())
-  .route("/", routeMain)
-  .route("/auth", routeAuth)
 
-export type AppType = typeof app
+app.use(
+  "/*",
+  trpcServer({
+    createContext: (_, c) => ({
+      honoContext: c,
+    }),
+    endpoint: "/",
+    router: appRouter,
+  }),
+)
 
 export default {
   fetch: app.fetch,
