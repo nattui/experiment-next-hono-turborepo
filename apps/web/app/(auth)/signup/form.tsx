@@ -3,7 +3,7 @@
 import { Button, Input, Label } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
-import { trpc } from "@/utils/client"
+import { client } from "@/utils/client"
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -32,7 +32,7 @@ export default function SignUpForm() {
 
     setIsLoading(true)
     try {
-      await trpc.authSignupCredential.mutate({
+      await client.authSignupCredential.mutate({
         email,
         name,
         password,
