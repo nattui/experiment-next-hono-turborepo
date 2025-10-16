@@ -3,7 +3,7 @@
 import { Button, Input, Label } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
-import { client } from "@/utils/client"
+import { trpc } from "@/utils/client"
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -13,18 +13,30 @@ export default function SignUpForm() {
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const formData = new FormData(event.target as HTMLFormElement)
+    const form = event.currentTarget
+    if (!(form instanceof HTMLFormElement)) {
+      throw new Error("Form is not a valid HTML form element.")
+    }
+    const formData = new FormData(form)
+
     const email = formData.get("email")
     const name = formData.get("name")
     const password = formData.get("password")
+    if (
+      typeof email !== "string" ||
+      typeof name !== "string" ||
+      typeof password !== "string"
+    ) {
+      throw new Error("Email, name, and password must be strings.")
+    }
+
     setIsLoading(true)
     try {
-      const response = await client.auth.signup.credential.$post({
-        json: { email, name, password },
+      await trpc.authSignupCredential.query({
+        email,
+        name,
+        password,
       })
-      if (!response.ok) {
-        throw new Error("Failed to sign up.")
-      }
       router.refresh()
     } catch {
       setIsLoading(false)

@@ -5,9 +5,14 @@ import { z } from "zod"
 import { publicProcedure } from "@/routes/router"
 import { setSession } from "@/utils/session.util"
 
+const schemaSigninCredential = z.object({
+  email: z.string(),
+  password: z.string(),
+})
+
 export function routeAuthSigninCredential() {
   return publicProcedure
-    .input(z.object({ email: z.string(), password: z.string() }))
+    .input(schemaSigninCredential)
     .query(async (options) => {
       try {
         const { email, password } = options.input

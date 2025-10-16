@@ -14,12 +14,16 @@ export default function SignInForm() {
     event.preventDefault()
 
     const form = event.currentTarget
-    if (!(form instanceof HTMLFormElement)) return
+    if (!(form instanceof HTMLFormElement)) {
+      throw new Error("Form is not a valid HTML form element.")
+    }
     const formData = new FormData(form)
 
     const email = formData.get("email")
     const password = formData.get("password")
-    if (typeof email !== "string" || typeof password !== "string") return
+    if (typeof email !== "string" || typeof password !== "string") {
+      throw new Error("Email and password must be strings.")
+    }
 
     setIsLoading(true)
     try {
