@@ -3,7 +3,7 @@
 import { Button, type ButtonProps } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type MouseEvent, useState } from "react"
-import { client } from "@/utils/client"
+import { trpc } from "@/utils/client"
 
 function ButtonSignOut(props: ButtonProps) {
   const { variant = "secondary" } = props
@@ -16,10 +16,7 @@ function ButtonSignOut(props: ButtonProps) {
     event.preventDefault()
     setIsLoading(true)
     try {
-      const response = await client.auth.signout.$post()
-      if (!response.ok) {
-        throw new Error("Failed to sign out.")
-      }
+      await trpc.authSignoutCredential.mutate()
       router.push("/signin")
       router.refresh()
     } catch {
