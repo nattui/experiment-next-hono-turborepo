@@ -65,13 +65,12 @@ export const signupCredential = base
         })
       })
     } catch (error) {
+      console.error(error)
+
       if (error instanceof ORPCError) {
         throw error
       }
 
-      throw new ORPCError("INTERNAL_SERVER_ERROR", {
-        data: error,
-        message: "An unexpected error occurred. Please try again later.",
-      })
+      throw options.errors.INTERNAL_SERVER_ERROR()
     }
   })

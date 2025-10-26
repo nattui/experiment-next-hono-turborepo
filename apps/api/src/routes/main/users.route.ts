@@ -11,7 +11,7 @@ export const users = base
     tags: ["Main"],
   })
   .output(z.array(schemaSelectUser))
-  .handler(async () => {
+  .handler(async (options) => {
     try {
       const users = await db.select().from(USER)
       return users
@@ -19,10 +19,6 @@ export const users = base
       if (error instanceof ORPCError) {
         throw error
       }
-
-      throw new ORPCError("INTERNAL_SERVER_ERROR", {
-        data: error,
-        message: "An unexpected error occurred. Please try again later.",
-      })
+      throw options.errors.INTERNAL_SERVER_ERROR()
     }
   })
