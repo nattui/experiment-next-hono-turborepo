@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { base } from "@/routes/context"
+import { base } from "@/utils/context.util"
 import { verifySession } from "@/utils/session.util"
 
 const schemaAuthVerify = z.object({

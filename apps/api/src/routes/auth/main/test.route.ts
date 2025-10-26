@@ -1,4 +1,4 @@
-import { base } from "@/routes/context"
+import { base } from "@/utils/context.util"
 
 export const test = base
   .route({

@@ -1,5 +1,5 @@
 import { db } from "@/db"
-import { base } from "@/routes/context"
+import { base } from "@/utils/context.util"
 import { USER } from "@/schema/user.schema"
 
 export const users = base

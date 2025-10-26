@@ -1,4 +1,4 @@
-import { base } from "@/routes/context"
+import { base } from "@/utils/context.util"
 import { deleteSession } from "@/utils/session.util"
 
 export const signout = base

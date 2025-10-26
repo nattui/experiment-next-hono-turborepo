@@ -3,7 +3,7 @@ import { hash } from "argon2"
 import { ACCOUNT, eq, PROFILE, USER } from "db"
 import { z } from "zod"
 import { db } from "@/db"
-import { base } from "@/routes/context"
+import { base } from "@/utils/context.util"
 import { setSession } from "@/utils/session.util"
 
 const schemaSignupCredential = z.object({
