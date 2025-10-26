@@ -44,10 +44,6 @@ export const PROFILE = pgTable("profile", {
     .references(() => USER.id, { onDelete: "cascade" }),
 })
 
-export const schemaUserSelect = createSelectSchema(USER)
-export const schemaAccountSelect = createSelectSchema(ACCOUNT)
-export const schemaProfileSelect = createSelectSchema(PROFILE)
-
 export type User = typeof USER.$inferSelect
 export type Account = typeof ACCOUNT.$inferSelect
 export type Profile = typeof PROFILE.$inferSelect
