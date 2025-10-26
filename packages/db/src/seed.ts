@@ -84,6 +84,19 @@ async function main() {
     },
   }))
 
+  // Reset sequences after seeding to avoid primary key conflicts
+  console.log("Resetting sequences...")
+  await db.execute(`
+    SELECT setval(pg_get_serial_sequence('user', 'id'), COALESCE((SELECT MAX(id) FROM "user"), 1));
+  `)
+  await db.execute(`
+    SELECT setval(pg_get_serial_sequence('account', 'id'), COALESCE((SELECT MAX(id) FROM "account"), 1));
+  `)
+  await db.execute(`
+    SELECT setval(pg_get_serial_sequence('profile', 'id'), COALESCE((SELECT MAX(id) FROM "profile"), 1));
+  `)
+  console.log("Sequences reset successfully!")
+
   await client.end()
 }
 
