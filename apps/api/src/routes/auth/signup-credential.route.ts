@@ -65,8 +65,6 @@ export const signupCredential = base
         })
       })
     } catch (error) {
-      console.error(error)
-
       if (error instanceof ORPCError) {
         throw error
       }
