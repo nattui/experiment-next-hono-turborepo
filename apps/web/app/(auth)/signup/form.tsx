@@ -3,7 +3,7 @@
 import { Button, Input, Label } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type FormEvent, useState } from "react"
-import { client } from "@/utils/client"
+import { orpc } from "@/utils/client"
 
 export default function SignUpForm() {
   const router = useRouter()
@@ -32,7 +32,7 @@ export default function SignUpForm() {
 
     setIsLoading(true)
     try {
-      await client.authSignupCredential.mutate({
+      await orpc.auth.signupCredential({
         email,
         name,
         password,

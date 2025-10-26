@@ -1,13 +1,10 @@
-import { createTRPCProxyClient, httpBatchLink, loggerLink } from "@trpc/client"
-import type { AppRouter } from "api"
+import { createORPCClient } from "@orpc/client"
+import { RPCLink } from "@orpc/client/fetch"
+import type { Router } from "api"
 import { BASE_URL } from "@/utils/url"
 
-export const client = createTRPCProxyClient<AppRouter>({
-  links: [
-    loggerLink({
-      enabled: () =>
-        process.env.NODE_ENV === "development" && typeof window !== "undefined",
-    }),
-    httpBatchLink({ url: `${BASE_URL.WEB}/api` }),
-  ],
-})
+export const orpc: Router = createORPCClient(
+  new RPCLink({
+    url: `${BASE_URL.WEB}/api`,
+  }),
+)
