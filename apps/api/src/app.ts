@@ -19,7 +19,15 @@ app.get("/openapi.json", async (context) => {
   return context.json(spec)
 })
 
-app.get("/docs", Scalar({ url: "/openapi.json" }))
+app.get(
+  "/docs",
+  Scalar({
+    defaultOpenAllTags: true,
+    expandAllResponses: true,
+    hideClientButton: true,
+    url: "/openapi.json",
+  }),
+)
 
 app.use("/*", async (context, next) => {
   const { matched, response } = await handler.handle(context.req.raw, {
