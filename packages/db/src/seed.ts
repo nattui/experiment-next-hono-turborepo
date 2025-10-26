@@ -85,6 +85,7 @@ async function main() {
   }))
 
   // Reset sequences after seeding to avoid primary key conflicts
+  // Docs: https://github.com/drizzle-team/drizzle-orm/issues/3915
   console.log("Resetting sequences...")
   await db.execute(`
     SELECT setval(pg_get_serial_sequence('user', 'id'), COALESCE((SELECT MAX(id) FROM "user"), 1));
