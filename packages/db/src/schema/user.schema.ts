@@ -6,6 +6,7 @@ import {
   text,
   timestamp,
 } from "drizzle-orm/pg-core"
+import { createSelectSchema } from "drizzle-zod"
 
 export const USER = pgTable("user", {
   createdAt: timestamp({ mode: "string" }).defaultNow().notNull(),
@@ -46,3 +47,7 @@ export const PROFILE = pgTable("profile", {
 export type User = typeof USER.$inferSelect
 export type Account = typeof ACCOUNT.$inferSelect
 export type Profile = typeof PROFILE.$inferSelect
+
+export const schemaSelectUser = createSelectSchema(USER)
+export const schemaSelectAccount = createSelectSchema(ACCOUNT)
+export const schemaSelectProfile = createSelectSchema(PROFILE)

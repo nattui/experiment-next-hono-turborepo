@@ -5,6 +5,9 @@ export {
   type Account,
   PROFILE,
   type Profile,
+  schemaSelectAccount,
+  schemaSelectProfile,
+  schemaSelectUser,
   USER,
   type User,
 } from "@/schema/user.schema"
