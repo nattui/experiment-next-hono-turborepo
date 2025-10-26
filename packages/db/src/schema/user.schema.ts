@@ -6,7 +6,6 @@ import {
   text,
   timestamp,
 } from "drizzle-orm/pg-core"
-import { createSelectSchema } from "drizzle-zod"
 
 export const USER = pgTable("user", {
   createdAt: timestamp({ mode: "string" }).defaultNow().notNull(),
