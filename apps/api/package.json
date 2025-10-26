@@ -9,11 +9,7 @@
     "start": "bun run dev"
   },
   "dependencies": {
-    "@orpc/client": "^1.10.2",
-    "@orpc/openapi": "^1.10.2",
     "@orpc/server": "^1.10.2",
-    "@orpc/zod": "^1.10.2",
-    "@scalar/hono-api-reference": "^0.9.22",
     "argon2": "^0.44.0",
     "db": "workspace:*",
     "hono": "^4.10.2",
