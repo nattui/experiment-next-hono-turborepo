@@ -2,9 +2,11 @@ import { z } from "zod"
 import { base } from "@/utils/context.util"
 import { verifySession } from "@/utils/session.util"
 
-const schemaAuthVerify = z.object({
+const schemaAuthVerifyInput = z.object({
   session: z.string(),
 })
+
+const schemaAuthVerifyOutput = z.boolean()
 
 export const verify = base
   .route({
@@ -12,7 +14,8 @@ export const verify = base
     summary: "Verify user",
     tags: ["Authentication"],
   })
-  .input(schemaAuthVerify)
+  .input(schemaAuthVerifyInput)
+  .output(schemaAuthVerifyOutput)
   .handler(async (options) => {
     try {
       const session = options.input.session
