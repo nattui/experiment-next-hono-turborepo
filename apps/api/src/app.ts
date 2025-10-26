@@ -3,11 +3,12 @@ import { RPCHandler } from "@orpc/server/fetch"
 import { ZodToJsonSchemaConverter } from "@orpc/zod/zod4"
 import { Scalar } from "@scalar/hono-api-reference"
 import { Hono } from "hono"
+import { loggerMiddleware } from "@/middleware /logger.middleware"
 import { router } from "@/routes/router"
 
 const app = new Hono()
 
-const handler = new RPCHandler(router)
+app.use(loggerMiddleware())
 
 app.get("/openapi.json", async (context) => {
   const generator = new OpenAPIGenerator({
@@ -28,6 +29,8 @@ app.get(
     url: "/openapi.json",
   }),
 )
+
+const handler = new RPCHandler(router)
 
 app.use("/*", async (context, next) => {
   const { matched, response } = await handler.handle(context.req.raw, {
