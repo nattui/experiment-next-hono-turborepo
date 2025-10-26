@@ -11,7 +11,7 @@ export function Navbar(props: NavbarProps) {
   return (
     <header className="flex h-64 items-center gap-16 px-16">
       <NavbarLink href="/">Home</NavbarLink>
-      <NavbarLink href="/test">Test</NavbarLink>
+      <NavbarLink href="/health">Health</NavbarLink>
       {!isAuthenticated && <NavbarLink href="/signin">Sign in</NavbarLink>}
       {!isAuthenticated && <NavbarLink href="/signup">Sign up</NavbarLink>}
       {isAuthenticated && <ButtonSignOut />}

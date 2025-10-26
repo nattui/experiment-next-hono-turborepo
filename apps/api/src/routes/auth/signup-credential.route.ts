@@ -15,6 +15,8 @@ const schemaSignupCredential = z.object({
 export const signupCredential = base
   .route({
     method: "POST",
+    summary: "Sign up user with credential",
+    tags: ["Authentication"],
   })
   .input(schemaSignupCredential)
   .handler(async (options) => {

@@ -27,7 +27,7 @@ export default function SignInForm() {
 
     setIsLoading(true)
     try {
-      await client.auth.signinCredential({
+      await client.auth.signin.credential({
         email,
         password,
       })

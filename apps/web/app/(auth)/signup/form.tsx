@@ -32,7 +32,7 @@ export default function SignUpForm() {
 
     setIsLoading(true)
     try {
-      await client.auth.signupCredential({
+      await client.auth.signup.credential({
         email,
         name,
         password,

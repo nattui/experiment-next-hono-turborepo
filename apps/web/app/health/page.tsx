@@ -1,7 +1,7 @@
 import { client } from "@/utils/client"
 
-export default async function TestPage() {
-  const data = await client.test()
+export default async function HealthPage() {
+  const data = await client.health()
 
   return (
     <div>

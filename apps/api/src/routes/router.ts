@@ -3,17 +3,21 @@ import { signinCredential } from "@/routes/auth/signin-credential.route"
 import { signout } from "@/routes/auth/signout.route"
 import { signupCredential } from "@/routes/auth/signup-credential.route"
 import { verify } from "@/routes/auth/verify.route"
-import { test } from "@/routes/main/test.route"
+import { health } from "@/routes/main/health.route"
 import { users } from "@/routes/main/users.route"
 
 export const router = {
   auth: {
-    signinCredential,
+    signin: {
+      credential: signinCredential,
+    },
     signout,
-    signupCredential,
+    signup: {
+      credential: signupCredential,
+    },
     verify,
   },
-  test,
+  health,
   users,
 }
 

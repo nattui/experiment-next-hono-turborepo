@@ -9,6 +9,8 @@ const schemaAuthVerify = z.object({
 export const verify = base
   .route({
     method: "GET",
+    summary: "Verify user",
+    tags: ["Authentication"],
   })
   .input(schemaAuthVerify)
   .handler(async (options) => {
