@@ -7,7 +7,7 @@ async function main() {
     throw new Error("DATABASE_URL is not set")
   }
 
-  const COUNT = 20
+  const COUNT = 10
   const VERSION = "2"
 
   await seed(
