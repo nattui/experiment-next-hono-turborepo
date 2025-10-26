@@ -1,7 +1,9 @@
-import { publicProcedure } from "@/routes/router"
+import { base } from "@/routes/context"
 
-export function routeTest() {
-  return publicProcedure.query(async () => {
+export const test = base
+  .route({
+    method: "GET",
+  })
+  .handler(async () => {
     return "Hello Hono!"
   })
-}

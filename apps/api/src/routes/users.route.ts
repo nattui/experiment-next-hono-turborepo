@@ -1,9 +1,12 @@
-import { db, USER } from "db"
-import { publicProcedure } from "@/routes/router"
+import { db } from "@/db"
+import { base } from "@/routes/context"
+import { USER } from "@/schema/user.schema"
 
-export function routeUsers() {
-  return publicProcedure.query(async () => {
+export const users = base
+  .route({
+    method: "GET",
+  })
+  .handler(async () => {
     const users = await db.select().from(USER)
     return users
   })
-}

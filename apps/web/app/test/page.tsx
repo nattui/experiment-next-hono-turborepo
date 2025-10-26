@@ -1,7 +1,7 @@
-import { client } from "@/utils/client"
+import { orpc } from "@/utils/client"
 
 export default async function TestPage() {
-  const data = await client.test.query()
+  const data = await orpc.test()
 
   return (
     <div>

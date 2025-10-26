@@ -1,29 +1,20 @@
-import { initTRPC } from "@trpc/server"
-import type { Context } from "hono"
-import { routeAuthSigninCredential } from "@/routes/auth-signin-credential.route"
-import { routeAuthSignoutCredential } from "@/routes/auth-signout-credential.route"
-import { routeAuthSignupCredential } from "@/routes/auth-signup-credential.route"
-import { routeAuthVerify } from "@/routes/auth-verify.route"
-import { routeTest } from "@/routes/test.route"
-import { routeUsers } from "@/routes/users.route"
+import type { RouterClient } from "@orpc/server"
+import { authSigninCredential } from "@/routes/auth-signin-credential.route"
+import { authSignout } from "@/routes/auth-signout.route"
+import { authSignupCredential } from "@/routes/auth-signup-credential.route"
+import { authVerify } from "@/routes/auth-verify.route"
+import { test } from "@/routes/test.route"
+import { users } from "@/routes/users.route"
 
-export interface AppContext {
-  honoContext: Context
+export const router = {
+  auth: {
+    signinCredential: authSigninCredential,
+    signout: authSignout,
+    signupCredential: authSignupCredential,
+    verify: authVerify,
+  },
+  test,
+  users,
 }
 
-const t = initTRPC.context<AppContext>().create()
-
-export const router = t.router
-export const publicProcedure = t.procedure
-
-export const appRouter = router({
-  authSigninCredential: routeAuthSigninCredential(),
-  authSignoutCredential: routeAuthSignoutCredential(),
-  authSignupCredential: routeAuthSignupCredential(),
-  authVerify: routeAuthVerify(),
-  hello: routeTest(),
-  test: routeTest(),
-  users: routeUsers(),
-})
-
-export type AppRouter = typeof appRouter
+export type Router = RouterClient<typeof router>

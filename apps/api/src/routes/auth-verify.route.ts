@@ -1,13 +1,17 @@
 import { z } from "zod"
-import { publicProcedure } from "@/routes/router"
+import { base } from "@/routes/context"
 import { verifySession } from "@/utils/session.util"
 
 const schemaAuthVerify = z.object({
   session: z.string(),
 })
 
-export function routeAuthVerify() {
-  return publicProcedure.input(schemaAuthVerify).query(async (options) => {
+export const authVerify = base
+  .route({
+    method: "GET",
+  })
+  .input(schemaAuthVerify)
+  .handler(async (options) => {
     try {
       const session = options.input.session
       if (!session) return false
@@ -20,4 +24,3 @@ export function routeAuthVerify() {
       return false
     }
   })
-}

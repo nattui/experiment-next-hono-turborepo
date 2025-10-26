@@ -10,7 +10,7 @@
   "dependencies": {
     "@nattui/react-components": "^0.0.22",
     "@nattui/tailwind-tokenless": "^0.0.5",
-    "@trpc/client": "^11.6.0",
+    "@orpc/client": "^1.10.2",
     "api": "workspace:*",
     "db": "workspace:*",
     "next": "^16.0.0",
