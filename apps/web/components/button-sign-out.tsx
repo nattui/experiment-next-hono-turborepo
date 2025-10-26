@@ -3,7 +3,7 @@
 import { Button, type ButtonProps } from "@nattui/react-components"
 import { useRouter } from "next/navigation"
 import { type MouseEvent, useState } from "react"
-import { orpc } from "@/utils/client"
+import { client } from "@/utils/client"
 
 function ButtonSignOut(props: ButtonProps) {
   const { variant = "secondary" } = props
@@ -16,7 +16,7 @@ function ButtonSignOut(props: ButtonProps) {
     event.preventDefault()
     setIsLoading(true)
     try {
-      await orpc.auth.signout()
+      await client.auth.signout()
       router.push("/signin")
       router.refresh()
     } catch {

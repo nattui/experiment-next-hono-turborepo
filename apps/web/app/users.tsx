@@ -2,7 +2,7 @@
 
 import type { User } from "db"
 import { useEffect, useState } from "react"
-import { orpc } from "@/utils/client"
+import { client } from "@/utils/client"
 
 export function Users() {
   const [users, setUsers] = useState<User[]>([])
@@ -10,7 +10,7 @@ export function Users() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const users = await orpc.users()
+        const users = await client.users()
         setUsers(users)
       } catch (error) {
         console.error(error)
