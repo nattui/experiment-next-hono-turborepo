@@ -8,15 +8,25 @@ async function main() {
   }
 
   const COUNT = 20
+  const VERSION = "2"
 
   await seed(
     db,
-    { account: ACCOUNT, profile: PROFILE, user: USER },
-    { count: COUNT },
+    {
+      account: ACCOUNT,
+      profile: PROFILE,
+      user: USER,
+    },
+    {
+      count: COUNT,
+      version: VERSION,
+    },
   ).refine((f) => ({
     account: {
       columns: {
-        password: f.loremIpsum({ sentencesCount: 1 }),
+        password: f.loremIpsum({
+          sentencesCount: 1,
+        }),
         provider: f.valuesFromArray({
           values: [
             {
