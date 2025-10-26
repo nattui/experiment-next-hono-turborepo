@@ -12,7 +12,7 @@ const schemaSignupCredential = z.object({
   password: z.string(),
 })
 
-export const authSignupCredential = base
+export const signupCredential = base
   .route({
     method: "POST",
   })
@@ -63,6 +63,10 @@ export const authSignupCredential = base
         })
       })
     } catch (error) {
+      if (error instanceof ORPCError) {
+        throw error
+      }
+
       throw new ORPCError("INTERNAL_SERVER_ERROR", {
         data: error,
         message: "An unexpected error occurred. Please try again later.",

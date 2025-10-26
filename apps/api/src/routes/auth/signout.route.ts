@@ -1,7 +1,7 @@
 import { base } from "@/routes/context"
 import { deleteSession } from "@/utils/session.util"
 
-export const authSignout = base
+export const signout = base
   .route({
     method: "POST",
   })

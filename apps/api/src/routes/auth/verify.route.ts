@@ -6,7 +6,7 @@ const schemaAuthVerify = z.object({
   session: z.string(),
 })
 
-export const authVerify = base
+export const verify = base
   .route({
     method: "GET",
   })
