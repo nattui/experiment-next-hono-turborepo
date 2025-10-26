@@ -7,10 +7,12 @@ async function main() {
     throw new Error("DATABASE_URL is not set")
   }
 
+  const COUNT = 20
+
   await seed(
     db,
     { account: ACCOUNT, profile: PROFILE, user: USER },
-    { count: 10 },
+    { count: COUNT },
   ).refine((f) => ({
     account: {
       columns: {
@@ -43,7 +45,18 @@ async function main() {
     user: {
       columns: {
         email: f.email(),
-        emailVerified: f.boolean(),
+        emailVerified: f.valuesFromArray({
+          values: [
+            {
+              values: [true],
+              weight: 0,
+            },
+            {
+              values: [false],
+              weight: 1,
+            },
+          ],
+        }),
         name: f.fullName(),
         role: f.valuesFromArray({
           values: [
