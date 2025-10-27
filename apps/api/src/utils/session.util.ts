@@ -1,11 +1,22 @@
 import type { Context } from "hono"
+import type { JWTPayload } from "hono/utils/jwt/types"
 import { deleteCookie, getCookie, setCookie } from "hono/cookie"
 import { sign, verify } from "hono/jwt"
-import type { JWTPayload } from "hono/utils/jwt/types"
 import { JWT_SECRET } from "@/utils/constant.util"
 
 export const EXPIRATION_TIME_IN_MILLISECONDS = 31_536_000_000 // 1 year
 export const JWT_ALGORITHM = "HS256"
+
+interface SetSessionParams {
+  context: Context
+  id: number
+  now: Date
+}
+
+interface SignSessionParams extends JWTPayload {
+  id: number
+  now: Date
+}
 
 export function deleteSession(context: Context): void {
   deleteCookie(context, "session")
@@ -13,12 +24,6 @@ export function deleteSession(context: Context): void {
 
 export function getSession(context: Context): string | undefined {
   return getCookie(context, "session")
-}
-
-interface SetSessionParams {
-  context: Context
-  id: number
-  now: Date
 }
 
 export async function setSession(params: SetSessionParams): Promise<void> {
@@ -35,11 +40,6 @@ export async function setSession(params: SetSessionParams): Promise<void> {
     sameSite: "lax",
     secure: true,
   })
-}
-
-interface SignSessionParams extends JWTPayload {
-  id: number
-  now: Date
 }
 
 export async function signSession(params: SignSessionParams): Promise<string> {

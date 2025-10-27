@@ -69,8 +69,8 @@ textarea {
 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  margin: 0;
   -webkit-appearance: none;
+  margin: 0;
 }
 
 /*

@@ -1,5 +1,5 @@
-import { logger } from "hono/logger"
 import type { MiddlewareHandler } from "hono/types"
+import { logger } from "hono/logger"
 
 const isDevelopment = process.env.NODE_ENV === "development"
 
