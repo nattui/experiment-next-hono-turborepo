@@ -1,6 +1,7 @@
 import pluginJs from "@eslint/js"
 import pluginPerfectionist from "eslint-plugin-perfectionist"
 import pluginReact from "eslint-plugin-react"
+import pluginReactHooks from "eslint-plugin-react-hooks"
 import pluginUnicorn from "eslint-plugin-unicorn"
 import pluginUnusedImports from "eslint-plugin-unused-imports"
 import { defineConfig } from "eslint/config"
@@ -14,6 +15,7 @@ export default defineConfig([
     extends: [
       pluginJs.configs["recommended"],
       pluginPerfectionist.configs["recommended-natural"],
+      pluginReactHooks.configs.flat["recommended-latest"],
       pluginTsEslint.configs["recommended"],
       pluginUnicorn.configs["all"],
     ],
@@ -21,7 +23,6 @@ export default defineConfig([
     plugins: {
       js: pluginJs,
       react: pluginReact,
-      // "react-hooks": pluginReactHooks,
       "unused-imports": pluginUnusedImports,
     },
     rules: {
