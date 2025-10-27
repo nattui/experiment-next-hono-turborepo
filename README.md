@@ -1,105 +1,108 @@
-# Experiment Next.js + Hono + Turborepo
+### Experiment: Next.js + Hono (Bun) + Turborepo
 
-A modern full-stack web application built with Next.js, Hono, and Turborepo. This project demonstrates a monorepo setup with a React frontend and a lightweight Hono API backend, featuring user authentication, database integration, and modern development tooling.
+A minimal monorepo demonstrating a typed full‑stack setup:
+- **Web app**: Next.js 16 (React 19) with Tailwind CSS v4 and `@nattui` UI
+- **API**: Hono on Bun with oRPC, auto‑generated OpenAPI and live API docs
+- **DB**: Drizzle ORM on Postgres with schema, migrations, and seeding
+- **Monorepo**: Turborepo, Biome for formatting/linting
 
-## 📁 Project Structure
+## Structure
+- `apps/api`: Hono + oRPC server (Bun), OpenAPI generator, Scalar API reference
+- `apps/web`: Next.js app, calls API via oRPC client + Next rewrites
+- `packages/db`: Drizzle ORM schema, migrations, seed utilities
+- `scripts`: repo utilities (clean, sort package.json)
 
-```
-experiment-next-hono-turborepo/
-├── apps/
-│   ├── api/                 # Hono API server
-│   │   ├── src/
-│   │   │   ├── app.ts       # Main application entry
-│   │   │   ├── middleware/  # Authentication & logging
-│   │   │   ├── routes/      # API endpoints
-│   │   │   └── utils/       # Database, sessions, utilities
-│   │   └── drizzle.config.ts
-│   └── web/                 # Next.js frontend
-│       ├── app/             # App Router pages
-│       ├── components/      # React components
-│       ├── styles/          # CSS and Tailwind styles
-│       └── utils/           # Client utilities
-├── scripts/                 # Build and utility scripts
-└── package.json            # Root workspace configuration
+## Quickstart
+1) Install dependencies (workspace-aware)
+```bash
+bun install
 ```
 
-## 🚀 Quick Start
+2) Start Postgres (example via Docker)
+```bash
+docker run --name exp-next-hono-pg -e POSTGRES_USER=postgres \
+  -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=experiment \
+  -p 5432:5432 -d postgres:16-alpine
+```
 
-1. **Install dependencies**
-   ```bash
-   bun install
-   ```
+3) Create environment files
+- `apps/api/.env`
+```env
+# Required
+JWT_SECRET=replace-with-a-long-random-string
+DATABASE_URL=postgres://postgres:postgres@localhost:5432/experiment
+```
+- `apps/web/.env`
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3002
+NEXT_PUBLIC_WEB_URL=http://localhost:3001
+```
 
-2. **Set up environment variables**
+4) Prepare database (Drizzle)
+```bash
+# from repo root
+bun --cwd packages/db run db:generate
+bun --cwd packages/db run db:migrate
+bun --cwd packages/db run db:seed
+```
 
-   Create `.env` files in both apps:
+5) Run all apps in dev
+```bash
+bun run dev
+```
+- Web: http://localhost:3001
+- API: http://localhost:3002
+- API Docs (Scalar): http://localhost:3002/docs
+- OpenAPI JSON: http://localhost:3002/openapi.json
 
-   **`apps/api/.env`**
-   ```env
-   DATABASE_URL="postgresql://username:password@localhost:5432/database_name"
-   JWT_SECRET="da38a2f10f3a4d85941fd6665f7413d6086d2167281419b1254a2a034e53cd55"
-   NODE_ENV="development"
-   ```
+## Scripts
+Root (Turborepo)
+- `bun run dev`: run all dev servers (no cache, persistent)
+- `bun run build`: build all packages/apps
+- `bun run start`: start all apps (`web` on port 3001; `api` on 3002)
+- `bun run check`: Biome check
+- `bun run check:fix`: Biome fix (unsafe)
+- `bun run check:type`: type check via Turborepo
+- `bun run clean`: repo clean
+- `bun run update`: update deps (recursive)
 
-   **`apps/web/.env.local`**
-   ```env
-   NEXT_PUBLIC_API_URL="http://localhost:3002"
-   NEXT_PUBLIC_WEB_URL="http://localhost:3001"
-   ```
+apps/api
+- `bun run dev`: Hono dev server on port 3002
+- `bun run build`: typecheck + bundle via tsdown
 
-3. **Set up the database**
-   ```bash
-   # Generate migrations
-   cd apps/api
-   bun run db:generate
+apps/web
+- `bun run dev`: Next dev on port 3001
+- `bun run build`: `next build`
 
-   # Run migrations
-   bun run db:migrate
-   ```
+packages/db
+- `bun run db:generate`: generate SQL from schema
+- `bun run db:push`: apply schema (safe for dev)
+- `bun run db:migrate`: run migrations
+- `bun run db:seed`: seed sample data
+- `bun run db:studio`: Drizzle Studio
 
-5. **Start development servers**
-   ```bash
-   # From root directory
-   bun run dev
-   ```
+## Configuration and Environment
+- `DATABASE_URL` (required): Postgres connection used by the `db` package (and thus by the API). Must be present when running the API.
+- `JWT_SECRET` (required): used by Hono for signing sessions (HS256).
+- `NEXT_PUBLIC_API_URL`: host for the API, used by `next.config.ts` rewrites.
+- `NEXT_PUBLIC_WEB_URL`: host for the web app, used by the oRPC client base URL.
 
-   This starts:
-   - API: http://localhost:3002
-   - WEB: http://localhost:3001
+Next.js rewrites (in `apps/web/next.config.ts`) forward `/api/:path*` to `${NEXT_PUBLIC_API_URL}/:path*`. The web app calls the API only through `/api/...` so changing those envs is enough to point to remote/staging APIs.
 
-## 📚 API Endpoints
+## API Overview
+The API is defined with oRPC and auto‑documented.
+- Auth
+  - `POST /api/auth/signup/credential` → create user, set `session` cookie
+  - `POST /api/auth/signin/credential` → authenticate, set `session` cookie
+  - `POST /api/auth/signout` → delete `session` cookie
+  - `GET /api/auth/verify?session=...` → boolean
+- Main
+  - `GET /api/health` → hello string
+  - `GET /api/users` → list users
 
-### Authentication
-- `POST /auth/signup/credential` - User registration
-- `POST /auth/signin/credential` - User login
-- `POST /auth/signout` - User logout
-- `GET /auth/verify` - Verify authentication (protected)
+API docs (Scalar): http://localhost:3002/docs
 
-### Main Routes
-- `GET /` - Root endpoint
-- `GET /test` - Test endpoint
-- `GET /users` - Get all users
-
-## 🛠️ Available Scripts
-
-### Root Level
-- `bun run dev` - Start all development servers
-- `bun run build` - Build all applications
-- `bun run check` - Run Biome linter
-- `bun run check:fix` - Fix linting issues
-- `bun run check:type` - Type check all packages
-- `bun run clean` - Clean build artifacts
-
-### API (`apps/api`)
-- `bun run dev` - Start API development server
-- `bun run build` - Build API for production
-- `bun run db:generate` - Generate database migrations
-- `bun run db:migrate` - Run database migrations
-- `bun run db:push` - Push schema changes to database
-- `bun run db:studio` - Open Drizzle Studio
-
-### Web (`apps/web`)
-- `bun run dev` - Start Next.js development server
-- `bun run build` - Build for production
-- `bun run start` - Start production server
-- `bun run check:type` - Type check Next.js app
+## Web Overview
+- Authentication status is read server‑side via `cookies()` and validated with `client.auth.verify`.
+- Example pages: `/`, `/signin`, `/signup`, `/health`.
+- After sign‑in/sign‑up the page refreshes to reflect auth state.
