@@ -41,7 +41,10 @@
         "useUniqueElementIds": "off"
       },
       "nursery": {
-        "useSortedClasses": "error"
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "error"
+        }
       },
       "performance": {
         "noImgElement": "off",

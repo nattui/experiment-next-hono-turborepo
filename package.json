@@ -7,7 +7,7 @@
   "scripts": {
     "build": "turbo build",
     "check": "biome check",
-    "check:fix": "biome check --unsafe --write",
+    "check:fix": "biome check --write",
     "check:package": "sh scripts/sort-package-json.sh",
     "check:type": "turbo check:type",
     "clean": "sh scripts/clean.sh",
