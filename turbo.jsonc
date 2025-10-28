@@ -5,15 +5,15 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "apps/api/.env*", "apps/web/.env*"],
-      "outputs": ["!.next/cache/**", ".next/**", "dist/**"],
+      "outputs": ["!.next/cache/**", ".next/**", "dist/**"]
     },
     "check:type": {
-      "cache": false,
+      "cache": false
     },
     "dev": {
       "cache": false,
-      "persistent": true,
-    },
+      "persistent": true
+    }
   },
-  "ui": "tui",
+  "ui": "tui"
 }

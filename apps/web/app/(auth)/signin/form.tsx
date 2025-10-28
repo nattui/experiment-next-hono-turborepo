@@ -39,22 +39,22 @@ export default function SignInForm() {
 
   return (
     <form className="flex max-w-240 flex-col" onSubmit={onSubmit}>
-      <Label className="text-14 mb-2 inline-block w-fit" htmlFor="email">
+      <Label className="mb-2 inline-block w-fit text-14" htmlFor="email">
         Email
       </Label>
       <Input
-        className="mb-16 h-36 border border-solid border-amber-100 px-4"
+        className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="test@test.com"
         id="email"
         isRequired
         name="email"
         type="email"
       />
-      <Label className="text-14 mb-2 inline-block w-fit" htmlFor="password">
+      <Label className="mb-2 inline-block w-fit text-14" htmlFor="password">
         Password
       </Label>
       <Input
-        className="mb-16 h-36 border border-solid border-amber-100 px-4"
+        className="mb-16 h-36 border border-amber-100 border-solid px-4"
         defaultValue="123123"
         id="password"
         isRequired
