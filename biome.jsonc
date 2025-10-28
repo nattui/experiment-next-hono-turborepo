@@ -9,6 +9,11 @@
       }
     }
   },
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
+    }
+  },
   "files": {
     "ignoreUnknown": false,
     "includes": ["**", "!**/migrations/meta", "!**/package.json"]
