@@ -3,7 +3,7 @@
   "type": "module",
   "exports": "./src/index.ts",
   "scripts": {
-    "build": "bun run check:type && tsdown",
+    "build": "bun run src/version.ts && bun run check:type && tsdown",
     "check:type": "tsc",
     "dev": "bun run --hot src/app.ts",
     "start": "bun run dev"
