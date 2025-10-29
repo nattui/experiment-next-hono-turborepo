@@ -10,6 +10,14 @@ const app = new Hono()
 
 app.use(loggerMiddleware())
 
+app.get("/", (context) => {
+  return context.json({
+    bun: {
+      version: Bun.version,
+    },
+  })
+})
+
 app.get("/openapi.json", async (context) => {
   const generator = new OpenAPIGenerator({
     schemaConverters: [new ZodToJsonSchemaConverter()],
