@@ -1,7 +1,7 @@
 /* Order matters */
 @import "tailwindcss";
-@import "@nattui/colors";
-@import "@nattui/tailwind-one";
+@import "@nattui/tailwind-colors";
+@import "@nattui/tailwind-exact";
 
 @layer base {
   .d {
