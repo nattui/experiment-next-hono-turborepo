@@ -30,7 +30,7 @@
       "name": "web",
       "dependencies": {
         "@nattui/react-components": "^0.0.22",
-        "@nattui/tailwind-colors": "^0.0.1",
+        "@nattui/tailwind-colors": "^0.0.2",
         "@nattui/tailwind-exact": "^0.0.2",
         "@orpc/client": "^1.10.2",
         "api": "workspace:*",
@@ -224,7 +224,7 @@
 
     "@nattui/react-components": ["@nattui/react-components@0.0.22", "", { "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-j8ytqjcylqF/QXWtVzZIF4rbki9piakfqCsmH5bfMwwKCF/45vFbIeAo32foG75Fyd01zc0i31ha2s7SqwrQgg=="],
 
-    "@nattui/tailwind-colors": ["@nattui/tailwind-colors@0.0.1", "", {}, "sha512-1kdkUtSL53Bi5TljLiKWbkq/plVBwskrPQ7iilcKDrUxOc/IKWScmIuRMBdjKpH22qT8P0Gk69QUo8VVQU61pg=="],
+    "@nattui/tailwind-colors": ["@nattui/tailwind-colors@0.0.2", "", {}, "sha512-NGCsJIhfU+GUy8gHiolNuXnJI+j5wGuJVStaYnf6vhCeTJmvPveUVVL1sSDoUBFRfAq7DK4HQxtXN5VOQiSorw=="],
 
     "@nattui/tailwind-exact": ["@nattui/tailwind-exact@0.0.2", "", {}, "sha512-tKXzO169B5o8sNpygRVO/rzNv3THpRx/85Vr58f/pfW08p9u0vmaTJXMEyKHVk/Vc17yjyJUtog+dvUkZa64Pw=="],
 

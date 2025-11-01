@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@nattui/react-components": "^0.0.22",
-    "@nattui/tailwind-colors": "^0.0.1",
+    "@nattui/tailwind-colors": "^0.0.2",
     "@nattui/tailwind-exact": "^0.0.2",
     "@orpc/client": "^1.10.2",
     "api": "workspace:*",
