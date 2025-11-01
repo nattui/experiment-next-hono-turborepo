@@ -51,6 +51,7 @@ export default function SignUpForm() {
         Name
       </Label>
       <Input
+        autoComplete="name"
         className="mb-16"
         defaultValue="Mark Scout"
         id="name"
@@ -65,6 +66,7 @@ export default function SignUpForm() {
         Email
       </Label>
       <Input
+        autoComplete="email"
         className="mb-16"
         defaultValue="test@test.com"
         id="email"
@@ -79,6 +81,7 @@ export default function SignUpForm() {
         Password
       </Label>
       <Input
+        autoComplete="new-password"
         className="mb-16"
         defaultValue="123123"
         id="password"

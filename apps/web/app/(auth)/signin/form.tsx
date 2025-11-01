@@ -49,6 +49,7 @@ export default function SignInForm() {
         Email
       </Label>
       <Input
+        autoComplete="email"
         className="mb-16"
         defaultValue="test@test.com"
         id="email"
@@ -63,6 +64,7 @@ export default function SignInForm() {
         Password
       </Label>
       <Input
+        autoComplete="current-password"
         className="mb-16"
         defaultValue="123123"
         id="password"
