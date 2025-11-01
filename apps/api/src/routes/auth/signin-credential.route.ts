@@ -30,10 +30,7 @@ export const signinCredential = base
           name: USER.name,
         })
         .from(USER)
-        .innerJoin(
-          ACCOUNT,
-          and(eq(ACCOUNT.userId, USER.id), eq(ACCOUNT.provider, "credentials")),
-        )
+        .innerJoin(ACCOUNT, and(eq(ACCOUNT.userId, USER.id), eq(ACCOUNT.provider, "credentials")))
         .where(eq(USER.email, email))
         .limit(1)
 

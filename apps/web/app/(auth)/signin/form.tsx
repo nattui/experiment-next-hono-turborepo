@@ -38,8 +38,14 @@ export default function SignInForm() {
   }
 
   return (
-    <form className="flex max-w-240 flex-col" onSubmit={onSubmit}>
-      <Label className="mb-2 inline-block w-fit text-14" htmlFor="email">
+    <form
+      className="flex max-w-240 flex-col"
+      onSubmit={onSubmit}
+    >
+      <Label
+        className="mb-2 inline-block w-fit text-14"
+        htmlFor="email"
+      >
         Email
       </Label>
       <Input
@@ -50,7 +56,10 @@ export default function SignInForm() {
         name="email"
         type="email"
       />
-      <Label className="mb-2 inline-block w-fit text-14" htmlFor="password">
+      <Label
+        className="mb-2 inline-block w-fit text-14"
+        htmlFor="password"
+      >
         Password
       </Label>
       <Input
@@ -61,7 +70,10 @@ export default function SignInForm() {
         name="password"
         type="password"
       />
-      <Button isLoading={isLoading} type="submit">
+      <Button
+        isLoading={isLoading}
+        type="submit"
+      >
         Sign in
       </Button>
     </form>

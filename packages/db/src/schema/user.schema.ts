@@ -1,11 +1,4 @@
-import {
-  boolean,
-  integer,
-  pgTable,
-  serial,
-  text,
-  timestamp,
-} from "drizzle-orm/pg-core"
+import { boolean, integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core"
 import { createSelectSchema } from "drizzle-zod"
 
 export const USER = pgTable("user", {

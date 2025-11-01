@@ -21,8 +21,4 @@ const sans = Inter({
   weight: ["400", "500"],
 })
 
-export const fontCssVariables = [
-  display.variable,
-  mono.variable,
-  sans.variable,
-].join(" ")
+export const fontCssVariables = [display.variable, mono.variable, sans.variable].join(" ")

@@ -29,9 +29,7 @@ export function getSession(context: Context): string | undefined {
 export async function setSession(params: SetSessionParams): Promise<void> {
   const { context, id, now } = params
   const session = await signSession({ id, now })
-  const expirationDate = new Date(
-    now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS,
-  )
+  const expirationDate = new Date(now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS)
   setCookie(context, "session", session, {
     expires: expirationDate,
     httpOnly: true,
@@ -44,9 +42,7 @@ export async function setSession(params: SetSessionParams): Promise<void> {
 
 export async function signSession(params: SignSessionParams): Promise<string> {
   const { id, now } = params
-  const expiresAt = Math.floor(
-    (now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS) / 1000,
-  )
+  const expiresAt = Math.floor((now.getTime() + EXPIRATION_TIME_IN_MILLISECONDS) / 1000)
   const issuedAt = Math.floor(now.getTime() / 1000)
   const payload = {
     exp: expiresAt,

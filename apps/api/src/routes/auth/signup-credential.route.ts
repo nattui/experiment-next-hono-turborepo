@@ -24,11 +24,7 @@ export const signupCredential = base
       const { email, name, password } = options.input
 
       // Check if user with this email already exists
-      const [existingUser] = await db
-        .select()
-        .from(USER)
-        .where(eq(USER.email, email))
-        .limit(1)
+      const [existingUser] = await db.select().from(USER).where(eq(USER.email, email)).limit(1)
 
       if (existingUser) {
         throw new ORPCError("CONFLICT", {
@@ -40,10 +36,7 @@ export const signupCredential = base
 
       await db.transaction(async (transaction) => {
         // Create new user
-        const [newUser] = await transaction
-          .insert(USER)
-          .values({ email, name })
-          .returning()
+        const [newUser] = await transaction.insert(USER).values({ email, name }).returning()
 
         // Create account for the user
         const account = transaction.insert(ACCOUNT).values({

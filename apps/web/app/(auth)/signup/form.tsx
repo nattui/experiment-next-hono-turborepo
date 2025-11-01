@@ -22,11 +22,7 @@ export default function SignUpForm() {
     const email = formData.get("email")
     const name = formData.get("name")
     const password = formData.get("password")
-    if (
-      typeof email !== "string" ||
-      typeof name !== "string" ||
-      typeof password !== "string"
-    ) {
+    if (typeof email !== "string" || typeof name !== "string" || typeof password !== "string") {
       throw new Error("Email, name, and password must be strings.")
     }
 
@@ -44,8 +40,14 @@ export default function SignUpForm() {
   }
 
   return (
-    <form className="flex max-w-240 flex-col" onSubmit={onSubmit}>
-      <Label className="mb-2 inline-block w-fit text-14" htmlFor="name">
+    <form
+      className="flex max-w-240 flex-col"
+      onSubmit={onSubmit}
+    >
+      <Label
+        className="mb-2 inline-block w-fit text-14"
+        htmlFor="name"
+      >
         Name
       </Label>
       <Input
@@ -56,7 +58,10 @@ export default function SignUpForm() {
         name="name"
         type="text"
       />
-      <Label className="mb-2 inline-block w-fit text-14" htmlFor="email">
+      <Label
+        className="mb-2 inline-block w-fit text-14"
+        htmlFor="email"
+      >
         Email
       </Label>
       <Input
@@ -67,7 +72,10 @@ export default function SignUpForm() {
         name="email"
         type="email"
       />
-      <Label className="mb-2 inline-block w-fit text-14" htmlFor="password">
+      <Label
+        className="mb-2 inline-block w-fit text-14"
+        htmlFor="password"
+      >
         Password
       </Label>
       <Input
@@ -78,7 +86,10 @@ export default function SignUpForm() {
         name="password"
         type="password"
       />
-      <Button isLoading={isLoading} type="submit">
+      <Button
+        isLoading={isLoading}
+        type="submit"
+      >
         Sign up
       </Button>
     </form>
