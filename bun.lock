@@ -4,7 +4,7 @@
     "": {
       "name": "experiment-next-hono-turborepo",
       "devDependencies": {
-        "@biomejs/biome": "^2.3.1",
+        "@biomejs/biome": "^2.3.2",
         "turbo": "^2.5.8",
       },
     },
@@ -29,8 +29,9 @@
     "apps/web": {
       "name": "web",
       "dependencies": {
+        "@nattui/colors": "^0.0.1",
         "@nattui/react-components": "^0.0.22",
-        "@nattui/tailwind-tokenless": "^0.0.5",
+        "@nattui/tailwind-one": "^0.0.7",
         "@orpc/client": "^1.10.2",
         "api": "workspace:*",
         "db": "workspace:*",
@@ -221,9 +222,11 @@
 
     "@napi-rs/wasm-runtime": ["@napi-rs/wasm-runtime@1.0.7", "", { "dependencies": { "@emnapi/core": "^1.5.0", "@emnapi/runtime": "^1.5.0", "@tybys/wasm-util": "^0.10.1" } }, "sha512-SeDnOO0Tk7Okiq6DbXmmBODgOAb9dp9gjlphokTUxmt8U3liIP1ZsozBahH69j/RJv+Rfs6IwUKHTgQYJ/HBAw=="],
 
+    "@nattui/colors": ["@nattui/colors@0.0.1", "", {}, "sha512-mT0PffQtztQGx89Uqfni9eumTaIOrJIQtRnam4x/kG9Znhr3WJSFcrONAdA7zTaBuFbJEpmp7rkKhomag1yqiA=="],
+
     "@nattui/react-components": ["@nattui/react-components@0.0.22", "", { "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-j8ytqjcylqF/QXWtVzZIF4rbki9piakfqCsmH5bfMwwKCF/45vFbIeAo32foG75Fyd01zc0i31ha2s7SqwrQgg=="],
 
-    "@nattui/tailwind-tokenless": ["@nattui/tailwind-tokenless@0.0.5", "", {}, "sha512-LtwD1fBeawMqcLlLJOSpyxf0JHczj50OIHbmIcbErIpFkyJIjTOfghzwxHUTxJsUTGxGgOOE9JwWzsD9AlgvSA=="],
+    "@nattui/tailwind-one": ["@nattui/tailwind-one@0.0.7", "", {}, "sha512-C3czFgtSH1tgRU1+7Svqgp0/a/qDoiEQ74dvfNjlM8CP5GF0e/BK8oJuv+BgU5HInuiFCmdTitr0vXD4EHoKnQ=="],
 
     "@next/env": ["@next/env@16.0.1", "", {}, "sha512-LFvlK0TG2L3fEOX77OC35KowL8D7DlFF45C0OvKMC4hy8c/md1RC4UMNDlUGJqfCoCS2VWrZ4dSE6OjaX5+8mw=="],
 

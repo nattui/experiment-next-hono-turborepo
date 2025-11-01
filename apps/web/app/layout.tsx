@@ -13,7 +13,7 @@ export default async function RootLayout(props: PropsWithChildren) {
   const isAuthenticated = await getIsAuthenticated()
 
   return (
-    <html lang="en">
+    <html className="color-gray-sage color-primary-green" lang="en">
       <body className={fontCssVariables}>
         <Navbar isAuthenticated={isAuthenticated} />
         {children}

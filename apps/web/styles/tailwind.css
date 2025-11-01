@@ -1,6 +1,7 @@
 /* Order matters */
 @import "tailwindcss";
-@import "@nattui/tailwind-tokenless/styles/10/index.css";
+@import "@nattui/colors";
+@import "@nattui/tailwind-one";
 
 @layer base {
   .d {
