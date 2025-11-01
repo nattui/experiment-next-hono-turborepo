@@ -45,13 +45,13 @@ export default function SignUpForm() {
       onSubmit={onSubmit}
     >
       <Label
-        className="mb-2 inline-block w-fit text-14"
+        className="mb-2"
         htmlFor="name"
       >
         Name
       </Label>
       <Input
-        className="mb-16 h-36 border border-amber-100 border-solid px-4"
+        className="mb-16"
         defaultValue="Mark Scout"
         id="name"
         isRequired
@@ -59,13 +59,13 @@ export default function SignUpForm() {
         type="text"
       />
       <Label
-        className="mb-2 inline-block w-fit text-14"
+        className="mb-2"
         htmlFor="email"
       >
         Email
       </Label>
       <Input
-        className="mb-16 h-36 border border-amber-100 border-solid px-4"
+        className="mb-16"
         defaultValue="test@test.com"
         id="email"
         isRequired
@@ -73,13 +73,13 @@ export default function SignUpForm() {
         type="email"
       />
       <Label
-        className="mb-2 inline-block w-fit text-14"
+        className="mb-2"
         htmlFor="password"
       >
         Password
       </Label>
       <Input
-        className="mb-16 h-36 border border-amber-100 border-solid px-4"
+        className="mb-16"
         defaultValue="123123"
         id="password"
         isRequired
