@@ -4,9 +4,7 @@ export const health = base
   .route({
     method: "GET",
     summary: "Health",
-    tags: [
-      "Main",
-    ],
+    tags: ["Main"],
   })
   .handler(async () => {
     return "Hello Hono!"

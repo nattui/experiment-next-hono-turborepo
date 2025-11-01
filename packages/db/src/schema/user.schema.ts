@@ -12,10 +12,7 @@ export const USER = pgTable("user", {
   id: serial().primaryKey(),
   name: text().notNull(),
   role: text({
-    enum: [
-      "admin",
-      "user",
-    ],
+    enum: ["admin", "user"],
   })
     .default("user")
     .notNull(),
@@ -36,11 +33,7 @@ export const ACCOUNT = pgTable("account", {
   id: serial().primaryKey(),
   password: text(),
   provider: text({
-    enum: [
-      "credentials",
-      "github",
-      "google",
-    ],
+    enum: ["credentials", "github", "google"],
   })
     .default("credentials")
     .notNull(),

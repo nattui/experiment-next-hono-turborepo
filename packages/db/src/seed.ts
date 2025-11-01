@@ -30,21 +30,15 @@ async function main() {
         provider: f.valuesFromArray({
           values: [
             {
-              values: [
-                "credentials",
-              ],
+              values: ["credentials"],
               weight: 1,
             },
             {
-              values: [
-                "github",
-              ],
+              values: ["github"],
               weight: 0,
             },
             {
-              values: [
-                "google",
-              ],
+              values: ["google"],
               weight: 0,
             },
           ],
@@ -64,15 +58,11 @@ async function main() {
         emailVerified: f.valuesFromArray({
           values: [
             {
-              values: [
-                true,
-              ],
+              values: [true],
               weight: 0,
             },
             {
-              values: [
-                false,
-              ],
+              values: [false],
               weight: 1,
             },
           ],
@@ -81,15 +71,11 @@ async function main() {
         role: f.valuesFromArray({
           values: [
             {
-              values: [
-                "admin",
-              ],
+              values: ["admin"],
               weight: 0,
             },
             {
-              values: [
-                "user",
-              ],
+              values: ["user"],
               weight: 1,
             },
           ],

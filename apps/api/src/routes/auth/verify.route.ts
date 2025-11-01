@@ -12,9 +12,7 @@ export const verify = base
   .route({
     method: "GET",
     summary: "Verify user",
-    tags: [
-      "Authentication",
-    ],
+    tags: ["Authentication"],
   })
   .input(schemaAuthVerifyInput)
   .output(schemaAuthVerifyOutput)

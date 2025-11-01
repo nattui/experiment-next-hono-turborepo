@@ -16,9 +16,7 @@ export const signupCredential = base
   .route({
     method: "POST",
     summary: "Sign up user with credential",
-    tags: [
-      "Authentication",
-    ],
+    tags: ["Authentication"],
   })
   .input(schemaSignupCredential)
   .handler(async (options) => {
@@ -57,10 +55,7 @@ export const signupCredential = base
           userId: newUser.id,
         })
 
-        await Promise.all([
-          account,
-          profile,
-        ])
+        await Promise.all([account, profile])
 
         await setSession({
           context: options.context.honoContext,

@@ -20,9 +20,7 @@ app.get("/", (context) => {
 
 app.get("/openapi.json", async (context) => {
   const generator = new OpenAPIGenerator({
-    schemaConverters: [
-      new ZodToJsonSchemaConverter(),
-    ],
+    schemaConverters: [new ZodToJsonSchemaConverter()],
   })
 
   const spec = await generator.generate(router)

@@ -15,9 +15,7 @@ export const signinCredential = base
   .route({
     method: "POST",
     summary: "Sign in user with credential",
-    tags: [
-      "Authentication",
-    ],
+    tags: ["Authentication"],
   })
   .input(schemaSigninCredential)
   .handler(async (options) => {
