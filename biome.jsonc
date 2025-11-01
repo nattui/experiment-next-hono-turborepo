@@ -17,10 +17,14 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!**/package.json"]
+    "includes": [
+      "**",
+      "!**/package.json"
+    ]
   },
   "formatter": {
     "attributePosition": "multiline",
+    "expand": "always",
     "indentStyle": "space",
     "lineWidth": 100
   },

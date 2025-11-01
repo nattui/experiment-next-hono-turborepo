@@ -8,7 +8,9 @@ export const users = base
   .route({
     method: "GET",
     summary: "Get all users",
-    tags: ["Main"],
+    tags: [
+      "Main",
+    ],
   })
   .output(z.array(schemaSelectUser))
   .handler(async (options) => {

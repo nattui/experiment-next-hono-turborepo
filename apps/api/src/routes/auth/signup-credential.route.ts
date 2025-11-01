@@ -16,7 +16,9 @@ export const signupCredential = base
   .route({
     method: "POST",
     summary: "Sign up user with credential",
-    tags: ["Authentication"],
+    tags: [
+      "Authentication",
+    ],
   })
   .input(schemaSignupCredential)
   .handler(async (options) => {
@@ -36,7 +38,13 @@ export const signupCredential = base
 
       await db.transaction(async (transaction) => {
         // Create new user
-        const [newUser] = await transaction.insert(USER).values({ email, name }).returning()
+        const [newUser] = await transaction
+          .insert(USER)
+          .values({
+            email,
+            name,
+          })
+          .returning()
 
         // Create account for the user
         const account = transaction.insert(ACCOUNT).values({
@@ -49,7 +57,10 @@ export const signupCredential = base
           userId: newUser.id,
         })
 
-        await Promise.all([account, profile])
+        await Promise.all([
+          account,
+          profile,
+        ])
 
         await setSession({
           context: options.context.honoContext,

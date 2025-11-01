@@ -9,7 +9,9 @@ async function uncachedGetIsAuthenticated(): Promise<boolean> {
     const cookies = await getCookies()
     const session = cookies.get("session")?.value ?? ""
     if (!session) return false
-    const isAuthenticated = await client.auth.verify({ session })
+    const isAuthenticated = await client.auth.verify({
+      session,
+    })
     return isAuthenticated
   } catch {
     return false
